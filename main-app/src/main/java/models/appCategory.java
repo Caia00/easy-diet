@@ -1,3 +1,5 @@
+package models;
+
 public enum appCategory {
     // --- FONTI DI CARBOIDRATI ---
     PASTA,              // Pasta di semola, integrale, all'uovo
