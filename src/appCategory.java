@@ -3,8 +3,8 @@ public enum appCategory {
     PASTA,              // Pasta di semola, integrale, all'uovo
     RISO_E_CEREALI,     // Riso, Farro, Orzo, Couscous, Quinoa (chicchi)
     PANE_E_SOSTITUTI,   // Pane, Pan bauletto, Cracker, Grissini, Gallette
-    PATATE_E_TUBERI,    // Patate, Patate dolci (spesso gestite a parte dalla pasta)
-    FARINE,             // Farina 00, Manistoba, per dolci (spesso serve per cucinare)
+    PATATE_E_TUBERI,    // Patate, Patate dolci
+    FARINE,
 
     // --- COLAZIONE E DOLCI ---
     BISCOTTI_E_DOLCI_COLAZIONE, // Biscotti, Fette biscottate, Merendine, Croissant
@@ -16,7 +16,7 @@ public enum appCategory {
     CARNE_BIANCA,
     CARNE_ROSSA,
     PESCE,
-    AFFETTATI_E_SALUMI, // Importante dividerli dalla carne fresca (hanno sale/conservanti)
+    AFFETTATI_E_SALUMI,
     UOVA,
     LEGUMI,             // In scatola o secchi
 
