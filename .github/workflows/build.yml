@@ -28,13 +28,9 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - name: Build and analyze (Maven Example)
+        working-directory: ./main-app
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # L'UNICO SECRET NECESSARIO QUI È IL TOKEN DI SONARCLOUD:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          # Esegui la pulizia (clean), compila (install) e lancia l'analisi (sonar:sonar)
-          mvn clean install sonar:sonar 
-          
-          # NON devi specificare i parametri -Dsonar.organization o -Dsonar.projectKey qui, 
-          # perché sono già nel tuo pom.xml!
+          mvn clean install sonar:sonar
