@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="changed data format">
-      <change beforePath="$PROJECT_DIR$/main-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/pom.xml" afterDir="false" />
+    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="added dependacy to use jackson">
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/nutritionalValues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +17,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -84,7 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1762956822682</updated>
       <workItem from="1762956823722" duration="1000" />
-      <workItem from="1763979699770" duration="13696000" />
+      <workItem from="1763979699770" duration="15271000" />
     </task>
     <task id="LOCAL-00001" summary="first creation + appCategory enum">
       <option name="closed" value="true" />
@@ -142,7 +144,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764149983597</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added dependacy to use jackson">
+      <option name="closed" value="true" />
+      <created>1764150601521</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1764150601521</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +183,7 @@
     <MESSAGE value="fix" />
     <MESSAGE value="fix: added working directory" />
     <MESSAGE value="changed data format" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed data format" />
+    <MESSAGE value="added dependacy to use jackson" />
+    <option name="LAST_COMMIT_MESSAGE" value="added dependacy to use jackson" />
   </component>
 </project>
