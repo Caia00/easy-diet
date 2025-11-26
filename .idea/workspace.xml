@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="defining factory: ProductFactory will create a valid product object for the system">
+    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="adding weight for CommercialProduct">
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/NutritionalTarget.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/factory/ProductFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/factory/ProductFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/CommercialProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/CommercialProduct.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +87,7 @@
       <option name="presentableId" value="Default" />
       <updated>1762956822682</updated>
       <workItem from="1762956823722" duration="1000" />
-      <workItem from="1763979699770" duration="24395000" />
+      <workItem from="1763979699770" duration="27297000" />
     </task>
     <task id="LOCAL-00001" summary="first creation + appCategory enum">
       <option name="closed" value="true" />
@@ -194,7 +193,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764173041506</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="adding weight for CommercialProduct">
+      <option name="closed" value="true" />
+      <created>1764174555237</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1764174555237</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,6 +238,7 @@
     <MESSAGE value="defining models: edible interface implemented by CommercialProduct" />
     <MESSAGE value="defining logic: category mapper" />
     <MESSAGE value="defining factory: ProductFactory will create a valid product object for the system" />
-    <option name="LAST_COMMIT_MESSAGE" value="defining factory: ProductFactory will create a valid product object for the system" />
+    <MESSAGE value="adding weight for CommercialProduct" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding weight for CommercialProduct" />
   </component>
 </project>
