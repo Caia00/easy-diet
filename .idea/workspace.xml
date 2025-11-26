@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="defining logic: fallback logic for products with missing values">
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/CommercialProduct.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/Edible.java" afterDir="false" />
+    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="defining models: edible interface implemented by CommercialProduct">
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/logic/CategoryMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +87,7 @@
       <option name="presentableId" value="Default" />
       <updated>1762956822682</updated>
       <workItem from="1762956823722" duration="1000" />
-      <workItem from="1763979699770" duration="18908000" />
+      <workItem from="1763979699770" duration="21289000" />
     </task>
     <task id="LOCAL-00001" summary="first creation + appCategory enum">
       <option name="closed" value="true" />
@@ -170,7 +169,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764154561509</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="defining models: edible interface implemented by CommercialProduct">
+      <option name="closed" value="true" />
+      <created>1764168837784</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1764168837784</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +211,7 @@
     <MESSAGE value="added dependacy to use jackson" />
     <MESSAGE value="defining module: nutritional values" />
     <MESSAGE value="defining logic: fallback logic for products with missing values" />
-    <option name="LAST_COMMIT_MESSAGE" value="defining logic: fallback logic for products with missing values" />
+    <MESSAGE value="defining models: edible interface implemented by CommercialProduct" />
+    <option name="LAST_COMMIT_MESSAGE" value="defining models: edible interface implemented by CommercialProduct" />
   </component>
 </project>
