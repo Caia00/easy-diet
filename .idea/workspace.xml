@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="defining models: edible interface implemented by CommercialProduct">
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/logic/CategoryMapper.java" afterDir="false" />
+    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="defining logic: category mapper">
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/factory/ProductFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +87,7 @@
       <option name="presentableId" value="Default" />
       <updated>1762956822682</updated>
       <workItem from="1762956823722" duration="1000" />
-      <workItem from="1763979699770" duration="21289000" />
+      <workItem from="1763979699770" duration="22863000" />
     </task>
     <task id="LOCAL-00001" summary="first creation + appCategory enum">
       <option name="closed" value="true" />
@@ -177,7 +177,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764168837784</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="defining logic: category mapper">
+      <option name="closed" value="true" />
+      <created>1764171666832</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1764171666832</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,6 +220,7 @@
     <MESSAGE value="defining module: nutritional values" />
     <MESSAGE value="defining logic: fallback logic for products with missing values" />
     <MESSAGE value="defining models: edible interface implemented by CommercialProduct" />
-    <option name="LAST_COMMIT_MESSAGE" value="defining models: edible interface implemented by CommercialProduct" />
+    <MESSAGE value="defining logic: category mapper" />
+    <option name="LAST_COMMIT_MESSAGE" value="defining logic: category mapper" />
   </component>
 </project>
