@@ -1,6 +1,6 @@
 package models;
 
-public enum appCategory {
+public enum AppCategory {
     // --- FONTI DI CARBOIDRATI ---
     PASTA,              // Pasta di semola, integrale, all'uovo
     RISO_E_CEREALI,     // Riso, Farro, Orzo, Couscous, Quinoa (chicchi)

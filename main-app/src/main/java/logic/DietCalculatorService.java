@@ -47,7 +47,7 @@ public class DietCalculatorService {
     private static double calculateSinglePortion(NutritionalTarget target, CommercialProduct product) {
         if (product == null || target == null) return 0.0;
 
-        appCategory cat = target.getCategory();
+        AppCategory cat = target.getCategory();
         double requiredAmount = 0.0;
         double productAmountPer100 = 0.0;
 

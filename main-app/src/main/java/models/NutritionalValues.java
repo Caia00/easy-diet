@@ -1,6 +1,6 @@
 package models;
 
-public class nutritionalValues {
+public class NutritionalValues {
     private double kcal;
     private double carbs;
     private double sugar;
@@ -8,8 +8,8 @@ public class nutritionalValues {
     private double fibers;
     private double proteins;
 
-    public nutritionalValues() {}
-    public nutritionalValues(double kcal, double carbs, double sugar, double fats, double fibers, double proteins) {
+    public NutritionalValues() {}
+    public NutritionalValues(double kcal, double carbs, double sugar, double fats, double fibers, double proteins) {
         this.kcal = kcal;
         this.carbs = carbs;
         this.sugar = sugar;
@@ -18,7 +18,7 @@ public class nutritionalValues {
         this.proteins = proteins;
     }
 
-    public nutritionalValues values(){
+    public NutritionalValues values(){
         return this;
     }
 

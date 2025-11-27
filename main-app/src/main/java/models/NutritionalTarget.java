@@ -2,17 +2,17 @@ package models;
 
 public class NutritionalTarget {
 
-        private appCategory category;
-        private nutritionalValues nutritionalValues;
+        private AppCategory category;
+        private NutritionalValues nutritionalValues;
 
 
-        public NutritionalTarget(appCategory category, double targetKcal, double targetProteins,
+        public NutritionalTarget(AppCategory category, double targetKcal, double targetProteins,
                                  double targetCarbs, double targetFats, double targetFibers, double targetSugar) {
-            this.nutritionalValues = new nutritionalValues(targetKcal, targetCarbs, targetSugar, targetFats, targetFibers, targetProteins);
+            this.nutritionalValues = new NutritionalValues(targetKcal, targetCarbs, targetSugar, targetFats, targetFibers, targetProteins);
             this.category = category;
         }
 
-        public appCategory getCategory() {
+        public AppCategory getCategory() {
             return category;
         }
 

@@ -4,11 +4,11 @@ public class CommercialProduct implements Edible{
     private String name;
     private double price;
     private double weightInGrams;
-    private appCategory category;
-    private nutritionalValues nutritionValues;
+    private AppCategory category;
+    private NutritionalValues nutritionValues;
     private boolean isDataEstimated; // Flag utilizzata per specificare se valori presi da catalogo o da fallback db
 
-    public CommercialProduct(String name, double price, double weightInGrams, appCategory category, nutritionalValues nutritionValues, boolean isDataEstimated) {
+    public CommercialProduct(String name, double price, double weightInGrams, AppCategory category, NutritionalValues nutritionValues, boolean isDataEstimated) {
         this.name = name;
         this.price = price;
         this.weightInGrams = weightInGrams;

@@ -1,7 +1,7 @@
 package logic;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import models.nutritionalValues;
+import models.NutritionalValues;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -41,7 +41,7 @@ public class FallbackNutritionService {
         }
     }
 
-    public nutritionalValues findByProductName(String commercialProductName) { //Ricerca prodotto reale in fallback database via keywords
+    public NutritionalValues findByProductName(String commercialProductName) { //Ricerca prodotto reale in fallback database via keywords
         if (commercialProductName == null || database == null) return null;
 
         String cleanedName = normalizeName(commercialProductName);
@@ -77,7 +77,7 @@ public class FallbackNutritionService {
 
     public static class StandardFood { //Classe interna utilizzata per la gestione dei prodotti trovati nel fallback database
         private String nome;
-        private nutritionalValues values;
+        private NutritionalValues values;
         private List<String> keywords;
 
         public StandardFood() {}
@@ -85,8 +85,8 @@ public class FallbackNutritionService {
         public String getName() { return nome; }
         public void setName(String name) { this.nome = name; }
 
-        public nutritionalValues getValues() { return values; }
-        public void setValues(nutritionalValues values) { this.values = values; }
+        public NutritionalValues getValues() { return values; }
+        public void setValues(NutritionalValues values) { this.values = values; }
 
         public List<String> getKeywords() { return keywords; }
         public void setKeywords(List<String> keywords) { this.keywords = keywords; }

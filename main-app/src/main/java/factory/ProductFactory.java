@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 public class ProductFactory {
     public ProductFactory() {}
 
-    public CommercialProduct createProduct(String rawName, String rawCategory, double rawPrice, String rawWeightString, nutritionalValues scrapedValues) {
+    public CommercialProduct createProduct(String rawName, String rawCategory, double rawPrice, String rawWeightString, NutritionalValues scrapedValues) {
 
         String cleanName = rawName.trim();
 
@@ -21,11 +21,11 @@ public class ProductFactory {
         // Se ancora 0, impostiamo un default standard (es. 100g) o scartiamo
         if (weight == 0.0) weight = 100.0;
 
-        nutritionalValues finalValues = scrapedValues;
+        NutritionalValues finalValues = scrapedValues;
         boolean usedFallback = false;
 
         if (isNutritionMissing(scrapedValues)) {
-            nutritionalValues fallback = FallbackNutritionService.getInstance().findByProductName(cleanName);
+            NutritionalValues fallback = FallbackNutritionService.getInstance().findByProductName(cleanName);
 
             if (fallback != null) {
                 finalValues = fallback;
@@ -35,9 +35,9 @@ public class ProductFactory {
             }
         }
 
-        appCategory mappedCategory = CategoryMapper.map(cleanName, rawCategory);
+        AppCategory mappedCategory = CategoryMapper.map(cleanName, rawCategory);
 
-        if (mappedCategory == appCategory.SCONOSCIUTO) {
+        if (mappedCategory == AppCategory.SCONOSCIUTO) {
             return null;
         }
 
@@ -52,7 +52,7 @@ public class ProductFactory {
     }
 
 
-    private boolean isNutritionMissing(nutritionalValues v) {
+    private boolean isNutritionMissing(NutritionalValues v) {
         if (v == null) return true;
         return (v.getKcal() == 0 && v.getProteins() == 0 );
     }
