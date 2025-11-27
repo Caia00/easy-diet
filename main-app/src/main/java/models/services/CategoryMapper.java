@@ -1,4 +1,4 @@
-package models.logic;
+package models.services;
 
 import models.AppCategory;
 

@@ -1,4 +1,4 @@
-package models.logic;
+package models.services;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import models.NutritionalValues;

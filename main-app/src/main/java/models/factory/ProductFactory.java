@@ -1,8 +1,8 @@
-package factory;
+package models.factory;
 
 import models.*;
-import models.logic.CategoryMapper;
-import models.logic.FallbackNutritionService;
+import models.services.CategoryMapper;
+import models.services.FallbackNutritionService;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
