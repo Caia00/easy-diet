@@ -1,7 +1,8 @@
 package factory;
 
 import models.*;
-import logic.*;
+import models.logic.CategoryMapper;
+import models.logic.FallbackNutritionService;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

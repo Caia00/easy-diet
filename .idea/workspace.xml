@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="little modify: comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/factory/ProductFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/factory/ProductFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +88,7 @@
       <workItem from="1762956823722" duration="1000" />
       <workItem from="1763979699770" duration="29781000" />
       <workItem from="1764182481879" duration="3163000" />
-      <workItem from="1764235701539" duration="2927000" />
+      <workItem from="1764235701539" duration="3696000" />
     </task>
     <task id="LOCAL-00001" summary="first creation + appCategory enum">
       <option name="closed" value="true" />
@@ -267,7 +266,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764237301679</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="little modify: comments">
+      <option name="closed" value="true" />
+      <created>1764238631725</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1764238631725</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
