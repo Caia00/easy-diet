@@ -15,11 +15,10 @@ public class ProductFactory {
 
         double weight = parseWeight(rawWeightString);
         if (weight == 0.0) {
-            weight = parseWeight(cleanName); // Fallback: cerca nel nome
+            weight = parseWeight(cleanName); // Fallback per cercare nel nome
         }
 
-        // Se ancora 0, impostiamo un default standard (es. 100g) o scartiamo
-        if (weight == 0.0) weight = 100.0;
+        if (weight == 0.0) weight = 100.0; //Imposta default se non si trova
 
         NutritionalValues finalValues = scrapedValues;
         boolean usedFallback = false;
@@ -60,11 +59,7 @@ public class ProductFactory {
     private double parseWeight(String text) {
         if (text == null || text.isEmpty()) return 0.0;
 
-        // REGEX: Cerca un numero (anche con virgola) seguito da un'unità di misura
-        // Gruppo 1: Il numero (es. "1,5")
-        // Gruppo 2: L'unità (es. "Kg")
-        // (?i) rende tutto case-insensitive (kg = KG = Kg)
-        Pattern p = Pattern.compile("([0-9]+[.,]?[0-9]*)\\s*(mg|g|kg|ml|cl|l|lt)", Pattern.CASE_INSENSITIVE);
+        Pattern p = Pattern.compile("([0-9]+[.,]?[0-9]*)\\s*(mg|g|kg|ml|cl|l|lt)", Pattern.CASE_INSENSITIVE); //Regex per la ricerca nel nome del prodotto di una stringa di tipo <num> <unità di misura>
         Matcher m = p.matcher(text);
 
         if (m.find()) {
@@ -74,7 +69,7 @@ public class ProductFactory {
                 double value = Double.parseDouble(numStr);
                 String unit = m.group(2).toLowerCase();
 
-                // Convertiamo tutto in GRAMMI / MILLILITRI
+                // Conversione in grammi/millilitri
                 switch (unit) {
                     case "kg":
                     case "l":
