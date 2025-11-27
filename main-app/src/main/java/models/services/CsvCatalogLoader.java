@@ -125,10 +125,6 @@ public class CsvCatalogLoader implements CatalogLoader {
             }
         }
 
-        // 2. FALLBACK: Se non c'è scritto "kcal" (es. input="100"),
-        // usiamo il parser generico che prende il primo numero trovato.
-        // Attenzione: questo è rischioso solo se c'è scritto SOLO "300 kJ" senza kcal,
-        // ma nel 99% dei casi se c'è un solo numero sono calorie.
         return parseDoubleSafe(text);
     }
 
