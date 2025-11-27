@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="defining model: ShoppingCalculationResult will be a bean used by DietCalculatorService to cominucate calculated data">
+    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="little modify in comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/logic/DietCalculatorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/logic/DietCalculatorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/NutritionalTarget.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/NutritionalTarget.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +88,8 @@
       <updated>1762956822682</updated>
       <workItem from="1762956823722" duration="1000" />
       <workItem from="1763979699770" duration="29781000" />
-      <workItem from="1764182481879" duration="3110000" />
+      <workItem from="1764182481879" duration="3163000" />
+      <workItem from="1764235701539" duration="845000" />
     </task>
     <task id="LOCAL-00001" summary="first creation + appCategory enum">
       <option name="closed" value="true" />
@@ -234,7 +235,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764184588079</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="little modify in comments">
+      <option name="closed" value="true" />
+      <created>1764235559437</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1764235559437</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,6 +285,7 @@
     <MESSAGE value="defining model: MealDemand as a bean" />
     <MESSAGE value="defining logic: DietCalculatorService will be the expert in calculating how much of a product the user has to eat" />
     <MESSAGE value="defining model: ShoppingCalculationResult will be a bean used by DietCalculatorService to cominucate calculated data" />
-    <option name="LAST_COMMIT_MESSAGE" value="defining model: ShoppingCalculationResult will be a bean used by DietCalculatorService to cominucate calculated data" />
+    <MESSAGE value="little modify in comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="little modify in comments" />
   </component>
 </project>
