@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="little modify in comments">
+    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="little modify: changed name in classes AppCategory and NutritionalValues to match java standards">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/NutritionalTarget.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/NutritionalTarget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/logic/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/logic/CategoryMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/beans/MealDemand.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/beans/MealDemand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/beans/ShoppingCalculationResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/beans/ShoppingCalculationResult.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +91,7 @@
       <workItem from="1762956823722" duration="1000" />
       <workItem from="1763979699770" duration="29781000" />
       <workItem from="1764182481879" duration="3163000" />
-      <workItem from="1764235701539" duration="845000" />
+      <workItem from="1764235701539" duration="1574000" />
     </task>
     <task id="LOCAL-00001" summary="first creation + appCategory enum">
       <option name="closed" value="true" />
@@ -243,7 +245,23 @@
       <option name="project" value="LOCAL" />
       <updated>1764235559437</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="little modify: changed NutritionalTarget structure using composition with nutritionalValues">
+      <option name="closed" value="true" />
+      <created>1764236603836</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1764236603837</updated>
+    </task>
+    <task id="LOCAL-00021" summary="little modify: changed name in classes AppCategory and NutritionalValues to match java standards">
+      <option name="closed" value="true" />
+      <created>1764236847761</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1764236847761</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,6 +304,8 @@
     <MESSAGE value="defining logic: DietCalculatorService will be the expert in calculating how much of a product the user has to eat" />
     <MESSAGE value="defining model: ShoppingCalculationResult will be a bean used by DietCalculatorService to cominucate calculated data" />
     <MESSAGE value="little modify in comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="little modify in comments" />
+    <MESSAGE value="little modify: changed NutritionalTarget structure using composition with nutritionalValues" />
+    <MESSAGE value="little modify: changed name in classes AppCategory and NutritionalValues to match java standards" />
+    <option name="LAST_COMMIT_MESSAGE" value="little modify: changed name in classes AppCategory and NutritionalValues to match java standards" />
   </component>
 </project>

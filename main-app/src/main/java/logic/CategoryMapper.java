@@ -20,7 +20,6 @@ public class CategoryMapper {
                 return AppCategory.RISO_E_CEREALI;
             }
             if (containsAny(name, "patate", "patata")) {
-                // Nota: Le patatine in busta (chips) spesso hanno "patatine" nel nome, potresti volerle distinguere
                 if (name.contains("fritte") || name.contains("chips") || name.contains("patatine")) return AppCategory.DOLCI_E_SNACK;
                 return AppCategory.PATATE_E_TUBERI;
             }
@@ -99,7 +98,7 @@ public class CategoryMapper {
                 return AppCategory.OLIO_E_GRASSI;
             }
             if (containsAny(name, "maionese", "ketchup", "sugo", "pesto", "passata", "polpa")) {
-                return AppCategory.SALSE; // O CONDIMENTI se non hai SALSE
+                return AppCategory.SALSE;
             }
 
             // --- BEVANDE ---

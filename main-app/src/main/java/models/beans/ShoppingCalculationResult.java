@@ -33,12 +33,4 @@ public class ShoppingCalculationResult {
         return totalBought - totalGramsRequired;
     }
 
-    // --- TOSTRING (Per il debug in console) ---
-    @Override
-    public String toString() {
-        return "Risultato Spesa: " +
-                "Servono " + String.format("%.1f", totalGramsRequired) + "g " +
-                "-> Comprare " + packsToBuy + " confezioni. " +
-                "(Dettagli pasti salvati: " + gramsPerMealDetail.size() + ")";
-    }
 }

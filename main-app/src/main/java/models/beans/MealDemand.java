@@ -4,8 +4,8 @@ import models.NutritionalTarget;
 
 public class MealDemand {
 
-        private String dayOfWeek;   // es. "Lunedì"
-        private String mealName;    // es. "Colazione"
+        private String dayOfWeek;
+        private String mealName;
 
         private NutritionalTarget target;
 
