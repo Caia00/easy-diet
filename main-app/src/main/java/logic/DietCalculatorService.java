@@ -122,7 +122,6 @@ public class DietCalculatorService {
 
                 break;
 
-            // --- DEFAULT / SCONOSCIUTO ---
             default:
                 requiredAmount = target.getTargetKcal();
                 productAmountPer100 = product.getKcalPer100g();
