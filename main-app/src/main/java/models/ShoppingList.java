@@ -70,7 +70,7 @@ public class ShoppingList {
 
     public String getListName() { return listName; }
     public LocalDate getCreationDate() { return creationDate; }
-    public SupermarketName getSupermarket() { return supermarket; } // Getter
+    public SupermarketName getSupermarket() { return supermarket; }
     public List<ShoppingItem> getItems() { return items; }
 
 }
