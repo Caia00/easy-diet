@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="little modify: refactored pathfiles">
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/services/CsvCatalogLoader.java" afterDir="false" />
+    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="little modify: adding comments">
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/Profile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +89,7 @@
       <workItem from="1762956823722" duration="1000" />
       <workItem from="1763979699770" duration="29781000" />
       <workItem from="1764182481879" duration="3163000" />
-      <workItem from="1764235701539" duration="9290000" />
+      <workItem from="1764235701539" duration="12324000" />
     </task>
     <task id="LOCAL-00001" summary="first creation + appCategory enum">
       <option name="closed" value="true" />
@@ -299,7 +299,23 @@
       <option name="project" value="LOCAL" />
       <updated>1764239869237</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="defining service: CsvCatalogLoader implements CatalogLoader used to find and utilize a supermarket's catalog">
+      <option name="closed" value="true" />
+      <created>1764260280221</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1764260280221</updated>
+    </task>
+    <task id="LOCAL-00028" summary="little modify: adding comments">
+      <option name="closed" value="true" />
+      <created>1764260328360</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1764260328360</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,8 +339,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="first creation + appCategory enum" />
-    <MESSAGE value="appCateogry modify" />
     <MESSAGE value="Sonarcloud configuration" />
     <MESSAGE value="intermediate passage" />
     <MESSAGE value="fix" />
@@ -348,6 +362,8 @@
     <MESSAGE value="little modify: refactored pathfile" />
     <MESSAGE value="defining models: implementig CatalogLoader interface for getting supermarkets catalog" />
     <MESSAGE value="little modify: refactored pathfiles" />
-    <option name="LAST_COMMIT_MESSAGE" value="little modify: refactored pathfiles" />
+    <MESSAGE value="defining service: CsvCatalogLoader implements CatalogLoader used to find and utilize a supermarket's catalog" />
+    <MESSAGE value="little modify: adding comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="little modify: adding comments" />
   </component>
 </project>
