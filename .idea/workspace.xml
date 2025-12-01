@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="little modify: adding comments">
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/Profile.java" afterDir="false" />
+    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="defining model: abstract class Profile">
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/ShoppingItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/ShoppingList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/SupermarketName.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -89,7 +91,7 @@
       <workItem from="1762956823722" duration="1000" />
       <workItem from="1763979699770" duration="29781000" />
       <workItem from="1764182481879" duration="3163000" />
-      <workItem from="1764235701539" duration="12324000" />
+      <workItem from="1764235701539" duration="14331000" />
     </task>
     <task id="LOCAL-00001" summary="first creation + appCategory enum">
       <option name="closed" value="true" />
@@ -315,7 +317,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764260328360</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="defining model: abstract class Profile">
+      <option name="closed" value="true" />
+      <created>1764599949472</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1764599949472</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,7 +349,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Sonarcloud configuration" />
     <MESSAGE value="intermediate passage" />
     <MESSAGE value="fix" />
     <MESSAGE value="fix: added working directory" />
@@ -364,6 +373,7 @@
     <MESSAGE value="little modify: refactored pathfiles" />
     <MESSAGE value="defining service: CsvCatalogLoader implements CatalogLoader used to find and utilize a supermarket's catalog" />
     <MESSAGE value="little modify: adding comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="little modify: adding comments" />
+    <MESSAGE value="defining model: abstract class Profile" />
+    <option name="LAST_COMMIT_MESSAGE" value="defining model: abstract class Profile" />
   </component>
 </project>
