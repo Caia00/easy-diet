@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="little modify: comments">
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/InMemoryProfileDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/ProfileDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/SqlProfileDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/services/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/Nutritionist.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/Nutritionist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/Profile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/User.java" afterDir="false" />
+    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="little modify: adding getter or setter methods">
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/CliViewFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/DAOFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/GuiViewFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/InMemoryDAOFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/SqlDAOFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/ViewFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/AuthView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/CliAuthView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +96,7 @@
       <workItem from="1762956823722" duration="1000" />
       <workItem from="1763979699770" duration="29781000" />
       <workItem from="1764182481879" duration="3163000" />
-      <workItem from="1764235701539" duration="28822000" />
+      <workItem from="1764235701539" duration="34469000" />
     </task>
     <task id="LOCAL-00001" summary="first creation + appCategory enum">
       <option name="closed" value="true" />
@@ -369,7 +370,23 @@
       <option name="project" value="LOCAL" />
       <updated>1764686980438</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="defining models: DAO and DatabaseConnection service to retrive profiles from DB or memory">
+      <option name="closed" value="true" />
+      <created>1764695537018</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1764695537018</updated>
+    </task>
+    <task id="LOCAL-00036" summary="little modify: adding getter or setter methods">
+      <option name="closed" value="true" />
+      <created>1764695566730</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1764695566730</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -393,8 +410,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed data format" />
-    <MESSAGE value="added dependacy to use jackson" />
     <MESSAGE value="defining module: nutritional values" />
     <MESSAGE value="defining logic: fallback logic for products with missing values" />
     <MESSAGE value="defining models: edible interface implemented by CommercialProduct" />
@@ -418,6 +433,8 @@
     <MESSAGE value="defining models: Nutritionist and User will be objects that model the people using the software" />
     <MESSAGE value="defining models: DietPlan and objects to modify the diet" />
     <MESSAGE value="little modify: comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="little modify: comments" />
+    <MESSAGE value="defining models: DAO and DatabaseConnection service to retrive profiles from DB or memory" />
+    <MESSAGE value="little modify: adding getter or setter methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="little modify: adding getter or setter methods" />
   </component>
 </project>
