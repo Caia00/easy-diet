@@ -73,6 +73,10 @@ public class Nutritionist extends Profile{
         System.out.println("Dieta '" + dietName + "' assegnata a " + patient.getSurname());
     }
 
+    public String getProfessionalCode() {
+        return professionalCode;
+    }
+
     @Override
     public String getRole() {
         return "NUTRITIONIST";

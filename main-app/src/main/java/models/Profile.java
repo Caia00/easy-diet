@@ -19,7 +19,8 @@ public abstract class Profile {
 
     public String getName() { return name; }
     public String getSurname() { return surname; }
-    public String getEmail() { return email; } // L'email spesso non si cambia
+    public String getEmail() { return email; }
+    public String getPassword() { return password; }
     public LocalDate getBirthDate() { return birthDate; }
 
     public abstract String getRole();

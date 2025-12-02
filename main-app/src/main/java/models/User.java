@@ -54,6 +54,18 @@ public class User extends Profile{
         shoppingLists.remove(list);
     }
 
+    public double getHeightCm(){
+        return heightCm;
+    }
+
+    public double getCurrentWeightKg(){
+        return currentWeightKg;
+    }
+
+    public String getGender(){
+        return gender;
+    }
+
     @Override
     public String getRole() {
         return "PATIENT";
