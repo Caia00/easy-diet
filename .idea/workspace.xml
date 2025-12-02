@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="little modify: adding getter or setter methods">
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/CliViewFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/DAOFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/GuiViewFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/InMemoryDAOFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/SqlDAOFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/ViewFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/AuthView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/CliAuthView.java" afterDir="false" />
+    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="defining view: the view for authentication: AuthView and its implementation CliAuthView">
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/GuiAuthView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +88,7 @@
       <workItem from="1762956823722" duration="1000" />
       <workItem from="1763979699770" duration="29781000" />
       <workItem from="1764182481879" duration="3163000" />
-      <workItem from="1764235701539" duration="34469000" />
+      <workItem from="1764235701539" duration="35032000" />
     </task>
     <task id="LOCAL-00001" summary="first creation + appCategory enum">
       <option name="closed" value="true" />
@@ -386,7 +378,31 @@
       <option name="project" value="LOCAL" />
       <updated>1764695566730</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="defining pattern: using abstract factory method to create the 2 version of the app: demo and with persistency and the 2 UI: CLI and GUI">
+      <option name="closed" value="true" />
+      <created>1764702577732</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1764702577732</updated>
+    </task>
+    <task id="LOCAL-00038" summary="defining controller: LoginController is the brain behind the login process and the registration process">
+      <option name="closed" value="true" />
+      <created>1764702651905</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1764702651905</updated>
+    </task>
+    <task id="LOCAL-00039" summary="defining view: the view for authentication: AuthView and its implementation CliAuthView">
+      <option name="closed" value="true" />
+      <created>1764702721114</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1764702721114</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -410,9 +426,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="defining module: nutritional values" />
-    <MESSAGE value="defining logic: fallback logic for products with missing values" />
-    <MESSAGE value="defining models: edible interface implemented by CommercialProduct" />
     <MESSAGE value="defining logic: category mapper" />
     <MESSAGE value="defining factory: ProductFactory will create a valid product object for the system" />
     <MESSAGE value="adding weight for CommercialProduct" />
@@ -435,6 +448,9 @@
     <MESSAGE value="little modify: comments" />
     <MESSAGE value="defining models: DAO and DatabaseConnection service to retrive profiles from DB or memory" />
     <MESSAGE value="little modify: adding getter or setter methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="little modify: adding getter or setter methods" />
+    <MESSAGE value="defining pattern: using abstract factory method to create the 2 version of the app: demo and with persistency and the 2 UI: CLI and GUI" />
+    <MESSAGE value="defining controller: LoginController is the brain behind the login process and the registration process" />
+    <MESSAGE value="defining view: the view for authentication: AuthView and its implementation CliAuthView" />
+    <option name="LAST_COMMIT_MESSAGE" value="defining view: the view for authentication: AuthView and its implementation CliAuthView" />
   </component>
 </project>
