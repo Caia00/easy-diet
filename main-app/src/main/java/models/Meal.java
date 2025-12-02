@@ -65,7 +65,7 @@ public class Meal {
         return foods.stream().mapToDouble(i -> i.getTarget().getTargetProteins()).sum();
     }
 
-    // --- GETTERS & SETTERS ---
+
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
