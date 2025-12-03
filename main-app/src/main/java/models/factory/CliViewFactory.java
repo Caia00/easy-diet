@@ -7,5 +7,8 @@ public class CliViewFactory implements ViewFactory {
     @Override
     public AuthView createAuthView() { return new CliAuthView(); }
 
+    @Override
+    public PatientHomeView createPatientHomeView() { return new CliPatientHomeView(); }
+
 
 }
