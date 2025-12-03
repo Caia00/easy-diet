@@ -9,4 +9,9 @@ public class SqlDAOFactory implements DAOFactory {
         return new SqlProfileDAO();
     }
 
+    @Override
+    public DietPlanDAO getDietPlanDAO() {
+        return new SqlDietPlanDAO();
+    }
+
 }

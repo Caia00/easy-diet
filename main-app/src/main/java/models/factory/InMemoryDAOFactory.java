@@ -11,4 +11,9 @@ public class InMemoryDAOFactory implements DAOFactory {
         return profileDAO;
     }
 
+    @Override
+    public DietPlanDAO getDietPlanDAO() {
+        return new InMemoryDietPlanDAO();
+    }
+
 }

@@ -4,8 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="defining view: the view for authentication: AuthView and its implementation CliAuthView">
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/GuiAuthView.java" afterDir="false" />
+    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="defining view: only defined GuiAuthView">
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/PatientHomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/DietPlanDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/InMemoryDietPlanDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/SqlDietPlanDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/CliPatientHomeView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/GuiPatientHomeView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/PatientHomeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/DietPlan.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/DietPlan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/CliViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/CliViewFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/DAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/GuiViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/GuiViewFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/InMemoryDAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/InMemoryDAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/SqlDAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/SqlDAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/ViewFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +102,7 @@
       <workItem from="1762956823722" duration="1000" />
       <workItem from="1763979699770" duration="29781000" />
       <workItem from="1764182481879" duration="3163000" />
-      <workItem from="1764235701539" duration="35032000" />
+      <workItem from="1764235701539" duration="50589000" />
     </task>
     <task id="LOCAL-00001" summary="first creation + appCategory enum">
       <option name="closed" value="true" />
@@ -402,7 +416,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764702721114</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="defining view: only defined GuiAuthView">
+      <option name="closed" value="true" />
+      <created>1764703056017</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1764703056017</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -426,7 +448,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="defining logic: category mapper" />
     <MESSAGE value="defining factory: ProductFactory will create a valid product object for the system" />
     <MESSAGE value="adding weight for CommercialProduct" />
     <MESSAGE value="defining model: NutritionalTarget will be used by nutritionist to set the amount of nutritional values that should recive from food" />
@@ -451,6 +472,7 @@
     <MESSAGE value="defining pattern: using abstract factory method to create the 2 version of the app: demo and with persistency and the 2 UI: CLI and GUI" />
     <MESSAGE value="defining controller: LoginController is the brain behind the login process and the registration process" />
     <MESSAGE value="defining view: the view for authentication: AuthView and its implementation CliAuthView" />
-    <option name="LAST_COMMIT_MESSAGE" value="defining view: the view for authentication: AuthView and its implementation CliAuthView" />
+    <MESSAGE value="defining view: only defined GuiAuthView" />
+    <option name="LAST_COMMIT_MESSAGE" value="defining view: only defined GuiAuthView" />
   </component>
 </project>

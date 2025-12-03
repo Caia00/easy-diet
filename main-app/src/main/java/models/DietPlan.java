@@ -7,12 +7,13 @@ import java.util.Map;
 
 public class DietPlan {
     private String dietName;
-
+    private Integer id;
     private Map<String, List<Meal>> weeklySchedule;
 
     public DietPlan(String dietName) {
         this.dietName = dietName;
         this.weeklySchedule = new HashMap<>();
+        this.id = null;
         initializeWeek();
     }
 
@@ -23,7 +24,7 @@ public class DietPlan {
         }
     }
 
-    //Metodi utilizzabili dal controller per la gestione della Dieta
+    //Metodi per la gestione della Dieta
 
     public void addMealToDay(String day, Meal meal) {
         if (weeklySchedule.containsKey(day)) {
@@ -89,6 +90,9 @@ public class DietPlan {
 
     public String getDietName() { return dietName; }
     public void setDietName(String dietName) { this.dietName = dietName; }
+
+    public Integer getDietId() { return id; }
+    public void setDietId(Integer id) { this.id = id; }
 
     public Map<String, List<Meal>> getWeeklySchedule() { return weeklySchedule; }
 }
