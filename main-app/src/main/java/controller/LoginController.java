@@ -5,6 +5,8 @@ import models.DAO.ProfileDAO;
 import view.AuthView;
 import java.time.LocalDate;
 import models.factory.*;
+import view.PatientHomeView;
+
 
 public class LoginController {
     private final DAOFactory daoFactory;
