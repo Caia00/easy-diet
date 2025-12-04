@@ -72,4 +72,10 @@ public class Meal {
     public LocalTime getTime() { return time; }
     public void setTime(LocalTime time) { this.time = time; }
 
+    @Override
+    public String toString() {
+        String timeStr = (time != null) ? time.toString() : "--:--";
+        return String.format("Meal: %s (%s)", name.toUpperCase(), timeStr);
+    }
+
 }

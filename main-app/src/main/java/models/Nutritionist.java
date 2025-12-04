@@ -81,4 +81,10 @@ public class Nutritionist extends Profile{
     public String getRole() {
         return "NUTRITIONIST";
     }
+
+    @Override
+    public String toString() {
+        return String.format("Dr. %s %s (%s) - Albo: %s",
+                name, surname, email, professionalCode);
+    }
 }

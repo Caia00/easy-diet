@@ -33,4 +33,10 @@ public class ShoppingCalculationResult {
         return totalBought - totalGramsRequired;
     }
 
+    @Override
+    public String toString() {
+        return String.format("Risultato: Servono %.1fg totali -> Comprare %d confezioni.",
+                totalGramsRequired, packsToBuy);
+    }
+
 }

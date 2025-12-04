@@ -73,4 +73,10 @@ public class ShoppingList {
     public SupermarketName getSupermarket() { return supermarket; }
     public List<ShoppingItem> getItems() { return items; }
 
+    @Override
+    public String toString() {
+        return String.format("Lista: '%s' [%s] - Data: %s - Totale: €%.2f (%d prodotti)",
+                listName, supermarket, creationDate, getTotalCost(), getTotalItemsCount());
+    }
+
 }

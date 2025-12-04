@@ -70,4 +70,10 @@ public class User extends Profile{
     public String getRole() {
         return "PATIENT";
     }
+
+    @Override
+    public String toString() {
+        return String.format("Paziente: %s %s (%s) - Peso: %.1fkg",
+                name, surname, email, currentWeightKg);
+    }
 }

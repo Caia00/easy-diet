@@ -95,4 +95,9 @@ public class DietPlan {
     public void setDietId(Integer id) { this.id = id; }
 
     public Map<String, List<Meal>> getWeeklySchedule() { return weeklySchedule; }
+
+    @Override
+    public String toString() {
+        return String.format("Dieta: %s (ID: %s)", dietName, (id != null ? id : "Non salvata"));
+    }
 }

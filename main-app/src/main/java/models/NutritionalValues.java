@@ -59,4 +59,10 @@ public class NutritionalValues {
         this.proteins = proteins;
     }
 
+    @Override
+    public String toString() {
+        return String.format("[Kcal: %.0f, Prot: %.1f, Carb: %.1f, Zuc: %.1f, Gra: %.1f, Fib: %.1f]",
+                kcal, proteins, carbs, sugar, fats, fibers);
+    }
+
 }

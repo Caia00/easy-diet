@@ -38,4 +38,10 @@ public class DietItem {
     public void setSuggestedProduct(CommercialProduct suggestedProduct) {
         this.suggestedProduct = suggestedProduct;
     }
+
+    @Override
+    public String toString() {
+        String suggestion = (suggestedProduct != null) ? " [Sugg: " + suggestedProduct.getName() + "]" : "";
+        return String.format("%s (%.0f kcal)%s", target.getCategory(), target.getTargetKcal(), suggestion);
+    }
 }

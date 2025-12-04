@@ -48,4 +48,10 @@ public class CommercialProduct implements Edible{
         return (nutritionValues.getKcal() * weightInGrams) / 100.0;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s (%1.f) - €%.2f %s",
+                name, weightInGrams, price, nutritionValues.toString());
+    }
+
 }

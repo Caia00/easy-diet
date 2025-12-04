@@ -36,4 +36,9 @@ public class ShoppingItem { //Classe usata per modellare gli oggetti all'interno
     public void setQuantity(int quantity) { this.quantity = quantity; }
     public boolean isForDiet() { return isForDiet; }
 
+    @Override
+    public String toString() {
+        return String.format("%dx %s (€%.2f)", quantity, product.getName(), getTotalPrice());
+    }
+
 }
