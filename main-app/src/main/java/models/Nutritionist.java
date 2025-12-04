@@ -77,6 +77,10 @@ public class Nutritionist extends Profile{
         return professionalCode;
     }
 
+    public List<DietPlan> getDietTemplates(){
+        return dietTemplates;
+    }
+
     @Override
     public String getRole() {
         return "NUTRITIONIST";
