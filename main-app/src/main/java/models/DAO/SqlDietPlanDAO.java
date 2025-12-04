@@ -44,25 +44,25 @@ public class SqlDietPlanDAO implements DietPlanDAO {
 
     //Metodo usato dal nutrizionista per caricare dal DB una sua dieta specifica
     @Override
-    public DietPlan findById(int dietId) {
-        String query = "SELECT * FROM diet_plans WHERE id = ?";
-        DietPlan plan = null;
+    public void loadPlanDetails(DietPlan plan) {
+        if (plan == null || plan.getDietId() == null) {
+            System.err.println("DAO ERROR: Impossibile caricare dettagli. Piano nullo o ID mancante.");
+            return;
+        }
 
-        try (Connection conn = DatabaseConnection.getInstance().getConnection();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
+        for (List<Meal> dayMeals : plan.getWeeklySchedule().values()) {
+            dayMeals.clear();
+        }
 
-            stmt.setInt(1, dietId);
-            try (ResultSet rs = stmt.executeQuery()) {
-                if (rs.next()) {
-                    plan = new DietPlan(rs.getString("name"));
-                    plan.setDietId(rs.getInt("id"));
-                    loadMealsForPlan(plan, conn);
-                }
-            }
+        try (Connection conn = DatabaseConnection.getInstance().getConnection()) {
+
+            loadMealsForPlan(plan, conn);
+
+            System.out.println("LOG: Dettagli caricati per dieta ID " + plan.getDietId());
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return plan;
     }
 
     //Metodo usato all'avvio della home del nutrizionista per caricare la lista delle diete da lui create, solo però i nomi e gli ID non direttamente tutti gli oggetti contenuti

@@ -4,15 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="little modify: adding override toString method to models to easily print them on screen">
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/DietViewerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/CliDietViewerView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/DietViewerView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/GuiDietViewerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/PatientHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/PatientHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/CliViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/CliViewFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/GuiViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/GuiViewFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/ViewFactory.java" afterDir="false" />
+    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="defining controller: defined controller to let patients see their DietPlan">
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/InMemoryShoppingListDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/ShoppingListDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/SqlShoppingListDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/CommercialProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/CommercialProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/DietPlanDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/DietPlanDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/InMemoryDietPlanDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/InMemoryDietPlanDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/SqlDietPlanDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/SqlDietPlanDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/ShoppingList.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/ShoppingList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/DAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/InMemoryDAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/InMemoryDAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/SqlDAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/SqlDAOFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +98,7 @@
       <workItem from="1762956823722" duration="1000" />
       <workItem from="1763979699770" duration="29781000" />
       <workItem from="1764182481879" duration="3163000" />
-      <workItem from="1764235701539" duration="55906000" />
+      <workItem from="1764235701539" duration="65357000" />
     </task>
     <task id="LOCAL-00001" summary="first creation + appCategory enum">
       <option name="closed" value="true" />
@@ -449,7 +452,23 @@
       <option name="project" value="LOCAL" />
       <updated>1764858283738</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="defining views: defined views to let patients see their DietPlan">
+      <option name="closed" value="true" />
+      <created>1764861032030</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1764861032030</updated>
+    </task>
+    <task id="LOCAL-00046" summary="defining controller: defined controller to let patients see their DietPlan">
+      <option name="closed" value="true" />
+      <created>1764861056116</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1764861056116</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,8 +492,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="defining logic: DietCalculatorService will be the expert in calculating how much of a product the user has to eat" />
-    <MESSAGE value="defining model: ShoppingCalculationResult will be a bean used by DietCalculatorService to cominucate calculated data" />
     <MESSAGE value="little modify in comments" />
     <MESSAGE value="little modify: changed NutritionalTarget structure using composition with nutritionalValues" />
     <MESSAGE value="little modify: changed name in classes AppCategory and NutritionalValues to match java standards" />
@@ -498,6 +515,8 @@
     <MESSAGE value="defining views: CLI and GUI views for patient home screen" />
     <MESSAGE value="defining models: definied logic to save DietPlan into DB or memory (in case of DEMO version)" />
     <MESSAGE value="little modify: adding override toString method to models to easily print them on screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="little modify: adding override toString method to models to easily print them on screen" />
+    <MESSAGE value="defining views: defined views to let patients see their DietPlan" />
+    <MESSAGE value="defining controller: defined controller to let patients see their DietPlan" />
+    <option name="LAST_COMMIT_MESSAGE" value="defining controller: defined controller to let patients see their DietPlan" />
   </component>
 </project>

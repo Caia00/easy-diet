@@ -11,7 +11,7 @@ public interface DietPlanDAO {
 
     List <DietPlan> findAllSummariesByCreator(String nutritionistEmail);
 
-    DietPlan findById(int id);
+    void loadPlanDetails(DietPlan plan);
 
     void delete(DietPlan dietPlan);
 

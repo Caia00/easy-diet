@@ -34,11 +34,8 @@ public class InMemoryDietPlanDAO implements DietPlanDAO {
     }
 
     @Override
-    public DietPlan findById(int dietId) {
-        return templates.stream()
-                .filter(d -> d.getDietId() != null && d.getDietId() == dietId)
-                .findFirst()
-                .orElse(null);
+    public void loadPlanDetails(DietPlan plan) {
+
     }
 
     @Override
