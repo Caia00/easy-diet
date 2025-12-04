@@ -43,6 +43,7 @@ public class CommercialProduct implements Edible{
     public double getPrice() { return price; }
     public double getWeightInGrams() { return weightInGrams; }
     public boolean isDataEstimated() { return isDataEstimated; }
+    public NutritionalValues getNutritionalValues() { return nutritionValues; }
 
     public double getTotalKcal() {
         return (nutritionValues.getKcal() * weightInGrams) / 100.0;

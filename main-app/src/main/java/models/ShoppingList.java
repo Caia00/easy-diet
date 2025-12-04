@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class ShoppingList {
+    private Integer listId;
     private String listName;
     private LocalDate creationDate;
 
@@ -14,9 +15,18 @@ public class ShoppingList {
     private List<ShoppingItem> items;
 
     public ShoppingList(String listName, SupermarketName supermarket) {
+        this.listId = null;
         this.listName = listName;
         this.supermarket = supermarket;
         this.creationDate = LocalDate.now();
+        this.items = new ArrayList<>();
+    }
+
+    public ShoppingList(Integer id, String listName, SupermarketName supermarket, LocalDate date) {
+        this.listId = id;
+        this.listName = listName;
+        this.supermarket = supermarket;
+        this.creationDate = date;
         this.items = new ArrayList<>();
     }
 
@@ -72,6 +82,8 @@ public class ShoppingList {
     public LocalDate getCreationDate() { return creationDate; }
     public SupermarketName getSupermarket() { return supermarket; }
     public List<ShoppingItem> getItems() { return items; }
+    public Integer getListId() { return listId; }
+    public void setListId(Integer id) { this.listId = id; }
 
     @Override
     public String toString() {
