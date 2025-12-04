@@ -8,4 +8,11 @@ public class GuiViewFactory implements ViewFactory {
 
     @Override
     public PatientHomeView createPatientHomeView() {return new GuiPatientHomeView(); }
+
+    @Override
+    public DietViewerView createDietViewerView() {return new GuiDietViewerView(); }
+
+
+
+
 }

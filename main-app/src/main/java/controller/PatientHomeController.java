@@ -16,8 +16,8 @@ public class PatientHomeController {
         this.daoFactory = daoFactory;
         this.viewFactory = viewFactory;
         this.view = view;
-
         this.view.setController(this);
+
     }
 
     public void start() {
@@ -27,20 +27,29 @@ public class PatientHomeController {
 
 
     public void openMyDiet() {
-        if (user.getDietPlan() == null) {
-            System.out.println("MSG: Non hai ancora una dieta assegnata dal nutrizionista.");
+
+        if (user.getDietPlan() != null) {
+            System.out.println("LOG: Dieta trovata in memoria (Cache).");
+            launchDietViewer(user.getDietPlan());
             return;
         }
 
-        System.out.println("DEBUG: Apertura visualizzatore dieta... (To be implemented)");
-        // TODO: Implementare DietViewerController
-        // DietViewerView dietView = viewFactory.createDietViewerView();
-        // new DietViewerController(user, dietView).start();
+        System.out.println("LOG: Dieta non in memoria. Ricerca tramite DAO...");
+
+        DietPlan loadedPlan = daoFactory.getDietPlanDAO().findByOwner(user.getEmail());
+
+        if (loadedPlan != null) {
+            System.out.println("DEBUG: Dieta trovata nel DB. Aggiorno la sessione utente.");
+
+            user.assignDiet(loadedPlan);
+
+            launchDietViewer(loadedPlan);
+
+        } else {
+            view.showErrorMessage("Non hai ancora una dieta assegnata dal nutrizionista.");
+        }
     }
 
-    /**
-     * Caso d'uso: Gestione Lista della Spesa
-     */
     public void openShoppingList() {
         System.out.println("DEBUG: Apertura lista della spesa...");
 
@@ -51,13 +60,15 @@ public class PatientHomeController {
         // new ShoppingListController(user, daoFactory, viewFactory, shopView).start();
     }
 
-    /**
-     * Caso d'uso: Logout
-     */
+
     public void logout() {
         System.out.println("Disconnessione in corso...");
         view.close();
-        // Nota: Il programma tornerà al LoginController o terminerà,
-        // a seconda di come hai gestito il flusso nel Main.
+    }
+
+    private void launchDietViewer(DietPlan plan) {
+        DietViewerView viewerView = viewFactory.createDietViewerView();
+        DietViewerController viewerController = new DietViewerController(plan, viewerView);
+        viewerController.start();
     }
 }
