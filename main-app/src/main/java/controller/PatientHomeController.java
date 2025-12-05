@@ -30,7 +30,7 @@ public class PatientHomeController {
 
         if (user.getDietPlan() != null) {
             System.out.println("LOG: Dieta trovata in memoria (Cache).");
-            launchDietViewer(user.getDietPlan());
+            viewFactory.createDietViewerView().showDietPlan(user.getDietPlan());
             return;
         }
 
@@ -39,11 +39,11 @@ public class PatientHomeController {
         DietPlan loadedPlan = daoFactory.getDietPlanDAO().findByOwner(user.getEmail());
 
         if (loadedPlan != null) {
-            System.out.println("DEBUG: Dieta trovata nel DB. Aggiorno la sessione utente.");
+            System.out.println("LOG: Dieta trovata nel DB. Aggiorno la sessione utente.");
 
             user.assignDiet(loadedPlan);
 
-            launchDietViewer(loadedPlan);
+            viewFactory.createDietViewerView().showDietPlan(loadedPlan);
 
         } else {
             view.showErrorMessage("Non hai ancora una dieta assegnata dal nutrizionista.");
@@ -66,9 +66,4 @@ public class PatientHomeController {
         view.close();
     }
 
-    private void launchDietViewer(DietPlan plan) {
-        DietViewerView viewerView = viewFactory.createDietViewerView();
-        DietViewerController viewerController = new DietViewerController(plan, viewerView);
-        viewerController.start();
-    }
 }

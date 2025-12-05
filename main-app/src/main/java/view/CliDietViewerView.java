@@ -1,21 +1,13 @@
 package view;
 
-import controller.DietViewerController;
 import models.DietItem;
 import models.DietPlan;
 import models.Meal;
 
 import java.util.List;
-import java.util.Scanner;
 
 public class CliDietViewerView implements DietViewerView {
-    private DietViewerController controller;
-    private Scanner scanner = new Scanner(System.in);
 
-    @Override
-    public void setController(DietViewerController controller) {
-        this.controller = controller;
-    }
 
     @Override
     public void showDietPlan(DietPlan plan) {
@@ -42,15 +34,4 @@ public class CliDietViewerView implements DietViewerView {
         System.out.println("\n===========================================");
     }
 
-    @Override
-    public void start() {
-        System.out.println("Premi INVIO per tornare alla Home...");
-        scanner.nextLine();
-        controller.exit();
-    }
-
-    @Override
-    public void close() {
-
-    }
 }
