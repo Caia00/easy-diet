@@ -27,16 +27,19 @@ public class DietPlan {
     //Metodi per la gestione della Dieta
 
     public void addMealToDay(String day, Meal meal) {
-        if (weeklySchedule.containsKey(day)) {
+        String key = normalizeDay(day);
+        if (weeklySchedule.containsKey(key)) {
             weeklySchedule.get(day).add(meal);
         } else {
-            System.err.println("WARNING: Giorno non trovato nel piano: " + day);
+            System.err.println("Giorno non valido: " + day + " (Interpretato come: " + key + ")");
+            throw new IllegalArgumentException("Giorno non valido: " + day);
         }
     }
 
 
     public Meal getMeal(String day, String mealName) {
-        List<Meal> mealsOfDay = getMealsForDay(day);
+        String key = normalizeDay(day);
+        List<Meal> mealsOfDay = getMealsForDay(key);
         for (Meal meal : mealsOfDay) {
             if (meal.getName().equalsIgnoreCase(mealName)) {
                 return meal;
@@ -52,15 +55,34 @@ public class DietPlan {
 
 
     public boolean removeMeal(String day, String mealName) {
-        if (!weeklySchedule.containsKey(day)) return false;
+        String key = normalizeDay(day);
+        if (!weeklySchedule.containsKey(key)) return false;
 
-        List<Meal> mealsOfDay = weeklySchedule.get(day);
+        List<Meal> mealsOfDay = weeklySchedule.get(key);
         return mealsOfDay.removeIf(m -> m.getName().equalsIgnoreCase(mealName));
     }
 
 
     public List<Meal> getMealsForDay(String day) {
-        return weeklySchedule.getOrDefault(day, new ArrayList<>());
+        String key = normalizeDay(day);
+        return weeklySchedule.getOrDefault(key, new ArrayList<>());
+    }
+
+    //Metodo usato per normalizzare la stringa in input per non ricevere errori sgraditi
+    private String normalizeDay(String inputDay) {
+        if (inputDay == null) return "";
+
+        String clean = inputDay.trim().toLowerCase();
+
+        if (clean.startsWith("lun")) return "Lunedì";
+        if (clean.startsWith("mar")) return "Martedì";
+        if (clean.startsWith("mer")) return "Mercoledì";
+        if (clean.startsWith("gio")) return "Giovedì";
+        if (clean.startsWith("ven")) return "Venerdì";
+        if (clean.startsWith("sab")) return "Sabato";
+        if (clean.startsWith("dom")) return "Domenica";
+
+        return inputDay;
     }
 
 
