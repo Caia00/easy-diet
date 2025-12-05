@@ -24,9 +24,16 @@ public class CliDietViewerView implements DietViewerView {
             } else {
                 for (Meal meal : meals) {
                     System.out.println(" > " + meal.getName() + " (" + meal.getTime() + ")");
-                    for (DietItem item : meal.getFoods()) {
-                        System.out.println("    - " + item.toString());
+
+                    List<DietItem> foods = meal.getFoods();
+                    if (foods.isEmpty()) {
+                        System.out.println("    (Nessun alimento)");
+                    } else {
+                        for (int i = 0; i < foods.size(); i++) {
+                            System.out.println("    " + (i + 1) + ". " + foods.get(i).toString());
+                        }
                     }
+
                     System.out.printf("    [Tot Kcal: %.0f]\n", meal.getTotalKcalTarget());
                 }
             }
