@@ -16,6 +16,12 @@ public class CliViewFactory implements ViewFactory {
     @Override
     public NutritionistHomeView createNutritionistHomeView(){ return new CliNutritionistHomeView(); }
 
+    @Override
+    public DietManagerView createDietManagerView(){ return new CliDietManagerView(); }
+
+    @Override
+    public DietEditorView createDietEditorView(){ return new CliDietEditorView(); }
+
 
 
 

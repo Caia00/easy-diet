@@ -4,6 +4,7 @@ import models.DietPlan;
 import models.Nutritionist;
 import models.factory.DAOFactory;
 import models.factory.ViewFactory;
+import view.DietManagerView;
 import view.NutritionistHomeView;
 
 import java.util.List;
@@ -29,14 +30,20 @@ public class NutritionistHomeController {
 
 
     public void goToDietManager() {
+        System.out.println("LOG: Apertura Diet Manager...");
 
-        /** TODO: implementare controller e view per caso d'uso
-         * DietManagerView managerView = viewFactory.createDietManagerView();
-         * new DietManagerController(nutritionist, daoFactory, viewFactory, managerView).start();
-         *
-         */
+        DietManagerView managerView = viewFactory.createDietManagerView();
 
-        System.out.println("\n--- Tornato alla Dashboard ---");
+        DietManagerController managerController = new DietManagerController(
+                nutritionist,
+                daoFactory,
+                viewFactory,
+                managerView
+        );
+
+        managerController.start();
+
+        view.showWelcome(nutritionist.getName());
     }
 
     public void goToProfile() {

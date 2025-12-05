@@ -15,6 +15,12 @@ public class GuiViewFactory implements ViewFactory {
     @Override
     public NutritionistHomeView createNutritionistHomeView() {return new GuiNutritionistHomeView(); }
 
+    @Override
+    public DietManagerView createDietManagerView() {return new GuiDietManagerView(); }
+
+    @Override
+    public DietEditorView createDietEditorView() {return new GuiDietEditorView(); }
+
 
 
 
