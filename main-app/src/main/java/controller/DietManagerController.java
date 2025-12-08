@@ -41,7 +41,7 @@ public class DietManagerController {
 
     public void createDiet(String name) {
         if (name.isEmpty()) return;
-        DietPlan newPlan = new DietPlan(name);
+        DietPlan newPlan = nutritionist.createDietTemplate(name);
 
         launchEditor(newPlan);
     }

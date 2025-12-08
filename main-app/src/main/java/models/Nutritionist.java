@@ -18,15 +18,6 @@ public class Nutritionist extends Profile{
     }
 
 
-    public void addPatient(User patient) {
-        if (!managedPatients.contains(patient)) {
-            managedPatients.add(patient);
-        }
-    }
-
-    public List<User> getManagedPatients() {
-        return managedPatients;
-    }
 
     public DietPlan createDietTemplate(String dietName) {
         // Controllo se esiste già per evitare duplicati

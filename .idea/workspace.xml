@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="little modify: prints diet with num for items">
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/DietEditorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/DietManagerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/CliDietEditorView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/CliDietManagerView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/DietEditorView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/DietManagerView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/GuiDietEditorView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/GuiDietManagerView.java" afterDir="false" />
+    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="defining method: assingDiet method for DietManagerController used by nutritionists">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/NutritionistHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/NutritionistHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/CliViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/CliViewFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/GuiViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/GuiViewFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/ViewFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/DietManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/DietManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/Nutritionist.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/Nutritionist.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,31 +90,7 @@
       <workItem from="1762956823722" duration="1000" />
       <workItem from="1763979699770" duration="29781000" />
       <workItem from="1764182481879" duration="3163000" />
-      <workItem from="1764235701539" duration="83523000" />
-    </task>
-    <task id="LOCAL-00005" summary="fix">
-      <option name="closed" value="true" />
-      <created>1764003857403</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1764003857403</updated>
-    </task>
-    <task id="LOCAL-00006" summary="fix: added working directory">
-      <option name="closed" value="true" />
-      <created>1764004516755</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1764004516755</updated>
-    </task>
-    <task id="LOCAL-00007" summary="changed data format">
-      <option name="closed" value="true" />
-      <created>1764149983597</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1764149983597</updated>
+      <workItem from="1764235701539" duration="86658000" />
     </task>
     <task id="LOCAL-00008" summary="added dependacy to use jackson">
       <option name="closed" value="true" />
@@ -494,7 +460,31 @@
       <option name="project" value="LOCAL" />
       <updated>1764958421210</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="defining views: defined views to let nutritionist manage diets">
+      <option name="closed" value="true" />
+      <created>1764959371458</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1764959371458</updated>
+    </task>
+    <task id="LOCAL-00055" summary="defining controllers: defined controllers to let nutritionist manage diets">
+      <option name="closed" value="true" />
+      <created>1764959387921</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1764959387921</updated>
+    </task>
+    <task id="LOCAL-00056" summary="defining method: assingDiet method for DietManagerController used by nutritionists">
+      <option name="closed" value="true" />
+      <created>1765191254864</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1765191254864</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -518,9 +508,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="little modify: adding comments" />
-    <MESSAGE value="defining model: abstract class Profile" />
-    <MESSAGE value="defining models: ShoppingList from a Supermarket, containing ShoppingItem" />
     <MESSAGE value="defining models: Nutritionist and User will be objects that model the people using the software" />
     <MESSAGE value="defining models: DietPlan and objects to modify the diet" />
     <MESSAGE value="little modify: comments" />
@@ -543,6 +530,9 @@
     <MESSAGE value="modify: changed logic for users to see their DietPlan" />
     <MESSAGE value="little modify: created internal method to normalize day input string" />
     <MESSAGE value="little modify: prints diet with num for items" />
-    <option name="LAST_COMMIT_MESSAGE" value="little modify: prints diet with num for items" />
+    <MESSAGE value="defining views: defined views to let nutritionist manage diets" />
+    <MESSAGE value="defining controllers: defined controllers to let nutritionist manage diets" />
+    <MESSAGE value="defining method: assingDiet method for DietManagerController used by nutritionists" />
+    <option name="LAST_COMMIT_MESSAGE" value="defining method: assingDiet method for DietManagerController used by nutritionists" />
   </component>
 </project>
