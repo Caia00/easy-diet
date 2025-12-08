@@ -71,6 +71,27 @@ public class SqlProfileDAO implements ProfileDAO {
         }
     }
 
+    @Override
+    public boolean assignDiet(String patientEmail, DietPlan plan) {
+        if (plan == null || plan.getDietId() == null) return false;
+
+        String sql = "UPDATE users SET current_diet_id = ? WHERE email = ?";
+
+        try (Connection conn = DatabaseConnection.getInstance().getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, plan.getDietId());
+            stmt.setString(2, patientEmail);
+
+            int rows = stmt.executeUpdate();
+            return rows > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
     @Override
     public void delete(String email) {

@@ -57,21 +57,6 @@ public class Nutritionist extends Profile{
         return dietTemplates;
     }
 
-    public void assignDietToPatient(User patient, String dietName) {
-
-        if (!managedPatients.contains(patient)) {
-            throw new IllegalArgumentException("Paziente non gestito da questo nutrizionista.");
-        }
-
-        DietPlan template = getDietTemplateByName(dietName);
-        if (template == null) {
-            throw new IllegalArgumentException("Dieta non trovata nell'archivio.");
-        }
-
-        patient.assignDiet(template);
-
-        System.out.println("Dieta '" + dietName + "' assegnata a " + patient.getSurname());
-    }
 
     public String getProfessionalCode() {
         return professionalCode;

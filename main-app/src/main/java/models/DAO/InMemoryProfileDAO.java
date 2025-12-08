@@ -24,6 +24,21 @@ public class InMemoryProfileDAO implements ProfileDAO {
         return db.stream().filter(p -> p.getEmail().equalsIgnoreCase(email)).findFirst().orElse(null);
     }
 
+    @Override
+    public boolean assignDiet(String patientEmail, DietPlan plan) {
+        Profile p = findByEmail(patientEmail);
+
+        if (p != null && p instanceof User) {
+            User patient = (User) p;
+
+            patient.assignDiet(plan);
+
+            System.out.println("DEMO DB: Assegnata dieta " + plan.getDietId() + " a " + patientEmail);
+            return true;
+        }
+        return false;
+    }
+
 
     @Override
     public void delete(String email) {

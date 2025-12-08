@@ -2,6 +2,7 @@ package controller;
 
 import models.DietPlan;
 import models.Nutritionist;
+import models.Profile;
 import models.factory.DAOFactory;
 import models.factory.ViewFactory;
 import view.DietEditorView;
@@ -46,7 +47,6 @@ public class DietManagerController {
     }
 
     public void editDiet(DietPlan summary) {
-        // Object Hydration: carico i dettagli prima di editare
         daoFactory.getDietPlanDAO().loadPlanDetails(summary);
         launchEditor(summary);
     }
@@ -58,9 +58,32 @@ public class DietManagerController {
     }
 
     public void assignDiet(DietPlan summary, String patientEmail) {
-        // TODO: Implementare logica di assegnazione
-        // daoFactory.getProfileDAO().assignDietToUser(patientEmail, summary.getId());
-        view.showMessage("Dieta assegnata correttamente!");
+        if (patientEmail == null || patientEmail.trim().isEmpty()) {
+            view.showError("Inserisci un'email valida.");
+            return;
+        }
+
+        Profile profile = daoFactory.getProfileDAO().findByEmail(patientEmail);
+
+        if (profile == null) {
+            view.showError("Nessun utente trovato con questa email.");
+            return;
+        }
+
+        if (profile instanceof Nutritionist) {
+            view.showError("Non puoi assegnare una dieta a un altro Nutrizionista!");
+            return;
+        }
+
+        System.out.println("LOG: Assegnazione dieta '" + summary.getDietName() + "' a " + patientEmail + "...");
+
+        boolean success = daoFactory.getProfileDAO().assignDiet(patientEmail, summary);
+
+        if (success) {
+            view.showMessage("Dieta assegnata con successo al paziente: " + profile.getName() + " " + profile.getSurname());
+        } else {
+            view.showError("Errore durante l'assegnazione (Database error).");
+        }
     }
 
     public void back() {
@@ -73,14 +96,14 @@ public class DietManagerController {
         DietEditorView editorView = viewFactory.createDietEditorView();
         DietViewerView viewerView = viewFactory.createDietViewerView();
 
-        DietEditorController editorCtrl = new DietEditorController(
+        DietEditorController editorController = new DietEditorController(
                 nutritionist,
                 plan,
                 daoFactory,
                 editorView,
                 viewerView
         );
-        editorCtrl.start();
+        editorController.start();
 
         refreshList();
 
