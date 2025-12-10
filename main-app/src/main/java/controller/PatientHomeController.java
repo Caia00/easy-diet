@@ -22,29 +22,32 @@ public class PatientHomeController {
 
     public void start() {
         view.showWelcomeMessage(user.getName() + " " + user.getSurname());
+        loadDiet();
         view.start();
+    }
+
+    private void loadDiet(){
+        if(user.getDietPlan() != null){
+            System.out.println("LOG: Dieta trovata in memoria");
+            return;
+        }
+
+        DietPlan plan = daoFactory.getDietPlanDAO().findByOwner(user.getEmail());
+
+        if(plan != null){
+            System.out.println("LOG: Dieta trovata tramite DAO");
+
+            user.assignDiet(plan);
+        }else{
+            System.out.println("LOG: Dieta non ancora assegnata");
+        }
     }
 
 
     public void openMyDiet() {
 
         if (user.getDietPlan() != null) {
-            System.out.println("LOG: Dieta trovata in memoria (Cache).");
             viewFactory.createDietViewerView().showDietPlan(user.getDietPlan());
-            return;
-        }
-
-        System.out.println("LOG: Dieta non in memoria. Ricerca tramite DAO...");
-
-        DietPlan loadedPlan = daoFactory.getDietPlanDAO().findByOwner(user.getEmail());
-
-        if (loadedPlan != null) {
-            System.out.println("LOG: Dieta trovata nel DB. Aggiorno la sessione utente.");
-
-            user.assignDiet(loadedPlan);
-
-            viewFactory.createDietViewerView().showDietPlan(loadedPlan);
-
         } else {
             view.showErrorMessage("Non hai ancora una dieta assegnata dal nutrizionista.");
         }
