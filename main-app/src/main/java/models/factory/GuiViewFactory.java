@@ -21,6 +21,10 @@ public class GuiViewFactory implements ViewFactory {
     @Override
     public DietEditorView createDietEditorView() {return new GuiDietEditorView(); }
 
+    @Override
+    public ShoppingListEditorView createShoppingListEditorView() {return new GuiShoppingListEditorView(); }
+
+
 
 
 

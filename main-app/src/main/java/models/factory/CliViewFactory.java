@@ -22,6 +22,11 @@ public class CliViewFactory implements ViewFactory {
     @Override
     public DietEditorView createDietEditorView(){ return new CliDietEditorView(); }
 
+    @Override
+    public ShoppingListEditorView createShoppingListEditorView(){ return new CliShoppingListEditorView(); }
+
+
+
 
 
 

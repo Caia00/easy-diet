@@ -9,4 +9,5 @@ public interface ViewFactory {
     NutritionistHomeView createNutritionistHomeView();
     DietManagerView createDietManagerView();
     DietEditorView createDietEditorView();
+    ShoppingListEditorView createShoppingListEditorView();
 }
