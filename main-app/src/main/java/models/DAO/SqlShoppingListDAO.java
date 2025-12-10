@@ -209,7 +209,7 @@ public class SqlShoppingListDAO implements ShoppingListDAO {
 
                 stmt.setInt(1, list.getListId());
                 stmt.setString(2, prod.getName());
-                stmt.setString(3, prod.getCategory());
+                stmt.setString(3, prod.getCategory().name());
                 stmt.setDouble(4, prod.getPrice());
                 stmt.setDouble(5, prod.getWeightInGrams());
 

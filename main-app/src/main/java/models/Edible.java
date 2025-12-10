@@ -7,5 +7,5 @@ public interface Edible {
     double getFatsPer100g();
     double getFibersPer100g();
     double getProteinsPer100g();
-    String getCategory();
+    AppCategory getCategory();
 }

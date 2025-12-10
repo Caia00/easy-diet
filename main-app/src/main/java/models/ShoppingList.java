@@ -44,30 +44,20 @@ public class ShoppingList {
         items.add(new ShoppingItem(product, quantity, isForDiet));
     }
 
-    public void decreaseQuantity(CommercialProduct product, int amountToRemove) {
-        //Utilizzo un iterator per rimuovere l'oggetto dalla lista senza errori
-        Iterator<ShoppingItem> iterator = items.iterator();
-
-        while (iterator.hasNext()) {
-            ShoppingItem item = iterator.next();
-
-            if (item.getProduct().getName().equals(product.getName())) {
-
-                int currentQty = item.getQuantity();
-                int newQty = currentQty - amountToRemove;
-
-                if (newQty > 0) {
-                    item.setQuantity(newQty);
-                } else {
-                    iterator.remove();
-                }
-                return;
-            }
+    public void decreaseQuantity(ShoppingItem item, int amountToRemove) {
+        if(items.contains(item)) {
+            item.decreaseQuantity(amountToRemove);
+        }else{
+            System.out.println("LOG: Item non trovato nella lista");
         }
     }
 
-    public void removeProductCompletely(CommercialProduct product) {
-        items.removeIf(item -> item.getProduct().getName().equals(product.getName()));
+    public void removeProductCompletely(ShoppingItem item) {
+        if (items.contains(item)) {
+            items.remove(item);
+        }else{
+            System.out.println("LOG: Item non trovato nella lista");
+        }
     }
 
     public double getTotalCost() {

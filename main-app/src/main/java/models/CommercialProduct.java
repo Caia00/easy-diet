@@ -36,7 +36,7 @@ public class CommercialProduct implements Edible{
     public double getProteinsPer100g() { return nutritionValues.getProteins(); }
 
     @Override
-    public String getCategory() { return category.name(); }
+    public AppCategory getCategory() { return category; }
 
 
     public String getName() { return name; }
