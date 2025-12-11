@@ -37,7 +37,7 @@ public class User extends Profile{
         }
     }
 
-    public List<ShoppingList> getShoppingHistory() {
+    public List<ShoppingList> getShoppingLists() {
         return shoppingLists;
     }
 

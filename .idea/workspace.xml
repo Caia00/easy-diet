@@ -4,17 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="little modify: DietPlan for user's is loaded as soon as the user logs in">
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/ShoppingListEditorController.java" afterDir="false" />
+    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="defining controller: ShoppingListEditorController will be the controller behind the shoppingList creation and in future modification">
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/ShoppingListManagerController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/CatalogLoaderFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/CliShoppingListEditorView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/GuiShoppingListEditorView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/ShoppingListEditorView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/CliShoppingListManagerView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/GuiShoppingListManagerView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/ShoppingListManagerView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/CommercialProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/CommercialProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/SqlShoppingListDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/SqlShoppingListDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/Edible.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/Edible.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/ShoppingList.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/ShoppingList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/CliViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/CliViewFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/GuiViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/GuiViewFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/ViewFactory.java" afterDir="false" />
@@ -100,23 +97,7 @@
       <workItem from="1762956823722" duration="1000" />
       <workItem from="1763979699770" duration="29781000" />
       <workItem from="1764182481879" duration="3163000" />
-      <workItem from="1764235701539" duration="107256000" />
-    </task>
-    <task id="LOCAL-00010" summary="defining logic: fallback logic for products with missing values">
-      <option name="closed" value="true" />
-      <created>1764154561509</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1764154561509</updated>
-    </task>
-    <task id="LOCAL-00011" summary="defining models: edible interface implemented by CommercialProduct">
-      <option name="closed" value="true" />
-      <created>1764168837784</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1764168837784</updated>
+      <workItem from="1764235701539" duration="111735000" />
     </task>
     <task id="LOCAL-00012" summary="defining logic: category mapper">
       <option name="closed" value="true" />
@@ -494,7 +475,23 @@
       <option name="project" value="LOCAL" />
       <updated>1765357438494</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="defining view: ShoppingListEditorView will be the view used by users when they'll create their shopping list">
+      <option name="closed" value="true" />
+      <created>1765390229421</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1765390229421</updated>
+    </task>
+    <task id="LOCAL-00060" summary="defining controller: ShoppingListEditorController will be the controller behind the shoppingList creation and in future modification">
+      <option name="closed" value="true" />
+      <created>1765390294975</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1765390294975</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -518,8 +515,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="little modify: comments" />
-    <MESSAGE value="defining models: DAO and DatabaseConnection service to retrive profiles from DB or memory" />
     <MESSAGE value="little modify: adding getter or setter methods" />
     <MESSAGE value="defining pattern: using abstract factory method to create the 2 version of the app: demo and with persistency and the 2 UI: CLI and GUI" />
     <MESSAGE value="defining controller: LoginController is the brain behind the login process and the registration process" />
@@ -543,6 +538,8 @@
     <MESSAGE value="defining method: assingDiet method for DietManagerController used by nutritionists" />
     <MESSAGE value="little modify: using nutritionist's method to create a new diet template" />
     <MESSAGE value="little modify: DietPlan for user's is loaded as soon as the user logs in" />
-    <option name="LAST_COMMIT_MESSAGE" value="little modify: DietPlan for user's is loaded as soon as the user logs in" />
+    <MESSAGE value="defining view: ShoppingListEditorView will be the view used by users when they'll create their shopping list" />
+    <MESSAGE value="defining controller: ShoppingListEditorController will be the controller behind the shoppingList creation and in future modification" />
+    <option name="LAST_COMMIT_MESSAGE" value="defining controller: ShoppingListEditorController will be the controller behind the shoppingList creation and in future modification" />
   </component>
 </project>
