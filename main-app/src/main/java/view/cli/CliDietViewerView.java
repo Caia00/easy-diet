@@ -1,8 +1,9 @@
-package view;
+package view.cli;
 
 import models.DietItem;
 import models.DietPlan;
 import models.Meal;
+import view.DietViewerView;
 
 import java.util.List;
 

@@ -1,16 +1,17 @@
-package view;
+package view.cli;
 
 import controller.ShoppingListEditorController;
 import models.AppCategory;
 import models.CommercialProduct;
 import models.ShoppingItem;
 import models.ShoppingList;
+import view.ShoppingListEditorView;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class CliShoppingListEditorView implements ShoppingListEditorView{
+public class CliShoppingListEditorView implements ShoppingListEditorView {
     private ShoppingListEditorController controller;
     private final Scanner scanner = new Scanner(System.in);
     private boolean isEditing = true;

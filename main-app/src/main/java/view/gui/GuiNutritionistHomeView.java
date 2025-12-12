@@ -1,6 +1,7 @@
-package view;
+package view.gui;
 
 import controller.NutritionistHomeController;
+import view.NutritionistHomeView;
 
 public class GuiNutritionistHomeView implements NutritionistHomeView {
 

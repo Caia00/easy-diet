@@ -1,8 +1,9 @@
-package view;
+package view.gui;
 
 import controller.DietEditorController;
+import view.DietEditorView;
 
-public class GuiDietEditorView implements DietEditorView{
+public class GuiDietEditorView implements DietEditorView {
     @Override
     public void setController(DietEditorController controller) {
 

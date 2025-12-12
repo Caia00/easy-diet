@@ -1,7 +1,8 @@
-package view;
+package view.cli;
 
 import controller.DietManagerController;
 import models.DietPlan;
+import view.DietManagerView;
 
 import java.util.List;
 import java.util.Scanner;

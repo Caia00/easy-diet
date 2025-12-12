@@ -1,11 +1,12 @@
-package view;
+package view.gui;
 
 import controller.ShoppingListManagerController;
 import models.ShoppingList;
+import view.ShoppingListManagerView;
 
 import java.util.List;
 
-public class GuiShoppingListManagerView implements ShoppingListManagerView{
+public class GuiShoppingListManagerView implements ShoppingListManagerView {
     @Override
     public void setController(ShoppingListManagerController controller) {
 

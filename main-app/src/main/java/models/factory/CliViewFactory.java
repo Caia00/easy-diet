@@ -1,6 +1,7 @@
 package models.factory;
 
 import view.*;
+import view.cli.*;
 
 public class CliViewFactory implements ViewFactory {
 

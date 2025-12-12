@@ -1,6 +1,8 @@
-package view;
+package view.cli;
 
 import controller.*;
+import view.PatientHomeView;
+
 import java.util.Scanner;
 
 

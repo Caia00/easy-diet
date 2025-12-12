@@ -1,14 +1,15 @@
-package view;
+package view.gui;
 
 import controller.ShoppingListEditorController;
 import models.AppCategory;
 import models.CommercialProduct;
 import models.ShoppingList;
+import view.ShoppingListEditorView;
 
 import java.util.List;
 import java.util.Map;
 
-public class GuiShoppingListEditorView implements ShoppingListEditorView{
+public class GuiShoppingListEditorView implements ShoppingListEditorView {
 
     @Override
     public void setController(ShoppingListEditorController controller) {

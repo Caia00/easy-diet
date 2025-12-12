@@ -1,6 +1,7 @@
-package view;
+package view.gui;
 
 import controller.PatientHomeController;
+import view.PatientHomeView;
 
 public class GuiPatientHomeView implements PatientHomeView {
     @Override

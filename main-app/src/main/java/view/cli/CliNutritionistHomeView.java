@@ -1,9 +1,7 @@
-package view;
+package view.cli;
 
 import controller.NutritionistHomeController;
-import models.DietPlan;
-
-import java.util.List;
+import view.NutritionistHomeView;
 
 import java.util.Scanner;
 

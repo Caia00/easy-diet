@@ -1,13 +1,14 @@
-package view;
+package view.cli;
 
 import controller.ShoppingListManagerController;
 import models.ShoppingList;
 import models.SupermarketName;
+import view.ShoppingListManagerView;
 
 import java.util.List;
 import java.util.Scanner;
 
-public class CliShoppingListManagerView implements ShoppingListManagerView{
+public class CliShoppingListManagerView implements ShoppingListManagerView {
     private ShoppingListManagerController controller;
     private final Scanner scanner = new Scanner(System.in);
     private boolean isRunning = true;

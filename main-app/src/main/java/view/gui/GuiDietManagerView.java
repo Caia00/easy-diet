@@ -1,11 +1,12 @@
-package view;
+package view.gui;
 
 import controller.DietManagerController;
 import models.DietPlan;
+import view.DietManagerView;
 
 import java.util.List;
 
-public class GuiDietManagerView implements DietManagerView{
+public class GuiDietManagerView implements DietManagerView {
     @Override
     public void setController(DietManagerController controller) {
 

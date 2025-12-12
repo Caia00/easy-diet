@@ -1,7 +1,8 @@
-package view;
+package view.cli;
 
 import controller.DietEditorController;
 import models.AppCategory;
+import view.DietEditorView;
 
 import java.util.Scanner;
 

@@ -1,5 +1,7 @@
-package view;
+package view.cli;
 import controller.LoginController;
+import view.AuthView;
+
 import java.time.LocalDate;
 import java.util.Scanner;
 
