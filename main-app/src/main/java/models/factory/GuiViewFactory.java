@@ -1,10 +1,18 @@
 package models.factory;
 
+import javafx.stage.Stage;
 import view.*;
+import view.gui.*;
 
 public class GuiViewFactory implements ViewFactory {
+
+    private final Stage primaryStage;
+
+    public GuiViewFactory(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+    }
     @Override
-    public AuthView createAuthView() { return new GuiAuthView(); }
+    public AuthView createAuthView() { return new GuiAuthView(primaryStage); }
 
     @Override
     public PatientHomeView createPatientHomeView() {return new GuiPatientHomeView(); }

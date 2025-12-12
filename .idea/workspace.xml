@@ -4,17 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="defining controller: ShoppingListEditorController will be the controller behind the shoppingList creation and in future modification">
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/ShoppingListManagerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/CatalogLoaderFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/CliShoppingListManagerView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/GuiShoppingListManagerView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/ShoppingListManagerView.java" afterDir="false" />
+    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="defining controller: ShoppingListManagerController is the controller that manages shopping lists visualization, creation, ...">
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/utility/GuiTheme.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/utility/Toast.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/CliViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/CliViewFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/GuiViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/GuiViewFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/ViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/ViewFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/CliAuthView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliAuthView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/CliDietEditorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliDietEditorView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/CliDietManagerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliDietManagerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/CliDietViewerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliDietViewerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/CliNutritionistHomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliNutritionistHomeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/CliPatientHomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliPatientHomeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/CliShoppingListEditorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliShoppingListEditorView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/CliShoppingListManagerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliShoppingListManagerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/GuiAuthView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiAuthView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/GuiDietEditorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiDietEditorView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/GuiDietManagerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiDietManagerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/GuiDietViewerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiDietViewerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/GuiNutritionistHomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiNutritionistHomeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/GuiPatientHomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiPatientHomeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/GuiShoppingListEditorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiShoppingListEditorView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/GuiShoppingListManagerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiShoppingListManagerView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,28 +66,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/caia/IdeaProjects/easy-diet/main-app/src/main/java/models",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/caia/IdeaProjects/easy-diet/main-app/src/main/java/models&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="view.cli" />
+      <recent name="view.gui" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -97,23 +113,8 @@
       <workItem from="1762956823722" duration="1000" />
       <workItem from="1763979699770" duration="29781000" />
       <workItem from="1764182481879" duration="3163000" />
-      <workItem from="1764235701539" duration="111735000" />
-    </task>
-    <task id="LOCAL-00012" summary="defining logic: category mapper">
-      <option name="closed" value="true" />
-      <created>1764171666832</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1764171666832</updated>
-    </task>
-    <task id="LOCAL-00013" summary="defining factory: ProductFactory will create a valid product object for the system">
-      <option name="closed" value="true" />
-      <created>1764173041506</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1764173041506</updated>
+      <workItem from="1764235701539" duration="116276000" />
+      <workItem from="1765473284228" duration="3985000" />
     </task>
     <task id="LOCAL-00014" summary="adding weight for CommercialProduct">
       <option name="closed" value="true" />
@@ -491,7 +492,23 @@
       <option name="project" value="LOCAL" />
       <updated>1765390294975</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="defining view: ShoppingListManagerView is the view used to manage shopping lists visualization, creation, ...">
+      <option name="closed" value="true" />
+      <created>1765466513507</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1765466513507</updated>
+    </task>
+    <task id="LOCAL-00062" summary="defining controller: ShoppingListManagerController is the controller that manages shopping lists visualization, creation, ...">
+      <option name="closed" value="true" />
+      <created>1765466567693</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1765466567694</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,8 +532,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="little modify: adding getter or setter methods" />
-    <MESSAGE value="defining pattern: using abstract factory method to create the 2 version of the app: demo and with persistency and the 2 UI: CLI and GUI" />
     <MESSAGE value="defining controller: LoginController is the brain behind the login process and the registration process" />
     <MESSAGE value="defining view: the view for authentication: AuthView and its implementation CliAuthView" />
     <MESSAGE value="defining view: only defined GuiAuthView" />
@@ -540,6 +555,8 @@
     <MESSAGE value="little modify: DietPlan for user's is loaded as soon as the user logs in" />
     <MESSAGE value="defining view: ShoppingListEditorView will be the view used by users when they'll create their shopping list" />
     <MESSAGE value="defining controller: ShoppingListEditorController will be the controller behind the shoppingList creation and in future modification" />
-    <option name="LAST_COMMIT_MESSAGE" value="defining controller: ShoppingListEditorController will be the controller behind the shoppingList creation and in future modification" />
+    <MESSAGE value="defining view: ShoppingListManagerView is the view used to manage shopping lists visualization, creation, ..." />
+    <MESSAGE value="defining controller: ShoppingListManagerController is the controller that manages shopping lists visualization, creation, ..." />
+    <option name="LAST_COMMIT_MESSAGE" value="defining controller: ShoppingListManagerController is the controller that manages shopping lists visualization, creation, ..." />
   </component>
 </project>

@@ -145,6 +145,7 @@ public class GuiAuthView implements AuthView {
             }
         });
 
+
         container.getChildren().addAll(
                 new Label("Nome:"), txtName,
                 new Label("Cognome:"), txtSurname,
