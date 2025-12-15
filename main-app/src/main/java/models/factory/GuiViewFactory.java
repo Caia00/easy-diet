@@ -15,13 +15,13 @@ public class GuiViewFactory implements ViewFactory {
     public AuthView createAuthView() { return new GuiAuthView(primaryStage); }
 
     @Override
-    public PatientHomeView createPatientHomeView() {return new GuiPatientHomeView(); }
+    public PatientHomeView createPatientHomeView() {return new GuiPatientHomeView(primaryStage); }
 
     @Override
     public DietViewerView createDietViewerView() {return new GuiDietViewerView(); }
 
     @Override
-    public NutritionistHomeView createNutritionistHomeView() {return new GuiNutritionistHomeView(); }
+    public NutritionistHomeView createNutritionistHomeView() {return new GuiNutritionistHomeView(primaryStage); }
 
     @Override
     public DietManagerView createDietManagerView() {return new GuiDietManagerView(); }

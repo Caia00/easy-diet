@@ -4,29 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="defining controller: ShoppingListManagerController is the controller that manages shopping lists visualization, creation, ...">
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/utility/GuiTheme.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/utility/Toast.java" afterDir="false" />
+    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="implementing view: created authentication Gui view using javafx">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/CliViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/CliViewFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/NutritionistHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/NutritionistHomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/PatientHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/PatientHomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/GuiViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/GuiViewFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/CliAuthView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliAuthView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/CliDietEditorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliDietEditorView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/CliDietManagerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliDietManagerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/CliDietViewerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliDietViewerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/CliNutritionistHomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliNutritionistHomeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/CliPatientHomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliPatientHomeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/CliShoppingListEditorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliShoppingListEditorView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/CliShoppingListManagerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliShoppingListManagerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/GuiAuthView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiAuthView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/GuiDietEditorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiDietEditorView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/GuiDietManagerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiDietManagerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/GuiDietViewerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiDietViewerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/GuiNutritionistHomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiNutritionistHomeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/GuiPatientHomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiPatientHomeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/GuiShoppingListEditorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiShoppingListEditorView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/GuiShoppingListManagerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiShoppingListManagerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/NutritionistHomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/NutritionistHomeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliNutritionistHomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliNutritionistHomeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiNutritionistHomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiNutritionistHomeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiPatientHomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiPatientHomeView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,23 +100,7 @@
       <workItem from="1763979699770" duration="29781000" />
       <workItem from="1764182481879" duration="3163000" />
       <workItem from="1764235701539" duration="116276000" />
-      <workItem from="1765473284228" duration="3985000" />
-    </task>
-    <task id="LOCAL-00014" summary="adding weight for CommercialProduct">
-      <option name="closed" value="true" />
-      <created>1764174555237</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1764174555237</updated>
-    </task>
-    <task id="LOCAL-00015" summary="defining model: NutritionalTarget will be used by nutritionist to set the amount of nutritional values that should recive from food">
-      <option name="closed" value="true" />
-      <created>1764179387770</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1764179387770</updated>
+      <workItem from="1765473284228" duration="7406000" />
     </task>
     <task id="LOCAL-00016" summary="defining model: MealDemand as a bean">
       <option name="closed" value="true" />
@@ -508,7 +478,23 @@
       <option name="project" value="LOCAL" />
       <updated>1765466567694</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="little modify: refactored position in package">
+      <option name="closed" value="true" />
+      <created>1765549950765</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1765549950766</updated>
+    </task>
+    <task id="LOCAL-00064" summary="implementing view: created authentication Gui view using javafx">
+      <option name="closed" value="true" />
+      <created>1765550023190</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1765550023190</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,8 +518,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="defining controller: LoginController is the brain behind the login process and the registration process" />
-    <MESSAGE value="defining view: the view for authentication: AuthView and its implementation CliAuthView" />
     <MESSAGE value="defining view: only defined GuiAuthView" />
     <MESSAGE value="defining controller: PatientHomeController will be the brain behind the patient home screen" />
     <MESSAGE value="defining views: CLI and GUI views for patient home screen" />
@@ -557,6 +541,8 @@
     <MESSAGE value="defining controller: ShoppingListEditorController will be the controller behind the shoppingList creation and in future modification" />
     <MESSAGE value="defining view: ShoppingListManagerView is the view used to manage shopping lists visualization, creation, ..." />
     <MESSAGE value="defining controller: ShoppingListManagerController is the controller that manages shopping lists visualization, creation, ..." />
-    <option name="LAST_COMMIT_MESSAGE" value="defining controller: ShoppingListManagerController is the controller that manages shopping lists visualization, creation, ..." />
+    <MESSAGE value="little modify: refactored position in package" />
+    <MESSAGE value="implementing view: created authentication Gui view using javafx" />
+    <option name="LAST_COMMIT_MESSAGE" value="implementing view: created authentication Gui view using javafx" />
   </component>
 </project>

@@ -47,6 +47,7 @@ public class NutritionistHomeController {
     }
 
     public void goToProfile() {
+        view.showError("Futura implementazione...");
         /** TODO: implementare controller e view per gestione profilo
          *
          */
@@ -54,5 +55,6 @@ public class NutritionistHomeController {
 
     public void logout() {
         view.close();
+        new LoginController(daoFactory, viewFactory).start();
     }
 }

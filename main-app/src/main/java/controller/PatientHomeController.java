@@ -54,19 +54,21 @@ public class PatientHomeController {
     }
 
     public void openShoppingList() {
-        System.out.println("DEBUG: Apertura lista della spesa...");
-
-        // 1. Chiedo alla factory la view corretta (CLI/GUI)
-        // ShoppingListView shopView = viewFactory.createShoppingListView();
-
-        // 2. Lancio il controller specifico
-        // new ShoppingListController(user, daoFactory, viewFactory, shopView).start();
+        ShoppingListManagerView shoppingListManagerView = viewFactory.createShoppingListManagerView();
+        ShoppingListManagerController controller = new ShoppingListManagerController(
+                user,
+                daoFactory,
+                viewFactory,
+                shoppingListManagerView
+        );
+        controller.start();
     }
 
 
     public void logout() {
         System.out.println("Disconnessione in corso...");
         view.close();
+        new LoginController(daoFactory, viewFactory).start();
     }
 
 }
