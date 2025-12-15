@@ -8,6 +8,7 @@ import models.factory.ViewFactory;
 import view.DietEditorView;
 import view.DietManagerView;
 import view.DietViewerView;
+import view.NutritionistHomeView;
 
 import java.util.List;
 
@@ -88,6 +89,15 @@ public class DietManagerController {
 
     public void back() {
         view.close();
+        NutritionistHomeView homeView = viewFactory.createNutritionistHomeView();
+
+        NutritionistHomeController homeController = new NutritionistHomeController(
+                nutritionist,
+                daoFactory,
+                viewFactory,
+                homeView
+        );
+        homeController.start();
     }
 
     private void launchEditor(DietPlan plan) {
