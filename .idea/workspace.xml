@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="implementing view: created gui view to display DietPlans">
+    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="implementing view: created diet manager gui view">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/DietManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/DietManagerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/GuiViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/GuiViewFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiDietManagerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiDietManagerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliDietEditorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliDietEditorView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiDietViewerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiDietViewerView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,15 +95,7 @@
       <workItem from="1763979699770" duration="29781000" />
       <workItem from="1764182481879" duration="3163000" />
       <workItem from="1764235701539" duration="116276000" />
-      <workItem from="1765473284228" duration="13434000" />
-    </task>
-    <task id="LOCAL-00019" summary="little modify in comments">
-      <option name="closed" value="true" />
-      <created>1764235559437</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1764235559437</updated>
+      <workItem from="1765473284228" duration="15103000" />
     </task>
     <task id="LOCAL-00020" summary="little modify: changed NutritionalTarget structure using composition with nutritionalValues">
       <option name="closed" value="true" />
@@ -490,7 +481,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765793235872</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="implementing view: created diet manager gui view">
+      <option name="closed" value="true" />
+      <created>1765807368541</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1765807368541</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -514,7 +513,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="defining models: definied logic to save DietPlan into DB or memory (in case of DEMO version)" />
     <MESSAGE value="little modify: adding override toString method to models to easily print them on screen" />
     <MESSAGE value="defining views: defined views to let patients see their DietPlan" />
     <MESSAGE value="defining controller: defined controller to let patients see their DietPlan" />
@@ -539,6 +537,7 @@
     <MESSAGE value="implementing view: created home gui view for nutritionist and patient" />
     <MESSAGE value="little modify: adding showError method" />
     <MESSAGE value="implementing view: created gui view to display DietPlans" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementing view: created gui view to display DietPlans" />
+    <MESSAGE value="implementing view: created diet manager gui view" />
+    <option name="LAST_COMMIT_MESSAGE" value="implementing view: created diet manager gui view" />
   </component>
 </project>
