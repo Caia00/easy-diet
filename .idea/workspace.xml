@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="implementing view: created authentication Gui view using javafx">
+    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="little modify: adding showError method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/NutritionistHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/NutritionistHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/PatientHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/PatientHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/GuiViewFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/GuiViewFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/NutritionistHomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/NutritionistHomeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliNutritionistHomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliNutritionistHomeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiNutritionistHomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiNutritionistHomeView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiPatientHomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiPatientHomeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiDietViewerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiDietViewerView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,23 +94,7 @@
       <workItem from="1763979699770" duration="29781000" />
       <workItem from="1764182481879" duration="3163000" />
       <workItem from="1764235701539" duration="116276000" />
-      <workItem from="1765473284228" duration="7406000" />
-    </task>
-    <task id="LOCAL-00016" summary="defining model: MealDemand as a bean">
-      <option name="closed" value="true" />
-      <created>1764182110365</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1764182110365</updated>
-    </task>
-    <task id="LOCAL-00017" summary="defining logic: DietCalculatorService will be the expert in calculating how much of a product the user has to eat">
-      <option name="closed" value="true" />
-      <created>1764182165567</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1764182165567</updated>
+      <workItem from="1765473284228" duration="10772000" />
     </task>
     <task id="LOCAL-00018" summary="defining model: ShoppingCalculationResult will be a bean used by DietCalculatorService to cominucate calculated data">
       <option name="closed" value="true" />
@@ -494,7 +472,23 @@
       <option name="project" value="LOCAL" />
       <updated>1765550023190</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="implementing view: created home gui view for nutritionist and patient">
+      <option name="closed" value="true" />
+      <created>1765789868629</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1765789868629</updated>
+    </task>
+    <task id="LOCAL-00066" summary="little modify: adding showError method">
+      <option name="closed" value="true" />
+      <created>1765789891052</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1765789891052</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -518,8 +512,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="defining view: only defined GuiAuthView" />
-    <MESSAGE value="defining controller: PatientHomeController will be the brain behind the patient home screen" />
     <MESSAGE value="defining views: CLI and GUI views for patient home screen" />
     <MESSAGE value="defining models: definied logic to save DietPlan into DB or memory (in case of DEMO version)" />
     <MESSAGE value="little modify: adding override toString method to models to easily print them on screen" />
@@ -543,6 +535,8 @@
     <MESSAGE value="defining controller: ShoppingListManagerController is the controller that manages shopping lists visualization, creation, ..." />
     <MESSAGE value="little modify: refactored position in package" />
     <MESSAGE value="implementing view: created authentication Gui view using javafx" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementing view: created authentication Gui view using javafx" />
+    <MESSAGE value="implementing view: created home gui view for nutritionist and patient" />
+    <MESSAGE value="little modify: adding showError method" />
+    <option name="LAST_COMMIT_MESSAGE" value="little modify: adding showError method" />
   </component>
 </project>
