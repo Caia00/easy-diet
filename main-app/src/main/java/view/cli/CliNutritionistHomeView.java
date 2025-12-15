@@ -49,5 +49,10 @@ public class CliNutritionistHomeView implements NutritionistHomeView {
     }
 
     @Override
+    public void showError(String err){
+        System.out.println("[ERROR] " + err);
+    }
+
+    @Override
     public void close() { isRunning = false; }
 }
