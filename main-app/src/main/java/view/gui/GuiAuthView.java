@@ -196,6 +196,10 @@ public class GuiAuthView implements AuthView {
         );
     }
 
+    @Override
+    public void switchToLogin() {
+        showLoginScreen();
+    }
 
     @Override
     public void showErrorMessage(String message) {
