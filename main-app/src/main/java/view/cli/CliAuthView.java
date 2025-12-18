@@ -101,6 +101,10 @@ public class CliAuthView implements AuthView {
         controller.registerNutritionist(name, surname, email, pwd, birth, albo);
     }
 
+    @Override
+    public void switchToLogin() {
+
+    }
 
     @Override
     public void showErrorMessage(String message) {
