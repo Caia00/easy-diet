@@ -7,6 +7,8 @@ public interface AuthView {
 
     void start();
 
+    void switchToLogin();
+
     void showErrorMessage(String message);
 
     void showSuccessMessage(String message);
