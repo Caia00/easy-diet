@@ -5,10 +5,12 @@ import models.services.DatabaseConnection;
 
 import java.sql.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.logging.*;
+import java.util.logging.Logger;
 
 public class SqlProfileDAO implements ProfileDAO {
+
+    private static final Logger logger = Logger.getLogger(SqlProfileDAO.class.getName());
 
 
     @Override
@@ -26,7 +28,7 @@ public class SqlProfileDAO implements ProfileDAO {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Errore durante il metodo findByEmail", e);
         }
         return null;
     }
@@ -63,11 +65,11 @@ public class SqlProfileDAO implements ProfileDAO {
             }
 
             stmt.executeUpdate();
-            System.out.println("SQL DB: Salvato profilo " + profile.getEmail());
+            logger.info("Profilo salvato nel DB");
 
         } catch (SQLException e) {
-            e.printStackTrace();
-            System.err.println("Errore salvataggio in DB: " + e.getMessage());
+            logger.log(Level.SEVERE, "Errore durante salvataggio profilo nel DB", e);
+            throw new RuntimeException("Errore databse: " + e.getMessage());
         }
     }
 
@@ -87,7 +89,7 @@ public class SqlProfileDAO implements ProfileDAO {
             return rows > 0;
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Errore durante metodo assignDiet", e);
             return false;
         }
     }
@@ -101,9 +103,10 @@ public class SqlProfileDAO implements ProfileDAO {
 
             stmt.setString(1, email);
             stmt.executeUpdate();
+            logger.info("Profilo correttamente eliminato");
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Errore durante il metodo delete", e);
         }
     }
 

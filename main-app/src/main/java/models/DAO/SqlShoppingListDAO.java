@@ -6,8 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 import models.*;
 import models.services.DatabaseConnection;
+import java.util.logging.*;
 
 public class SqlShoppingListDAO implements ShoppingListDAO {
+
+    private static final Logger logger = Logger.getLogger(SqlShoppingListDAO.class.getName());
     public SqlShoppingListDAO() { }
 
     //Metodo per recuperare la lista delle ShoppingList create dall'utente, composte solo dai dati della lista e non anche dai prodotti inserit
@@ -29,7 +32,7 @@ public class SqlShoppingListDAO implements ShoppingListDAO {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Errore durante caricamento summaries delle liste della spesa create", e);
         }
         return summaries;
     }
@@ -39,11 +42,11 @@ public class SqlShoppingListDAO implements ShoppingListDAO {
     public void loadDetails(ShoppingList list) {
 
         if (list == null || list.getListId() == null) {
-            System.err.println("DAO ERROR: Impossibile caricare dettagli. Lista nulla o ID mancante.");
+            logger.severe("Impossibile caricare dettagli. Lista nulla o ID mancante.");
             return;
         }
 
-        //Elimino vecchi elementi della lista se presenti in memoria per sostiuirli con quelli presi da DB
+        //Elimino vecchi elementi della lista se presenti in memoria per sostituirli con quelli presi da DB
         list.getItems().clear();
 
         String sql = "SELECT * FROM shopping_items WHERE list_id = ?";
@@ -75,7 +78,7 @@ public class SqlShoppingListDAO implements ShoppingListDAO {
                         try {
                             pCat = AppCategory.valueOf(catStr);
                         } catch (IllegalArgumentException e) {
-                            System.err.println("WARNING: Categoria sconosciuta nel DB: " + catStr);
+                            logger.warning("Categoria sconosciuta trovata nel DB: " + catStr);
                         }
                     }
 
@@ -95,10 +98,10 @@ public class SqlShoppingListDAO implements ShoppingListDAO {
                 }
             }
 
-            System.out.println("DAO: Caricati " + list.getItems().size() + " prodotti per lista " + list.getListId());
+            logger.info("Caricati " + list.getItems().size() + " prodotti per lista: " + list.getListId());
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Errore durante caricamento dettagli della lista: " + list.getListId(), e);
         }
     }
 
@@ -115,12 +118,14 @@ public class SqlShoppingListDAO implements ShoppingListDAO {
 
             if (list.getListId() == null) {
                 //INSERT
-                String sql = "INSERT INTO shopping_lists (list_name, creation_date, supermarket, owner_email) VALUES (?, ?, ?, ?)";
+                String sql = "INSERT INTO shopping_lists (list_name, creation_date, supermarket, owner_email, items_quantity, total_price) VALUES (?, ?, ?, ?, ?, ?)";
                 try (PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                     stmt.setString(1, list.getListName());
                     stmt.setDate(2, java.sql.Date.valueOf(list.getCreationDate()));
                     stmt.setString(3, list.getSupermarket().name());
                     stmt.setString(4, ownerEmail);
+                    stmt.setInt(5, list.getTotalItemsCount());
+                    stmt.setDouble(6, list.getTotalCost());
 
                     stmt.executeUpdate();
 
@@ -133,11 +138,13 @@ public class SqlShoppingListDAO implements ShoppingListDAO {
                 }
             } else {
                 //UPDATE
-                String sql = "UPDATE shopping_lists SET list_name = ?, supermarket = ? WHERE id = ?";
+                String sql = "UPDATE shopping_lists SET list_name = ?, supermarket = ?, items_quantity = ?, total_price = ? WHERE id = ?";
                 try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                     stmt.setString(1, list.getListName());
                     stmt.setString(2, list.getSupermarket().name());
                     stmt.setInt(3, list.getListId());
+                    stmt.setInt(4, list.getTotalItemsCount());
+                    stmt.setDouble(5, list.getTotalCost());
                     stmt.executeUpdate();
                 }
 
@@ -148,25 +155,28 @@ public class SqlShoppingListDAO implements ShoppingListDAO {
 
             //COMMIT
             conn.commit();
-            System.out.println("LOG: Lista salvata correttamente (ID: " + list.getListId() + ")");
+            logger.info("Lista salvata correttamente (ID: " + list.getListId() + ")");
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Errore durante salvataggio lista nel DB, procedo con Rollback", e);
             //ROLLBACK
             if (conn != null) {
-                try { conn.rollback(); System.err.println("LOG: Rollback eseguito."); }
-                catch (SQLException ex) { ex.printStackTrace(); }
+                try {
+                    conn.rollback();
+                    logger.warning("Rollback eseguito.");}
+                catch (SQLException ex) {
+                    logger.log(Level.SEVERE, "Errore durante Rollback, alcuni dati potrebbero trovarsi nel DB", e); }
             }
         } finally {
             if (conn != null) {
-                try { conn.setAutoCommit(true); } catch (SQLException e) { e.printStackTrace(); }
+                try { conn.setAutoCommit(true); } catch (SQLException e) { logger.log(Level.SEVERE, "Errore durante ripristino autocommit", e); }
             }
         }
     }
 
     //Metodo per eliminare una ShoppingList, grazie a ON DELETE CASCADE nel DB basta eliminare la lista da shopping_lists
     @Override
-    public void delete(ShoppingList list) {
+    public void delete(ShoppingList list, String email) {
         if (list == null || list.getListId() == null) return;
 
         String sql = "DELETE FROM shopping_lists WHERE id = ?";
@@ -176,10 +186,10 @@ public class SqlShoppingListDAO implements ShoppingListDAO {
 
             stmt.setInt(1, list.getListId());
             stmt.executeUpdate();
-            System.out.println("LOG: Eliminata da DB lista ID " + list.getListId());
+            logger.info("Eliminata da DB lista ID " + list.getListId());
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Errore durante eliminazione lista da DB", e);
         }
     }
 
@@ -190,8 +200,10 @@ public class SqlShoppingListDAO implements ShoppingListDAO {
         String name = rs.getString("list_name");
         SupermarketName market = SupermarketName.valueOf(rs.getString("supermarket"));
         LocalDate date = rs.getDate("creation_date").toLocalDate();
+        int itemsQuantity = rs.getInt("items_quantity");
+        double totalPrice = rs.getDouble("total_price");
 
-        return new ShoppingList(id, name, market, date);
+        return new ShoppingList(id, name, market, date, itemsQuantity, totalPrice);
     }
 
     //Metodo privato per salvare gli shoppingItems all'interno del DB collegandoli alla lista di appartenenza

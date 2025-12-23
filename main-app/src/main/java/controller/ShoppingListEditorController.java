@@ -95,7 +95,7 @@ public class ShoppingListEditorController {
                 .filter(d -> d.getTarget().getCategory() == product.getCategory())
                 .collect(Collectors.toList());
 
-        String adviceMsg = "";
+        String adviceMsg;
         int suggestedQty = 1; //Default
 
         //Se ci sono richieste pertinenti uso il DietCalculatorService per il calcolo delle confezioni
@@ -149,11 +149,9 @@ public class ShoppingListEditorController {
 
         if (quantityToRemove >= currentQty) {
             shoppingList.removeProductCompletely(item);
-
             view.showMessage("Rimosso completamente: " + item.getProduct().getName());
         } else {
             shoppingList.decreaseQuantity(item, quantityToRemove);
-
             view.showMessage("Rimossi " + quantityToRemove + " pezzi di " + item.getProduct().getName());
         }
 
@@ -242,5 +240,9 @@ public class ShoppingListEditorController {
 
     public ShoppingList getCurrentList() {
         return shoppingList;
+    }
+
+    public void cancel(){
+        view.close();
     }
 }

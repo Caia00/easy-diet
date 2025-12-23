@@ -1,12 +1,13 @@
 package models.DAO;
 
 import models.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.logging.*;
 
 public class InMemoryProfileDAO implements ProfileDAO {
+
+    private static final Logger logger = Logger.getLogger(InMemoryProfileDAO.class.getName());
     private static List<Profile> db = new ArrayList<>();
 
     public InMemoryProfileDAO() {
@@ -16,7 +17,7 @@ public class InMemoryProfileDAO implements ProfileDAO {
     public void save(Profile profile) {
         delete(profile.getEmail());
         db.add(profile);
-        System.out.println("DEMO DB: Salvato profilo " + profile.getEmail());
+        logger.info("DEMO DB: Salvato profilo " + profile.getEmail());
     }
 
     @Override
@@ -33,7 +34,7 @@ public class InMemoryProfileDAO implements ProfileDAO {
 
             patient.assignDiet(plan);
 
-            System.out.println("DEMO DB: Assegnata dieta " + plan.getDietId() + " a " + patientEmail);
+            logger.info("DEMO DB: Assegnata dieta " + plan.getDietId() + " a " + patientEmail);
             return true;
         }
         return false;
@@ -43,5 +44,6 @@ public class InMemoryProfileDAO implements ProfileDAO {
     @Override
     public void delete(String email) {
         db.removeIf(p -> p.getEmail().equalsIgnoreCase(email));
+        logger.info("DEMO DB: Eliminato profilo di " + email);
     }
 }

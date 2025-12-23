@@ -59,6 +59,7 @@ public class CliShoppingListEditorView implements ShoppingListEditorView {
             System.out.println("1. Aggiungi Prodotto (Scegli Categoria)");
             System.out.println("2. Rimuovi Prodotto dalla Lista");
             System.out.println("9. SALVA E ESCI");
+            System.out.println("0. Esci senza salvare");
             System.out.print("> ");
 
             String choice = scanner.nextLine();
@@ -70,6 +71,8 @@ public class CliShoppingListEditorView implements ShoppingListEditorView {
                 case "2":
                     handleRemoveItem();
                     break;
+                case "0":
+                    controller.cancel();
                 case "9":
                     controller.saveAndExit();
             }

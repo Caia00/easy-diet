@@ -4,8 +4,11 @@ import models.DietPlan;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.*;
 
 public class InMemoryDietPlanDAO implements DietPlanDAO {
+
+    private static final Logger logger = Logger.getLogger(InMemoryDietPlanDAO.class.getName());
     private static List<DietPlan> templates = new ArrayList<>();
     private static int idCounter = 1;
 
@@ -17,10 +20,10 @@ public class InMemoryDietPlanDAO implements DietPlanDAO {
             plan.setDietId(idCounter++);
             templates.add(plan);
         } else {
-            delete(plan);
+            delete(plan, "");
             templates.add(plan);
         }
-        System.out.println("DEMO DB: Template dieta salvato " + plan.getDietName());
+        logger.info("DEMO DB: Template dieta salvato " + plan.getDietName());
     }
 
     @Override
@@ -39,7 +42,8 @@ public class InMemoryDietPlanDAO implements DietPlanDAO {
     }
 
     @Override
-    public void delete(DietPlan plan) {
+    public void delete(DietPlan plan, String email) {
         templates.removeIf(p -> p.getDietId().equals(plan.getDietId()));
+        logger.info("DEMO DB: Template dieta eliminato " + plan.getDietName());
     }
 }

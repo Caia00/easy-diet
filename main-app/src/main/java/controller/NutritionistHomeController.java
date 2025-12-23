@@ -6,10 +6,12 @@ import models.factory.DAOFactory;
 import models.factory.ViewFactory;
 import view.DietManagerView;
 import view.NutritionistHomeView;
+import java.util.logging.*;
 
 import java.util.List;
 
 public class NutritionistHomeController {
+    private static final Logger logger = Logger.getLogger(NutritionistHomeController.class.getName());
     private final Nutritionist nutritionist;
     private final DAOFactory daoFactory;
     private final ViewFactory viewFactory;
@@ -30,7 +32,7 @@ public class NutritionistHomeController {
 
 
     public void goToDietManager() {
-        System.out.println("LOG: Apertura Diet Manager...");
+        logger.info(nutritionist.getEmail() +" apertura Diet Manager...");
 
         DietManagerView managerView = viewFactory.createDietManagerView();
 
@@ -54,6 +56,7 @@ public class NutritionistHomeController {
     }
 
     public void logout() {
+        logger.info(nutritionist.getEmail() +" disconnessione in corso...");
         view.close();
         new LoginController(daoFactory, viewFactory).start();
     }

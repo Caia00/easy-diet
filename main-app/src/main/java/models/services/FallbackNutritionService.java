@@ -2,18 +2,23 @@ package models.services;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import models.NutritionalValues;
-
+import java.util.logging.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
 public class FallbackNutritionService {
+    private static final Logger logger = Logger.getLogger(FallbackNutritionService.class.getName());
     private static FallbackNutritionService instance; //Istanza statica privata per pattern singleton
 
     private List<StandardFood> database;
 
     private FallbackNutritionService() { //Costruttore privato per pattern singleton
-        loadDatabase();
+        try {
+            loadDatabase();
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Impossibile caricare il database di fallback (JSON). Il servizio funzionerà a vuoto.", e);
+        }
     }
 
     public static FallbackNutritionService getInstance() { //Metodo per ottenere istanza
@@ -23,21 +28,18 @@ public class FallbackNutritionService {
         return instance;
     }
 
-    private void loadDatabase() { //Metodo per caricamento prodotti fallback da file .json sfruttando jackson
+    private void loadDatabase() throws IOException{ //Metodo per caricamento prodotti fallback da file .json sfruttando jackson
         ObjectMapper mapper = new ObjectMapper();
 
         try (InputStream inputStream = getClass().getResourceAsStream("/fallbackData.json")) {
             if (inputStream == null) {
-                throw new RuntimeException("ERRORE: Impossibile trovare il file fallbackData.json!");
+                throw new IOException("ERRORE: Impossibile trovare il file fallbackData.json!");
             }
 
             this.database = mapper.readValue(inputStream, new TypeReference<List<StandardFood>>(){});
 
-            System.out.println("Fallback Database caricato con successo: " + database.size() + " alimenti.");
+            logger.info("Fallback Database caricato con successo: " + database.size() + " alimenti.");
 
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Errore nel caricamento del database di fallback");
         }
     }
 
@@ -46,7 +48,7 @@ public class FallbackNutritionService {
 
         String cleanedName = normalizeName(commercialProductName);
 
-        System.out.println("DEBUG: Cerco fallback per: '" + cleanedName + "'");
+        logger.info("Cerco fallback per: '" + cleanedName + "'");
 
         for (StandardFood standardFood : database) {
             if (standardFood.getKeywords() != null) {
@@ -82,8 +84,8 @@ public class FallbackNutritionService {
 
         public StandardFood() {}
 
-        public String getName() { return nome; }
-        public void setName(String name) { this.nome = name; }
+        public String getNome() { return nome; }
+        public void setNome(String name) { this.nome = name; }
 
         public NutritionalValues getValues() { return values; }
         public void setValues(NutritionalValues values) { this.values = values; }

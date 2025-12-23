@@ -40,7 +40,7 @@ public class CliDietEditorView implements DietEditorView {
                 case "9": controller.saveAndExit(); break;
                 case "0":
                     System.out.println("Modifiche annullate.");
-                    close();
+                    controller.cancel();
                     break;
                 default: System.out.println("Comando non valido.");
             }

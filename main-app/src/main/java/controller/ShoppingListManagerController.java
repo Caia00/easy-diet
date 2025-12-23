@@ -4,12 +4,15 @@ import models.*;
 import models.factory.CatalogLoaderFactory;
 import models.factory.DAOFactory;
 import models.factory.ViewFactory;
+import models.services.CatalogLoader;
+import view.PatientHomeView;
 import view.ShoppingListEditorView;
 import view.ShoppingListManagerView;
-
+import java.util.logging.*;
 import java.util.List;
 
 public class ShoppingListManagerController {
+    private static final Logger logger = Logger.getLogger(ShoppingListManagerController.class.getName());
     private final User user;
     private final DAOFactory daoFactory;
     private final ViewFactory viewFactory;
@@ -48,11 +51,11 @@ public class ShoppingListManagerController {
 
         ShoppingList newList = new ShoppingList(listName, supermarket);
 
-        daoFactory.getShoppingListDAO().save(newList, user.getEmail());
-
         user.getShoppingLists().add(newList);
 
         view.showMessage("Nuova lista creata: " + listName);
+
+        logger.info(user.getEmail() + " avvio editor lista...");
 
         launchEditor(newList, catalog);
     }
@@ -61,7 +64,7 @@ public class ShoppingListManagerController {
     public void openList(ShoppingList summary) {
         if (summary == null) return;
 
-        System.out.println("LOG: Caricamento dettagli lista '" + summary.getListName() + "'...");
+        logger.info(user.getEmail() + " caricamento dettagli lista '" + summary.getListName() + "'...");
 
         daoFactory.getShoppingListDAO().loadDetails(summary);
 
@@ -72,7 +75,7 @@ public class ShoppingListManagerController {
 
     public void deleteList(ShoppingList summary) {
         if (summary == null) return;
-        daoFactory.getShoppingListDAO().delete(summary);
+        daoFactory.getShoppingListDAO().delete(summary, user.getEmail());
 
         user.getShoppingLists().remove(summary);
         view.showMessage("Lista eliminata.");
@@ -81,6 +84,16 @@ public class ShoppingListManagerController {
 
     public void back() {
         view.close();
+        PatientHomeView homeView = viewFactory.createPatientHomeView();
+        logger.info(user.getEmail() + " ritorno alla home...");
+
+        new PatientHomeController(
+                user,
+                daoFactory,
+                viewFactory,
+                homeView
+        ).start();
+
     }
 
 
@@ -108,6 +121,7 @@ public class ShoppingListManagerController {
         );
 
         editorController.start();
+        logger.info(user.getEmail() + " ritorno allo shopping list manager...");
         refreshHistory();
     }
 }

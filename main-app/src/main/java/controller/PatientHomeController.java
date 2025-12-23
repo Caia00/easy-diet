@@ -4,8 +4,10 @@ import models.*;
 import models.DAO.*;
 import models.factory.*;
 import view.*;
+import java.util.logging.*;
 
 public class PatientHomeController {
+    private final static Logger logger = Logger.getLogger(PatientHomeController.class.getName());
     private final User user;
     private final DAOFactory daoFactory;
     private final ViewFactory viewFactory;
@@ -28,18 +30,18 @@ public class PatientHomeController {
 
     private void loadDiet(){
         if(user.getDietPlan() != null){
-            System.out.println("LOG: Dieta trovata in memoria");
+            logger.info(user.getEmail() + " dieta trovata in memoria");
             return;
         }
 
         DietPlan plan = daoFactory.getDietPlanDAO().findByOwner(user.getEmail());
 
         if(plan != null){
-            System.out.println("LOG: Dieta trovata tramite DAO");
+            logger.info(user.getEmail() + " dieta trovata tramite DAO");
 
             user.assignDiet(plan);
         }else{
-            System.out.println("LOG: Dieta non ancora assegnata");
+            logger.info(user.getEmail() + " dieta non ancora assegnata");
         }
     }
 
@@ -66,7 +68,7 @@ public class PatientHomeController {
 
 
     public void logout() {
-        System.out.println("Disconnessione in corso...");
+        logger.info(user.getEmail() + " disconnessione in corso...");
         view.close();
         new LoginController(daoFactory, viewFactory).start();
     }

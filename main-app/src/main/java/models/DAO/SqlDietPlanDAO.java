@@ -8,8 +8,12 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.*;
 
 public class SqlDietPlanDAO implements DietPlanDAO {
+
+    private static final Logger logger = Logger.getLogger(SqlDietPlanDAO.class.getName());
+
     public SqlDietPlanDAO() {}
 
     //Metodo usato da user per trovare la dieta che gli è stata assegnata
@@ -33,11 +37,11 @@ public class SqlDietPlanDAO implements DietPlanDAO {
 
                     loadMealsForPlan(plan, conn);
                 }else{
-                    System.out.println("LOG: Nessuna dieta trovata");
+                    logger.info("Nessuna dieta trovata nel DB");
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Errore durante metodo ricerca DietPlan tramite user email", e);
         }
         return plan;
     }
@@ -46,7 +50,7 @@ public class SqlDietPlanDAO implements DietPlanDAO {
     @Override
     public void loadPlanDetails(DietPlan plan) {
         if (plan == null || plan.getDietId() == null) {
-            System.err.println("DAO ERROR: Impossibile caricare dettagli. Piano nullo o ID mancante.");
+            logger.severe("Impossibile caricare dettagli dieta, piano nullo o id mancante");
             return;
         }
 
@@ -58,10 +62,10 @@ public class SqlDietPlanDAO implements DietPlanDAO {
 
             loadMealsForPlan(plan, conn);
 
-            System.out.println("LOG: Dettagli caricati per dieta ID " + plan.getDietId());
+            logger.info("Dettagli caricati per dieta: " + plan.getDietName());
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Errore durante caricamento dettagli dieta: " + plan.getDietName(), e);
         }
     }
 
@@ -84,9 +88,10 @@ public class SqlDietPlanDAO implements DietPlanDAO {
 
                     summaries.add(summary);
                 }
+                logger.info(String.format("Caricate da DB %d diete", summaries.size()));
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Errore durante caricamento summaries dal DB", e);
         }
         return summaries;
     }
@@ -136,21 +141,24 @@ public class SqlDietPlanDAO implements DietPlanDAO {
 
             //Commit della transazione
             conn.commit();
-            System.out.println("LOG: DietPlan salvato con successo (ID: " + plan.getDietId() + ")");
+            logger.info("DietPlan salvato con successo (ID: " + plan.getDietId() + ")");
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, "Errore durante transazione salvataggio DietPlan nel DB, procede rollback", e);
             //Rollback in caso di errore
             if (conn != null) {
                 try {
-                    System.err.println("ERROR: Rollback eseguito. Nessun dato salvato.");
+                    logger.severe("Rollback eseguito, nessun dato salvato");
                     conn.rollback();
-                } catch (SQLException ex) { ex.printStackTrace(); }
+                } catch (SQLException ex) {
+                    logger.log(Level.SEVERE, "Rollback non andato a buon fine", ex);
+                }
             }
         } finally {
             //Ripristino autocommit per il riutilizzo della connessione
             if (conn != null) {
-                try { conn.setAutoCommit(true); } catch (SQLException e) { e.printStackTrace(); }
+                try { conn.setAutoCommit(true); } catch (SQLException e) {
+                    logger.log(Level.SEVERE, "Errore durante ripristino autocommit", e); }
             }
         }
     }
@@ -288,9 +296,9 @@ public class SqlDietPlanDAO implements DietPlanDAO {
     }
 
     @Override
-    public void delete(DietPlan plan) {
+    public void delete(DietPlan plan, String email) {
         if (plan == null || plan.getDietId() == null) {
-            System.err.println("Errore: Impossibile eliminare una dieta senza ID.");
+            logger.severe("Impossibile eliminare un DietPlan senza ID");
             return;
         }
 
@@ -304,13 +312,13 @@ public class SqlDietPlanDAO implements DietPlanDAO {
             int affectedRows = stmt.executeUpdate();
 
             if (affectedRows > 0) {
-                System.out.println("LOG: Eliminata dieta ID " + plan.getDietId() + " e tutti i pasti collegati.");
+                logger.info("Eliminata da DB dieta: " + plan.getDietName() + " e tutti i pasti ad essa collegati");
             } else {
-                System.out.println("LOG: Nessuna dieta trovata con ID " + plan.getDietId() + " (forse era già stata eliminata).");
+                logger.warning("Nessuna dieta trovata con ID " + plan.getDietId() + " (forse era già stata eliminata).");
             }
 
         } catch (SQLException e) {
-                e.printStackTrace();
+                logger.log(Level.SEVERE, "Errore durante l'eliminazione dal DB della dieta", e);
             }
         }
     }

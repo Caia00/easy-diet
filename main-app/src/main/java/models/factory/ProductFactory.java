@@ -8,11 +8,22 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ProductFactory {
+
+    //Regex utilizzata per eliminare il camel case dal nome del prodotto: CarrefourPollo -> Carrefour Pollo, più facile ricerca peso e categoria successive
+    private static final Pattern CAMEL_CASE_PATTERN = Pattern.compile("(?<=[a-z])(?=[A-Z])");
+
     public ProductFactory() {}
 
     public CommercialProduct createProduct(String rawName, String rawCategory, double rawPrice, String rawWeightString, NutritionalValues scrapedValues) {
 
-        String cleanName = rawName.trim();
+        if (rawName == null || rawName.trim().isEmpty()) {
+            return null;
+        }
+        if (scrapedValues == null) {
+            scrapedValues = new NutritionalValues();
+        }
+
+        String cleanName = normalizeName(rawName);
 
         double weight = parseWeight(rawWeightString);
         if (weight == 0.0) {
@@ -88,6 +99,17 @@ public class ProductFactory {
             }
         }
         return 0.0; // Nessun peso trovato
+    }
+
+    private String normalizeName(String text) {
+        if (text == null) return "";
+
+        String result = text.trim();
+        result = CAMEL_CASE_PATTERN.matcher(result).replaceAll(" ");
+        result = result.replace("_", " ").replace("-", " ");
+        result = result.replaceAll("\\s+", " "); //Rimuove doppi spazi creati
+
+        return result;
     }
 
 }

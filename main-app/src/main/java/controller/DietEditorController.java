@@ -7,8 +7,10 @@ import view.DietViewerView;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
+import java.util.logging.*;
 
 public class DietEditorController {
+    private static final Logger logger = Logger.getLogger(DietEditorController.class.getName());
     private final Nutritionist nutritionist;
     private final DietPlan plan;
     private final DAOFactory daoFactory;
@@ -78,7 +80,12 @@ public class DietEditorController {
             product = new CommercialProduct(suggestedProductName, 0, 0, category, new NutritionalValues(), false);
         }
 
-        meal.addFoodItem(new DietItem(target, product));
+        try {
+            meal.addFoodItem(new DietItem(target, product));
+        } catch (IllegalArgumentException e){
+            editorView.showError(e.getMessage());
+            return;
+        }
 
         editorView.showMessage("Alimento aggiunto!");
         showCurrentPlanState();
@@ -130,7 +137,7 @@ public class DietEditorController {
 
 
     public void saveAndExit() {
-        System.out.println("LOG: Salvataggio modifiche...");
+        logger.info(nutritionist.getEmail() + " salvataggio modifiche dieta...");
 
         daoFactory.getDietPlanDAO().save(plan, nutritionist.getEmail());
 
