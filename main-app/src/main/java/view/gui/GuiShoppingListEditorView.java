@@ -36,7 +36,7 @@ public class GuiShoppingListEditorView implements ShoppingListEditorView {
     private ShoppingListEditorController controller;
     private final Stage stage;
 
-    private VBox statusBox;
+    private VBox statusBox = new VBox(5);
 
     private TableView<CommercialProduct> catalogTable;
     private final ObservableList<CommercialProduct> catalogData = FXCollections.observableArrayList();
@@ -44,9 +44,10 @@ public class GuiShoppingListEditorView implements ShoppingListEditorView {
     private TableView<ShoppingItem> cartTable;
     private final ObservableList<ShoppingItem> cartData = FXCollections.observableArrayList();
 
-    public GuiShoppingListEditorView() {
+    public GuiShoppingListEditorView(Stage owner) {
         this.stage = new Stage();
-        this.stage.initModality(Modality.APPLICATION_MODAL);
+        this.stage.initOwner(owner);
+        this.stage.initModality(Modality.WINDOW_MODAL);
     }
 
     @Override
@@ -71,7 +72,6 @@ public class GuiShoppingListEditorView implements ShoppingListEditorView {
         lblStatus.setFont(Font.font("Arial", FontWeight.BOLD, 16));
 
         //statusBox viene riempito automaticamente da showDietStatus
-        statusBox = new VBox(5);
         ScrollPane statusScroll = new ScrollPane(statusBox);
         statusScroll.setFitToWidth(true);
         statusScroll.setStyle("-fx-background-color: transparent;");

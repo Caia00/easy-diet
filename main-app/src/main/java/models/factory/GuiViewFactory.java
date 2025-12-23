@@ -27,13 +27,13 @@ public class GuiViewFactory implements ViewFactory {
     public DietManagerView createDietManagerView() {return new GuiDietManagerView(primaryStage); }
 
     @Override
-    public DietEditorView createDietEditorView() {return new GuiDietEditorView(); }
+    public DietEditorView createDietEditorView() {return new GuiDietEditorView(primaryStage); }
 
     @Override
     public ShoppingListManagerView createShoppingListManagerView() {return new GuiShoppingListManagerView(primaryStage); }
 
     @Override
-    public ShoppingListEditorView createShoppingListEditorView() {return new GuiShoppingListEditorView(); }
+    public ShoppingListEditorView createShoppingListEditorView() {return new GuiShoppingListEditorView(primaryStage); }
 
 
 

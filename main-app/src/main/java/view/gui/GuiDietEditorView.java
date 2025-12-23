@@ -22,9 +22,10 @@ public class GuiDietEditorView implements DietEditorView {
             "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"
     };
 
-    public GuiDietEditorView() {
+    public GuiDietEditorView(Stage owner) {
         this.editorStage = new Stage();
-        this.editorStage.initModality(Modality.APPLICATION_MODAL); //Blocco altri stage finché questo lavora
+        this.editorStage.initOwner(owner);
+        this.editorStage.initModality(Modality.WINDOW_MODAL); //Blocco lo stage owner (primaryStage) finché questo lavora
     }
 
     @Override

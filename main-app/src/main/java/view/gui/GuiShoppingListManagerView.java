@@ -100,14 +100,14 @@ public class GuiShoppingListManagerView implements ShoppingListManagerView {
         //Num prodotti
         TableColumn<ShoppingList, String> colCount = new TableColumn<>("Prodotti");
         colCount.setCellValueFactory(cell -> new SimpleStringProperty(
-                String.valueOf(cell.getValue().getTotalItemsCount())
+                String.valueOf(cell.getValue().getTotalItems())
         ));
         colCount.setStyle("-fx-alignment: CENTER;");
 
         //Costo totale
         TableColumn<ShoppingList, String> colCost = new TableColumn<>("Totale");
         colCost.setCellValueFactory(cell -> new SimpleStringProperty(
-                String.format("€ %.2f", cell.getValue().getTotalCost())
+                String.format("€ %.2f", cell.getValue().getTotalPrice())
         ));
         colCost.setStyle("-fx-alignment: CENTER-RIGHT; -fx-font-weight: bold;");
 
