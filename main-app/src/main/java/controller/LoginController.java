@@ -1,15 +1,17 @@
 package controller;
 
+import exception.EmailAlreadyRegisteredException;
 import models.*;
-import models.DAO.ProfileDAO;
 import view.AuthView;
 import java.time.LocalDate;
 import models.factory.*;
 import view.PatientHomeView;
 import view.*;
+import java.util.logging.*;
 
 
 public class LoginController {
+    private static final Logger logger = Logger.getLogger(LoginController.class.getName());
     private final DAOFactory daoFactory;
     private final ViewFactory viewFactory;
 
@@ -55,14 +57,14 @@ public class LoginController {
         view.close();
 
         if (profile instanceof User) {
-            System.out.println("LOG: Accesso come PAZIENTE");
+            logger.info("Accesso come PAZIENTE: " + profile.getEmail());
 
             PatientHomeView homeView = viewFactory.createPatientHomeView();
 
             new PatientHomeController((User) profile, daoFactory, viewFactory, homeView).start();
         }
         else if (profile instanceof Nutritionist) {
-            System.out.println("LOG: Accesso come NUTRIZIONISTA");
+            logger.info("Accesso come NUTRIZIONISTA: " + profile.getEmail());
 
             NutritionistHomeView docView = viewFactory.createNutritionistHomeView();
 
@@ -70,33 +72,49 @@ public class LoginController {
         }
     }
 
-
     public void registerPatient(String name, String surname, String email, String password,
                                 LocalDate birthDate, double height, double weight, String gender) {
+        try {
+            checkIfEmailExists(email);
 
-        // Controllo duplicati
-        if (daoFactory.getProfileDAO().findByEmail(email) != null) {
-            view.showErrorMessage("Email già registrata.");
-            return;
+            User newUser = new User(name, surname, email, password, birthDate, height, weight, gender);
+            daoFactory.getProfileDAO().save(newUser);
+
+            view.showSuccessMessage("Paziente registrato! Ora puoi effettuare il login.");
+            view.switchToLogin();
+
+        } catch (EmailAlreadyRegisteredException e) {
+            view.showErrorMessage(e.getMessage());
+            view.switchToLogin();
+        } catch (Exception e) {
+            view.showErrorMessage("Errore durante la registrazione.");
         }
-
-        User newUser = new User(name, surname, email, password, birthDate, height, weight, gender);
-
-        daoFactory.getProfileDAO().save(newUser);
-        view.showSuccessMessage("Paziente registrato! Ora puoi effettuare il login.");
     }
 
     public void registerNutritionist(String name, String surname, String email, String password,
                                      LocalDate birthDate, String registerId) {
+        try {
+            checkIfEmailExists(email);
 
-        if (daoFactory.getProfileDAO().findByEmail(email) != null) {
-            view.showErrorMessage("Email già registrata.");
-            return;
+            Nutritionist newDoc = new Nutritionist(name, surname, email, password, birthDate, registerId);
+            daoFactory.getProfileDAO().save(newDoc);
+
+            view.showSuccessMessage("Nutrizionista registrato! Ora puoi effettuare il login.");
+            view.switchToLogin();
+
+        } catch (EmailAlreadyRegisteredException e) {
+            view.showErrorMessage(e.getMessage());
+            view.switchToLogin();
+        } catch (Exception e) {
+            view.showErrorMessage("Errore durante la registrazione.");
         }
+    }
 
-        Nutritionist newDoc = new Nutritionist(name, surname, email, password, birthDate, registerId);
 
-        daoFactory.getProfileDAO().save(newDoc);
-        view.showSuccessMessage("Nutrizionista registrato! Ora puoi effettuare il login.");
+
+    private void checkIfEmailExists(String email) throws EmailAlreadyRegisteredException {
+        if (daoFactory.getProfileDAO().findByEmail(email) != null) {
+            throw new EmailAlreadyRegisteredException(email);
+        }
     }
 }

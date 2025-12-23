@@ -1,5 +1,6 @@
 package controller;
 
+import exception.InvalidPatientException;
 import models.DietPlan;
 import models.Nutritionist;
 import models.Profile;
@@ -9,10 +10,11 @@ import view.DietEditorView;
 import view.DietManagerView;
 import view.DietViewerView;
 import view.NutritionistHomeView;
-
+import java.util.logging.*;
 import java.util.List;
 
 public class DietManagerController {
+    private static final Logger logger = Logger.getLogger(DietManagerController.class.getName());
     private final Nutritionist nutritionist;
     private final DAOFactory daoFactory;
     private final ViewFactory viewFactory;
@@ -42,7 +44,13 @@ public class DietManagerController {
 
     public void createDiet(String name) {
         if (name.isEmpty()) return;
-        DietPlan newPlan = nutritionist.createDietTemplate(name);
+        DietPlan newPlan;
+        try{
+            newPlan = nutritionist.createDietTemplate(name);
+        }catch (IllegalArgumentException e){
+            view.showError(e.getMessage());
+            return;
+        }
 
         launchEditor(newPlan);
     }
@@ -53,37 +61,30 @@ public class DietManagerController {
     }
 
     public void deleteDiet(DietPlan summary) {
-        daoFactory.getDietPlanDAO().delete(summary);
+        daoFactory.getDietPlanDAO().delete(summary, nutritionist.getEmail());
         view.showMessage("Dieta eliminata.");
         refreshList();
     }
 
     public void assignDiet(DietPlan summary, String patientEmail) {
-        if (patientEmail == null || patientEmail.trim().isEmpty()) {
-            view.showError("Inserisci un'email valida.");
-            return;
-        }
+        try {
+            Profile profile = validatePatient(patientEmail);
 
-        Profile profile = daoFactory.getProfileDAO().findByEmail(patientEmail);
+            logger.info(nutritionist.getEmail() + " assegnazione dieta '" + summary.getDietName() + "' a " + patientEmail + "...");
+            boolean success = daoFactory.getProfileDAO().assignDiet(patientEmail, summary);
 
-        if (profile == null) {
-            view.showError("Nessun utente trovato con questa email.");
-            return;
-        }
+            if (success) {
+                view.showMessage("Dieta assegnata con successo al paziente: " + profile.getName() + " " + profile.getSurname());
+                logger.info(nutritionist.getEmail() + " dieta assegnata con successo al paziente: " + profile.getName() + " " + profile.getSurname());
+            } else {
+                view.showError("Errore tecnico durante l'assegnazione.");
+                logger.severe(nutritionist.getEmail() + "errore durante l'assegnazione della dieta");
+            }
 
-        if (profile instanceof Nutritionist) {
-            view.showError("Non puoi assegnare una dieta a un altro Nutrizionista!");
-            return;
-        }
-
-        System.out.println("LOG: Assegnazione dieta '" + summary.getDietName() + "' a " + patientEmail + "...");
-
-        boolean success = daoFactory.getProfileDAO().assignDiet(patientEmail, summary);
-
-        if (success) {
-            view.showMessage("Dieta assegnata con successo al paziente: " + profile.getName() + " " + profile.getSurname());
-        } else {
-            view.showError("Errore durante l'assegnazione (Database error).");
+        } catch (InvalidPatientException e) {
+            view.showError(e.getMessage());
+        } catch (Exception e) {
+            view.showError("Errore imprevisto durante l'assegnazione.");
         }
     }
 
@@ -97,11 +98,12 @@ public class DietManagerController {
                 viewFactory,
                 homeView
         );
+        logger.info(nutritionist.getEmail() + " ritorno alla home...");
         homeController.start();
     }
 
     private void launchEditor(DietPlan plan) {
-        System.out.println("LOG: Apertura Editor per la dieta '" + plan.getDietName() + "'...");
+        logger.info(nutritionist.getEmail() + " apertura Editor per la dieta '" + plan.getDietName() + "'...");
 
         DietEditorView editorView = viewFactory.createDietEditorView();
         DietViewerView viewerView = viewFactory.createDietViewerView();
@@ -117,7 +119,25 @@ public class DietManagerController {
 
         refreshList();
 
-        System.out.println("LOG: Ritorno al Diet Manager.");
+        logger.info(nutritionist.getEmail() + " ritorno al Diet Manager");
+    }
+
+
+    private Profile validatePatient(String email) throws InvalidPatientException {
+        if (email == null || email.trim().isEmpty()) {
+            throw new InvalidPatientException("Inserisci un'email valida.");
+        }
+
+        Profile profile = daoFactory.getProfileDAO().findByEmail(email);
+        if (profile == null) {
+            throw new InvalidPatientException("Nessun utente trovato con questa email: " + email);
+        }
+
+        if (profile instanceof Nutritionist) {
+            throw new InvalidPatientException("Non puoi assegnare una dieta a un altro Nutrizionista!");
+        }
+
+        return profile;
     }
 
 
