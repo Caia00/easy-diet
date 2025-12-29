@@ -1,6 +1,5 @@
 package models.services;
 
-import models.CatalogLoader;
 import models.CommercialProduct;
 import models.NutritionalValues;
 import models.factory.ProductFactory;
@@ -13,8 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.logging.*;
 
 public class CsvCatalogLoader implements CatalogLoader {
+    private static final Logger logger = Logger.getLogger(CsvCatalogLoader.class.getName());
     private final String fileName;
     private final ProductFactory factory;
 
@@ -38,7 +39,7 @@ public class CsvCatalogLoader implements CatalogLoader {
                      new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8)) : null) {
 
             if (br == null) {
-                System.err.println("ERRORE: File non trovato: " + fileName);
+                logger.severe("File non trovato: " + fileName);
                 return catalog;
             }
 
@@ -53,10 +54,10 @@ public class CsvCatalogLoader implements CatalogLoader {
                 if (product != null) catalog.add(product);
             }
 
-            System.out.println("LOG: Caricati " + catalog.size() + " prodotti da " + fileName);
+            logger.info("Caricati " + catalog.size() + " prodotti da " + fileName);
 
         } catch (Exception e) {
-            System.out.println("ERRORE: Il catalogo non è stato correttamente importato");
+            logger.log(Level.SEVERE, "Il catalogo non è stato correttamente importato", e);
         }
         return catalog;
     }

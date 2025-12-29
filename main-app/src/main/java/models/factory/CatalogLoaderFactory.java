@@ -1,6 +1,6 @@
 package models.factory;
 
-import models.CatalogLoader;
+import models.services.CatalogLoader;
 import models.SupermarketName;
 import models.services.CsvCatalogLoader;
 

@@ -1,4 +1,4 @@
-package models;
+package models.services;
 
 import models.CommercialProduct;
 import java.util.List;

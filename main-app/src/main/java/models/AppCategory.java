@@ -2,17 +2,17 @@ package models;
 
 public enum AppCategory {
     // --- FONTI DI CARBOIDRATI ---
-    PASTA,              // Pasta di semola, integrale, all'uovo
-    RISO_E_CEREALI,     // Riso, Farro, Orzo, Couscous, Quinoa (chicchi)
-    PANE_E_SOSTITUTI,   // Pane, Pan bauletto, Cracker, Grissini, Gallette
-    PATATE_E_TUBERI,    // Patate, Patate dolci
+    PASTA,
+    RISO_E_CEREALI,
+    PANE_E_SOSTITUTI,
+    PATATE_E_TUBERI,
     FARINE,
 
     // --- COLAZIONE E DOLCI ---
-    BISCOTTI_E_DOLCI_COLAZIONE, // Biscotti, Fette biscottate, Merendine, Croissant
-    CEREALI_COLAZIONE,          // Corn flakes, Muesli, Avena (fiocchi)
-    DOLCI_E_SNACK,              // Cioccolato, Barrette, Patatine (cose "extra")
-    CREME_SPALMABILI,           // Marmellata, Crema nocciole, Miele
+    BISCOTTI_E_DOLCI_COLAZIONE,
+    CEREALI_COLAZIONE,
+    DOLCI_E_SNACK,
+    CREME_SPALMABILI,
 
     // --- PROTEINE ---
     CARNE_BIANCA,
@@ -20,21 +20,21 @@ public enum AppCategory {
     PESCE,
     AFFETTATI_E_SALUMI,
     UOVA,
-    LEGUMI,             // In scatola o secchi
+    LEGUMI,
 
     // --- LATTICINI ---
-    LATTE_E_BEVANDE_VEG, // Latte vaccino, Latte di soia/avena
-    YOGURT_E_FERMENTATI, // Yogurt greco, Kefir
-    FORMAGGI,            // Mozzarella, Grana, ecc.
+    LATTE_E_BEVANDE_VEG,
+    YOGURT_E_FERMENTATI,
+    FORMAGGI,
 
     // --- ORTOFRUTTA ---
     FRUTTA_FRESCA,
-    FRUTTA_SECCA,       // Noci, Mandorle (sono grassi, non frutta fresca!)
+    FRUTTA_SECCA,
     VERDURA,
 
     // --- CONDIMENTI ---
-    OLIO_E_GRASSI,      // Olio EVO, Burro
-    SALSE,              // Maionese, Ketchup, Sugo pronto
+    OLIO_E_GRASSI,
+    SALSE,
 
     BEVANDE,
     SCONOSCIUTO

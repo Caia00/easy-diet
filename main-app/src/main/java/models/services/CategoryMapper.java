@@ -66,7 +66,6 @@ public class CategoryMapper {
 
             // --- PROTEINE (Carne e Pesce) ---
             if (containsAny(name, "pollo", "tacchino", "coniglio", "faraona", "aia")) {
-                // 'Aia' è una marca famosa di pollo, utile metterla
                 return AppCategory.CARNE_BIANCA;
             }
             if (containsAny(name, "manzo", "bovino", "vitello", "scottona", "hamburger", "suino", "salsiccia", "macinato", "bistecca", "agnello")) {
