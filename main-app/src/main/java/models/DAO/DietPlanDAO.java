@@ -13,7 +13,7 @@ public interface DietPlanDAO {
 
     void loadPlanDetails(DietPlan plan);
 
-    void delete(DietPlan dietPlan);
+    void delete(DietPlan dietPlan, String creatorEmail);
 
 
 }

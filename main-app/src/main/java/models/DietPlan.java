@@ -4,11 +4,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.*;
 
 public class DietPlan {
+    private static final Logger logger = Logger.getLogger(DietPlan.class.getName());
     private String dietName;
     private Integer id;
-    private Map<String, List<Meal>> weeklySchedule;
+    private Map<String, List<Meal>> weeklySchedule = new HashMap<>();
+
+    public DietPlan(){
+        initializeWeek();
+    }
 
     public DietPlan(String dietName) {
         this.dietName = dietName;
@@ -29,9 +35,9 @@ public class DietPlan {
     public void addMealToDay(String day, Meal meal) {
         String key = normalizeDay(day);
         if (weeklySchedule.containsKey(key)) {
-            weeklySchedule.get(day).add(meal);
+            weeklySchedule.get(key).add(meal);
         } else {
-            System.err.println("Giorno non valido: " + day + " (Interpretato come: " + key + ")");
+            logger.severe("Giorno non valido: " + day + " (Interpretato come: " + key + ")");
             throw new IllegalArgumentException("Giorno non valido: " + day);
         }
     }
@@ -68,7 +74,7 @@ public class DietPlan {
         return weeklySchedule.getOrDefault(key, new ArrayList<>());
     }
 
-    //Metodo usato per normalizzare la stringa in input per non ricevere errori sgraditi
+    //Metodo usato per normalizzare la stringa in ingresso per non ricevere errori sgraditi
     private String normalizeDay(String inputDay) {
         if (inputDay == null) return "";
 
@@ -117,6 +123,9 @@ public class DietPlan {
     public void setDietId(Integer id) { this.id = id; }
 
     public Map<String, List<Meal>> getWeeklySchedule() { return weeklySchedule; }
+    public void setWeeklySchedule(Map<String, List<Meal>> weeklySchedule) {
+        this.weeklySchedule = weeklySchedule;
+    }
 
     @Override
     public String toString() {

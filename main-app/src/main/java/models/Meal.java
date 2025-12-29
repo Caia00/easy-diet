@@ -1,14 +1,19 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Meal {
     private String name;
     private LocalTime time; //Utile in futuro per possibile sistema notifiche
 
-    private List<DietItem> foods;
+    private List<DietItem> foods = new ArrayList<>();
+
+    public Meal(){}
 
     public Meal(String name, LocalTime time) {
         this.name = name;
@@ -35,9 +40,7 @@ public class Meal {
         }
     }
 
-    public List<DietItem> getFoods() {
-        return foods;
-    }
+
 
     //Metodi per calcolare le quantità di nutrienti target totali del pasto
 
@@ -71,6 +74,13 @@ public class Meal {
 
     public LocalTime getTime() { return time; }
     public void setTime(LocalTime time) { this.time = time; }
+
+    public List<DietItem> getFoods() {
+        return foods;
+    }
+    public void setFoods(List<DietItem> foods) {
+        this.foods = foods;
+    }
 
     @Override
     public String toString() {

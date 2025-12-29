@@ -6,14 +6,16 @@ import java.util.List;
 
 public class Nutritionist extends Profile{
     private String professionalCode;
-    private List<User> managedPatients;
     private List<DietPlan> dietTemplates;
+
+    public Nutritionist() {
+        super();
+    }
 
     public Nutritionist(String name, String surname, String email, String password, LocalDate birthDate,
                         String professionalCode) {
         super(name, surname, email, password, birthDate);
         this.professionalCode = professionalCode;
-        this.managedPatients = new ArrayList<>();
         this.dietTemplates = new ArrayList<>();
     }
 
@@ -44,17 +46,19 @@ public class Nutritionist extends Profile{
         dietTemplates.removeIf(d -> d.getDietName().equalsIgnoreCase(dietName));
     }
 
-    public List<DietPlan> getAllDietTemplates() {
-        return dietTemplates;
-    }
-
 
     public String getProfessionalCode() {
         return professionalCode;
     }
+    public void setProfessionalCode(String professionalCode) {
+        this.professionalCode = professionalCode;
+    }
 
     public List<DietPlan> getDietTemplates(){
         return dietTemplates;
+    }
+    public void setDietTemplates(List<DietPlan> dietTemplates) {
+        this.dietTemplates = dietTemplates;
     }
 
     @Override

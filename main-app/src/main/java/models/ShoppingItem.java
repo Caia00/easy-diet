@@ -1,5 +1,9 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ShoppingItem { //Classe usata per modellare gli oggetti all'interno della lista della spesa (più o meno un decorator di CommercialProduct)
 
     private CommercialProduct product;
@@ -7,6 +11,9 @@ public class ShoppingItem { //Classe usata per modellare gli oggetti all'interno
     private int quantity;
 
     private boolean isForDiet;
+
+    public ShoppingItem(){}
+
 
     public ShoppingItem(CommercialProduct product, int quantity, boolean isForDiet) {
         this.product = product;
@@ -26,15 +33,15 @@ public class ShoppingItem { //Classe usata per modellare gli oggetti all'interno
     public void decreaseQuantity(int amount) {
         if (this.quantity - amount > 0) {
             this.quantity -= amount;
-        }else{
-            System.out.println("Impossibile diminuire di quantità richiesta...");
         }
     }
 
     public CommercialProduct getProduct() { return product; }
+    public void setProduct(CommercialProduct product) { this.product = product; }
     public int getQuantity() { return quantity; }
     public void setQuantity(int quantity) { this.quantity = quantity; }
     public boolean isForDiet() { return isForDiet; }
+    public void setForDiet(boolean isForDiet) { this.isForDiet = isForDiet; }
 
     @Override
     public String toString() {

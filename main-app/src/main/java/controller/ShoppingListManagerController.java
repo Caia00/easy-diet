@@ -76,8 +76,6 @@ public class ShoppingListManagerController {
     public void deleteList(ShoppingList summary) {
         if (summary == null) return;
         daoFactory.getShoppingListDAO().delete(summary, user.getEmail());
-
-        user.getShoppingLists().remove(summary);
         view.showMessage("Lista eliminata.");
         refreshHistory();
     }

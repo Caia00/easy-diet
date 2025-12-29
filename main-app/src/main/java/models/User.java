@@ -1,5 +1,7 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +15,10 @@ public class User extends Profile{
 
     private List<ShoppingList> shoppingLists = new ArrayList<>();
 
+    public User(){
+        super();
+    }
+
     public User(String name, String surname, String email, String password, LocalDate birthDate,
                 double heightCm, double currentWeightKg, String gender) {
         super(name, surname, email, password, birthDate);
@@ -22,13 +28,16 @@ public class User extends Profile{
         this.dietPlan = null;
     }
 
-
+    @JsonIgnore
     public void assignDiet(DietPlan plan) {
         this.dietPlan = plan;
     }
 
     public DietPlan getDietPlan() {
         return dietPlan;
+    }
+    public void setDietPlan(DietPlan dietPlan) {
+        this.dietPlan = dietPlan;
     }
 
     public void saveShoppingList(ShoppingList list) {
@@ -40,6 +49,9 @@ public class User extends Profile{
     public List<ShoppingList> getShoppingLists() {
         return shoppingLists;
     }
+    public void setShoppingLists(List<ShoppingList> shoppingLists) {
+        this.shoppingLists = shoppingLists;
+    }
 
     public ShoppingList getListByName(String name) {
         for (ShoppingList list : shoppingLists) {
@@ -50,20 +62,30 @@ public class User extends Profile{
         return null;
     }
 
-    public void deleteList(ShoppingList list) {
+    public void deleteList(String listName) {
+        ShoppingList list = getListByName(listName);
         shoppingLists.remove(list);
     }
 
     public double getHeightCm(){
         return heightCm;
     }
+    public void setHeightCm(double heightCm) {
+        this.heightCm = heightCm;
+    }
 
     public double getCurrentWeightKg(){
         return currentWeightKg;
     }
+    public void setCurrentWeightKg(double currentWeightKg) {
+        this.currentWeightKg = currentWeightKg;
+    }
 
     public String getGender(){
         return gender;
+    }
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     @Override

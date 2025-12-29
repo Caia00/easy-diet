@@ -11,5 +11,5 @@ public interface ShoppingListDAO {
 
     void loadDetails(ShoppingList summaryList);
 
-    void delete(ShoppingList list);
+    void delete(ShoppingList list, String ownerEmail);
 }

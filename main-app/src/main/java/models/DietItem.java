@@ -1,12 +1,18 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.Optional;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class DietItem {
     private NutritionalTarget target;
 
     //Suggerimento inserito dal nutrizionista opzionalmente
     private CommercialProduct suggestedProduct;
+
+    public DietItem(){}
+
 
 
     public DietItem(NutritionalTarget target, CommercialProduct suggestedProduct) {
@@ -25,6 +31,7 @@ public class DietItem {
     public NutritionalTarget getTarget() {
         return target;
     }
+    public void setTarget(NutritionalTarget target) { this.target = target; }
 
     public Optional<CommercialProduct> getSuggestedProduct() {
         return Optional.ofNullable(suggestedProduct);
@@ -33,6 +40,7 @@ public class DietItem {
     public AppCategory getCategory() {
         return target.getCategory();
     }
+
 
     //Setter per aggiornare il prodotto suggerito in un secondo momento
     public void setSuggestedProduct(CommercialProduct suggestedProduct) {
