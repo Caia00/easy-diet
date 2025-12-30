@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="implementing view: created diet manager gui view">
+    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="implemented DAO: created FileSystemDAO, that uses jackson to save objects in .json file, little modifies to entities for using jackson (empty constructor, setter getter method...)">
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/test/java/models/factory/ProductFactoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/test/java/models/services/CsvCatalogLoaderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/test/java/models/services/DietCalculatorServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/test/resources/test_catalog.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliDietEditorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliDietEditorView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiDietViewerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiDietViewerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fallbackData.json" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/resources/fallbackData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/LoginController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +24,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Exception" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -49,10 +56,18 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CsvCatalogLoaderTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.DietCalculatorServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductFactoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ProductFactoryTest.testCreateProductShouldRetrieveFallbackDataFromJsonIfScrapedIs0.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ShoppingListEditorControllerTest.executor&quot;: &quot;Run&quot;,
     &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.main-app [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;/home/caia/IdeaProjects/easy-diet/main-app/src/test/java/models/services&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/caia/IdeaProjects/easy-diet/main-app/src/main/java/models&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -68,12 +83,102 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/main-app/src/main/resources" />
+      <recent name="$PROJECT_DIR$/main-app" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="models.services" />
       <recent name="view.cli" />
       <recent name="view.gui" />
     </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="main-app" />
+      <option name="PROGRAM_PARAMETERS" value="file cli" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CsvCatalogLoaderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="main-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="models.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="models.services" />
+      <option name="MAIN_CLASS_NAME" value="models.services.CsvCatalogLoaderTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DietCalculatorServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="main-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="models.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="models.services" />
+      <option name="MAIN_CLASS_NAME" value="models.services.DietCalculatorServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductFactoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="main-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="models.factory.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="models.factory" />
+      <option name="MAIN_CLASS_NAME" value="models.factory.ProductFactoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductFactoryTest.testCreateProductShouldRetrieveFallbackDataFromJsonIfScrapedIs0" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="main-app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="models.factory.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="models.factory" />
+      <option name="MAIN_CLASS_NAME" value="models.factory.ProductFactoryTest" />
+      <option name="METHOD_NAME" value="testCreateProductShouldRetrieveFallbackDataFromJsonIfScrapedIs0" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.CsvCatalogLoaderTest" />
+      <item itemvalue="JUnit.DietCalculatorServiceTest" />
+      <item itemvalue="JUnit.ProductFactoryTest" />
+      <item itemvalue="JUnit.ProductFactoryTest.testCreateProductShouldRetrieveFallbackDataFromJsonIfScrapedIs0" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.DietCalculatorServiceTest" />
+        <item itemvalue="JUnit.CsvCatalogLoaderTest" />
+        <item itemvalue="JUnit.ProductFactoryTest.testCreateProductShouldRetrieveFallbackDataFromJsonIfScrapedIs0" />
+        <item itemvalue="JUnit.ProductFactoryTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -95,119 +200,10 @@
       <workItem from="1763979699770" duration="29781000" />
       <workItem from="1764182481879" duration="3163000" />
       <workItem from="1764235701539" duration="116276000" />
-      <workItem from="1765473284228" duration="15103000" />
-    </task>
-    <task id="LOCAL-00020" summary="little modify: changed NutritionalTarget structure using composition with nutritionalValues">
-      <option name="closed" value="true" />
-      <created>1764236603836</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1764236603837</updated>
-    </task>
-    <task id="LOCAL-00021" summary="little modify: changed name in classes AppCategory and NutritionalValues to match java standards">
-      <option name="closed" value="true" />
-      <created>1764236847761</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1764236847761</updated>
-    </task>
-    <task id="LOCAL-00022" summary="little modify: comments">
-      <option name="closed" value="true" />
-      <created>1764237301679</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1764237301679</updated>
-    </task>
-    <task id="LOCAL-00023" summary="little modify: comments">
-      <option name="closed" value="true" />
-      <created>1764238631725</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1764238631725</updated>
-    </task>
-    <task id="LOCAL-00024" summary="little modify: refactored pathfile">
-      <option name="closed" value="true" />
-      <created>1764239662913</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1764239662913</updated>
-    </task>
-    <task id="LOCAL-00025" summary="defining models: implementig CatalogLoader interface for getting supermarkets catalog">
-      <option name="closed" value="true" />
-      <created>1764239728783</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1764239728790</updated>
-    </task>
-    <task id="LOCAL-00026" summary="little modify: refactored pathfiles">
-      <option name="closed" value="true" />
-      <created>1764239869237</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1764239869237</updated>
-    </task>
-    <task id="LOCAL-00027" summary="defining service: CsvCatalogLoader implements CatalogLoader used to find and utilize a supermarket's catalog">
-      <option name="closed" value="true" />
-      <created>1764260280221</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1764260280221</updated>
-    </task>
-    <task id="LOCAL-00028" summary="little modify: adding comments">
-      <option name="closed" value="true" />
-      <created>1764260328360</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1764260328360</updated>
-    </task>
-    <task id="LOCAL-00029" summary="defining model: abstract class Profile">
-      <option name="closed" value="true" />
-      <created>1764599949472</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1764599949472</updated>
-    </task>
-    <task id="LOCAL-00030" summary="defining models: ShoppingList from a Supermarket, containing ShoppingItem">
-      <option name="closed" value="true" />
-      <created>1764602165949</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1764602165949</updated>
-    </task>
-    <task id="LOCAL-00031" summary="little modify: comments">
-      <option name="closed" value="true" />
-      <created>1764602274943</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1764602274943</updated>
-    </task>
-    <task id="LOCAL-00032" summary="defining models: Nutritionist and User will be objects that model the people using the software">
-      <option name="closed" value="true" />
-      <created>1764614381673</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1764614381673</updated>
-    </task>
-    <task id="LOCAL-00033" summary="defining models: DietPlan and objects to modify the diet">
-      <option name="closed" value="true" />
-      <created>1764614434448</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1764614434448</updated>
+      <workItem from="1765473284228" duration="27536000" />
+      <workItem from="1765876035674" duration="47705000" />
+      <workItem from="1766414988268" duration="21175000" />
+      <workItem from="1767015715364" duration="9211000" />
     </task>
     <task id="LOCAL-00034" summary="little modify: comments">
       <option name="closed" value="true" />
@@ -489,7 +485,119 @@
       <option name="project" value="LOCAL" />
       <updated>1765807368541</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="little modify: now there will be only one stage to view dietplans">
+      <option name="closed" value="true" />
+      <created>1765809029490</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1765809029490</updated>
+    </task>
+    <task id="LOCAL-00070" summary="little modify: little changes added method to redirect to login screen">
+      <option name="closed" value="true" />
+      <created>1766053801110</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1766053801110</updated>
+    </task>
+    <task id="LOCAL-00071" summary="little modify: little changes added method to redirect to login screen">
+      <option name="closed" value="true" />
+      <created>1766053813391</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1766053813391</updated>
+    </task>
+    <task id="LOCAL-00072" summary="little modify: little changes added method to redirect to login screen">
+      <option name="closed" value="true" />
+      <created>1766053828758</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1766053828759</updated>
+    </task>
+    <task id="LOCAL-00073" summary="implemented view: created diet editor gui view">
+      <option name="closed" value="true" />
+      <created>1766156745120</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1766156745121</updated>
+    </task>
+    <task id="LOCAL-00074" summary="implemented view: created shopping list manager and shopping list editor gui view">
+      <option name="closed" value="true" />
+      <created>1766415099018</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1766415099018</updated>
+    </task>
+    <task id="LOCAL-00075" summary="little modify: applied changes to use gui views">
+      <option name="closed" value="true" />
+      <created>1766415147556</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1766415147556</updated>
+    </task>
+    <task id="LOCAL-00076" summary="created service: AppLogger will log the application behavior on a dedicated file">
+      <option name="closed" value="true" />
+      <created>1766426877734</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1766426877734</updated>
+    </task>
+    <task id="LOCAL-00077" summary="developed custom exception: created exception to handle cases of email already registered and invalid patient during diet assignment">
+      <option name="closed" value="true" />
+      <created>1766490672863</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1766490672863</updated>
+    </task>
+    <task id="LOCAL-00078" summary="modify: changed for using the AppLogger to log the application behavior">
+      <option name="closed" value="true" />
+      <created>1766508993453</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1766508993453</updated>
+    </task>
+    <task id="LOCAL-00079" summary="little modify: changes in how the gui's have to behave (editor will block primary stage ecc.)">
+      <option name="closed" value="true" />
+      <created>1766509120494</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1766509120494</updated>
+    </task>
+    <task id="LOCAL-00080" summary="implemented gof pattern: implemented strategy pattern used in the DietCalculatorService to calculate single portion of CommercialProduct using specified strategies">
+      <option name="closed" value="true" />
+      <created>1767015944721</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1767015944722</updated>
+    </task>
+    <task id="LOCAL-00081" summary="modify: implemented factory pattern in the catalog loader so the correct choice of CatalogLoader will be done runtime with the supermarket's choice">
+      <option name="closed" value="true" />
+      <created>1767016130643</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1767016130643</updated>
+    </task>
+    <task id="LOCAL-00082" summary="implemented DAO: created FileSystemDAO, that uses jackson to save objects in .json file, little modifies to entities for using jackson (empty constructor, setter getter method...)">
+      <option name="closed" value="true" />
+      <created>1767024844199</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1767024844199</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -513,18 +621,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="little modify: adding override toString method to models to easily print them on screen" />
-    <MESSAGE value="defining views: defined views to let patients see their DietPlan" />
-    <MESSAGE value="defining controller: defined controller to let patients see their DietPlan" />
-    <MESSAGE value="defining models: created DAO to manage ShoppingList save delete and retrive" />
-    <MESSAGE value="little modify: modified logic inside DAOs" />
-    <MESSAGE value="defining views: views for nutritionist home screen" />
-    <MESSAGE value="defining controller: controller for nutritionist home screen" />
-    <MESSAGE value="modify: changed logic for users to see their DietPlan" />
-    <MESSAGE value="little modify: created internal method to normalize day input string" />
-    <MESSAGE value="little modify: prints diet with num for items" />
-    <MESSAGE value="defining views: defined views to let nutritionist manage diets" />
-    <MESSAGE value="defining controllers: defined controllers to let nutritionist manage diets" />
     <MESSAGE value="defining method: assingDiet method for DietManagerController used by nutritionists" />
     <MESSAGE value="little modify: using nutritionist's method to create a new diet template" />
     <MESSAGE value="little modify: DietPlan for user's is loaded as soon as the user logs in" />
@@ -538,6 +634,18 @@
     <MESSAGE value="little modify: adding showError method" />
     <MESSAGE value="implementing view: created gui view to display DietPlans" />
     <MESSAGE value="implementing view: created diet manager gui view" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementing view: created diet manager gui view" />
+    <MESSAGE value="little modify: now there will be only one stage to view dietplans" />
+    <MESSAGE value="little modify: little changes added method to redirect to login screen" />
+    <MESSAGE value="implemented view: created diet editor gui view" />
+    <MESSAGE value="implemented view: created shopping list manager and shopping list editor gui view" />
+    <MESSAGE value="little modify: applied changes to use gui views" />
+    <MESSAGE value="created service: AppLogger will log the application behavior on a dedicated file" />
+    <MESSAGE value="developed custom exception: created exception to handle cases of email already registered and invalid patient during diet assignment" />
+    <MESSAGE value="modify: changed for using the AppLogger to log the application behavior" />
+    <MESSAGE value="little modify: changes in how the gui's have to behave (editor will block primary stage ecc.)" />
+    <MESSAGE value="implemented gof pattern: implemented strategy pattern used in the DietCalculatorService to calculate single portion of CommercialProduct using specified strategies" />
+    <MESSAGE value="modify: implemented factory pattern in the catalog loader so the correct choice of CatalogLoader will be done runtime with the supermarket's choice" />
+    <MESSAGE value="implemented DAO: created FileSystemDAO, that uses jackson to save objects in .json file, little modifies to entities for using jackson (empty constructor, setter getter method...)" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented DAO: created FileSystemDAO, that uses jackson to save objects in .json file, little modifies to entities for using jackson (empty constructor, setter getter method...)" />
   </component>
 </project>
