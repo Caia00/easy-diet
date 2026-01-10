@@ -1,5 +1,6 @@
 package models.dao;
 
+import exception.PersistenceException;
 import lombok.SneakyThrows;
 import models.*;
 import models.beans.ProfileBean;
@@ -36,7 +37,6 @@ public class SqlProfileDAO implements ProfileDAO {
     }
 
 
-    @SneakyThrows
     @Override
     public void save(Profile profile) {
         String query = "REPLACE INTO users (email, password, name, surname, birth_date, role, height, weight, gender, register_id) " +
@@ -70,7 +70,7 @@ public class SqlProfileDAO implements ProfileDAO {
             logger.info("Profilo salvato nel DB");
 
         } catch (SQLException e) {
-            throw new SQLException("Errore durante salvataggio profilo nel DB: " + e.getMessage());
+            throw new PersistenceException("Errore durante salvataggio profilo nel DB: " + e.getMessage(), e);
         }
     }
 

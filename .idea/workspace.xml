@@ -6,15 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="little changes: resolving issues">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/DietPlan.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/DietPlan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/Profile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/ShoppingItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/ShoppingItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/ShoppingList.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/ShoppingList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/dao/SqlProfileDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/dao/SqlProfileDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/CatalogLoaderFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/CatalogLoaderFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/ProductFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/ProductFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiShoppingListManagerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiShoppingListManagerView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -210,15 +202,7 @@
       <workItem from="1767434618828" duration="37148000" />
       <workItem from="1767893898186" duration="9651000" />
       <workItem from="1767973769915" duration="2875000" />
-      <workItem from="1768036519294" duration="18703000" />
-    </task>
-    <task id="LOCAL-00045" summary="defining views: defined views to let patients see their DietPlan">
-      <option name="closed" value="true" />
-      <created>1764861032030</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1764861032030</updated>
+      <workItem from="1768036519294" duration="19457000" />
     </task>
     <task id="LOCAL-00046" summary="defining controller: defined controller to let patients see their DietPlan">
       <option name="closed" value="true" />
@@ -604,7 +588,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768057275070</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="little changes: resolving issues">
+      <option name="closed" value="true" />
+      <created>1768058529326</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1768058529326</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

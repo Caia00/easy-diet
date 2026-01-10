@@ -87,6 +87,7 @@ public class LoginController {
             view.showErrorMessage(e.getMessage());
             view.switchToLogin();
         } catch (Exception ex) {
+            logger.log(Level.SEVERE, ex.getMessage(), ex);
             view.showErrorMessage("Errore durante la registrazione.");
         }
     }
@@ -105,6 +106,7 @@ public class LoginController {
             view.showErrorMessage(e.getMessage());
             view.switchToLogin();
         } catch (Exception ex) {
+            logger.log(Level.SEVERE, ex.getMessage(), ex);
             view.showErrorMessage("Errore durante la registrazione.");
         }
     }
