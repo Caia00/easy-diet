@@ -20,10 +20,10 @@ public class CsvCatalogLoader implements CatalogLoader {
     private final ProductFactory factory;
 
     // Pattern precompilato per la ricerca di un numero all'interno di una stringa (utilizzato nel parser)
-    private static final Pattern NUMBER_PATTERN = Pattern.compile("([0-9]+([.,][0-9]+)?)");
+    private static final Pattern NUMBER_PATTERN = Pattern.compile("(\\d+([.,]\\d+)?)");
 
     //Pattern precompilato per la ricerca di un numero seguito da kcal
-    private static final Pattern KCAL_SPECIFIC_PATTERN = Pattern.compile("([0-9]+([.,][0-9]+)?)\\s*k?cal", Pattern.CASE_INSENSITIVE);
+    private static final Pattern KCAL_SPECIFIC_PATTERN = Pattern.compile("(\\d+([.,]\\d+)?)\\s*k?cal", Pattern.CASE_INSENSITIVE);
 
     public CsvCatalogLoader(String fileName, ProductFactory factory) {
         this.fileName = fileName;
@@ -39,22 +39,21 @@ public class CsvCatalogLoader implements CatalogLoader {
                      new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8)) : null) {
 
             if (br == null) {
-                logger.severe("File non trovato: " + fileName);
+                logger.severe(() -> "File non trovato: " + fileName);
                 return catalog;
             }
 
-            String line;
-            boolean isFirstLine = true;
+            String line = br.readLine();
 
             while ((line = br.readLine()) != null) {
-                if (isFirstLine) { isFirstLine = false; continue; }
+
                 if (line.trim().isEmpty()) continue;
 
                 CommercialProduct product = parseLine(line);
                 if (product != null) catalog.add(product);
             }
 
-            logger.info("Caricati " + catalog.size() + " prodotti da " + fileName);
+            logger.info(() -> "Caricati " + catalog.size() + " prodotti da " + fileName);
 
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Il catalogo non è stato correttamente importato", e);
@@ -86,7 +85,7 @@ public class CsvCatalogLoader implements CatalogLoader {
 
             return factory.createProduct(rawName, rawCategory, rawPrice, rawWeightString, scrapedValues);
 
-        } catch (Exception e) {
+        } catch (Exception g) {
             return null;
         }
     }
@@ -103,7 +102,7 @@ public class CsvCatalogLoader implements CatalogLoader {
                 numberPart = numberPart.replace(",", ".");
 
                 return Double.parseDouble(numberPart);
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException h) {
                 return 0.0;
             }
         }
@@ -121,7 +120,7 @@ public class CsvCatalogLoader implements CatalogLoader {
             try {
                 String numberPart = matcher.group(1).replace(",", ".");
                 return Double.parseDouble(numberPart);
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException i) {
                 //Se non si dovesse trovare il numero si prosegue col parser generico
             }
         }

@@ -10,6 +10,8 @@ public class CliAuthView implements AuthView {
     private LoginController controller;
     private final Scanner scanner;
     private boolean isRunning;
+    private final String email = "Email: ";
+    private final String password = "Password: ";
 
     public CliAuthView() {
         this.scanner = new Scanner(System.in);
@@ -58,9 +60,9 @@ public class CliAuthView implements AuthView {
     //Metodi per leggere e gestire l'input
 
     private void handleLoginInput() {
-        System.out.print("Email: ");
+        System.out.print(email);
         String email = scanner.nextLine();
-        System.out.print("Password: ");
+        System.out.print(password);
         String pwd = scanner.nextLine();
 
         controller.login(email, pwd);
@@ -70,8 +72,8 @@ public class CliAuthView implements AuthView {
         System.out.println("--- Registrazione Paziente ---");
         System.out.print("Nome: "); String name = scanner.nextLine();
         System.out.print("Cognome: "); String surname = scanner.nextLine();
-        System.out.print("Email: "); String email = scanner.nextLine();
-        System.out.print("Password: "); String pwd = scanner.nextLine();
+        System.out.print(email); String email = scanner.nextLine();
+        System.out.print(password); String pwd = scanner.nextLine();
 
         System.out.print("Anno nascita (YYYY): "); int year = Integer.parseInt(scanner.nextLine());
         System.out.print("Mese nascita (1-12): "); int month = Integer.parseInt(scanner.nextLine());
@@ -91,8 +93,8 @@ public class CliAuthView implements AuthView {
         System.out.println("--- Registrazione Nutrizionista ---");
         System.out.print("Nome: "); String name = scanner.nextLine();
         System.out.print("Cognome: "); String surname = scanner.nextLine();
-        System.out.print("Email: "); String email = scanner.nextLine();
-        System.out.print("Password: "); String pwd = scanner.nextLine();
+        System.out.print(email); String email = scanner.nextLine();
+        System.out.print(password); String pwd = scanner.nextLine();
 
         System.out.print("Anno nascita (YYYY): "); int year = Integer.parseInt(scanner.nextLine());
         System.out.print("Mese nascita (1-12): "); int month = Integer.parseInt(scanner.nextLine());
@@ -108,12 +110,12 @@ public class CliAuthView implements AuthView {
 
     @Override
     public void switchToLogin() {
-
+        //Lo switch alla schermata di login viene fatto automaticamente nel caso Cli
     }
 
     @Override
     public void showErrorMessage(String message) {
-        System.err.println("[ERROR] " + message);
+        System.out.println("[ERROR] " + message);
     }
 
     @Override

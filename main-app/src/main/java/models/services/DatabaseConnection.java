@@ -37,7 +37,7 @@ public class DatabaseConnection {
         Properties prop = new Properties();
         try (InputStream input = getClass().getClassLoader().getResourceAsStream("config.properties")) {
             if (input == null) {
-                System.out.println("Spiacente, non trovo config.properties");
+                logger.info("Spiacente, non trovo config.properties");
                 return;
             }
             prop.load(input);

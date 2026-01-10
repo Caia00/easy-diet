@@ -1,8 +1,6 @@
 package view;
 
 import controller.*;
-import models.DietPlan;
-import java.util.List;
 
 public interface NutritionistHomeView {
     void setController(NutritionistHomeController controller);

@@ -66,7 +66,7 @@ public class FileSystemProfileDAO implements ProfileDAO {
         Profile profile = findByEmail(patientEmail);
 
         if (profile == null) {
-            logger.warning(String.format("Impossibile assegnare dieta: Paziente non trovato (%s)", patientEmail));
+            logger.warning(() -> "Impossibile assegnare dieta: Paziente non trovato " + patientEmail);
             return false;
         }
 

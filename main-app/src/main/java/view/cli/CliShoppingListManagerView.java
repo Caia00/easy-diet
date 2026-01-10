@@ -28,7 +28,7 @@ public class CliShoppingListManagerView implements ShoppingListManagerView {
         } else {
             for (int i = 0; i < history.size(); i++) {
                 ShoppingList l = history.get(i);
-                System.out.printf("[%d] %s (%s) - Tot: €%.2f\n",
+                System.out.printf("[%d] %s (%s) - Tot: €%.2f%n",
                         (i+1), l.getListName(), l.getSupermarket(), l.getTotalCost());
             }
         }
@@ -38,19 +38,19 @@ public class CliShoppingListManagerView implements ShoppingListManagerView {
     @Override
     public void showListDetails(ShoppingList list) {
         System.out.println("\n============================================");
-        System.out.printf(" DETTAGLIO LISTA: %s \n", list.getListName().toUpperCase());
-        System.out.printf(" Supermercato: %s  -  Data: %s\n", list.getSupermarket(), list.getCreationDate());
+        System.out.printf(" DETTAGLIO LISTA: %s %n", list.getListName().toUpperCase());
+        System.out.printf(" Supermercato: %s  -  Data: %s%n", list.getSupermarket(), list.getCreationDate());
         System.out.println("============================================");
 
         if (list.getItems().isEmpty()) {
             System.out.println(" (Lista vuota)");
         } else {
-            System.out.printf(" %-4s | %-25s | %-10s | %s\n", "Q.tà", "Prodotto", "Prezzo", "Tipo");
+            System.out.printf(" %-4s | %-25s | %-10s | %s%n", "Q.tà", "Prodotto", "Prezzo", "Tipo");
             System.out.println("----------------------------------------------------------");
 
             for (var item : list.getItems()) {
                 String type = item.isForDiet() ? "(DIETA)" : "(EXTRA)";
-                System.out.printf(" %-4dx | %-25s | €%-9.2f | %s\n",
+                System.out.printf(" %-4dx | %-25s | €%-9.2f | %s%n",
                         item.getQuantity(),
                         truncate(item.getProduct().getName(), 25),
                         item.getTotalPrice(),
@@ -59,7 +59,7 @@ public class CliShoppingListManagerView implements ShoppingListManagerView {
         }
 
         System.out.println("----------------------------------------------------------");
-        System.out.printf(" TOTALE COMPLESSIVO: €%.2f\n", list.getTotalCost());
+        System.out.printf(" TOTALE COMPLESSIVO: €%.2f%n", list.getTotalCost());
         System.out.println("============================================");
 
         System.out.println("\nPremi INVIO per tornare all'elenco...");
@@ -96,7 +96,7 @@ public class CliShoppingListManagerView implements ShoppingListManagerView {
                     } else {
                         System.out.println("Numero lista non valido.");
                     }
-                } catch (NumberFormatException e) {
+                } catch (NumberFormatException r) {
                     System.out.println("Comando non valido.");
                 }
             }
@@ -122,12 +122,12 @@ public class CliShoppingListManagerView implements ShoppingListManagerView {
             } else {
                 System.out.println("Supermercato non valido.");
             }
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException s) {
             System.out.println("Inserisci un numero valido.");
         }
     }
 
-    private void handleSelectedList(ShoppingList list) {
+    private void handleSelectedList (ShoppingList list) {
         System.out.println("\nSelezionato: " + list.getListName());
         System.out.println("1. Apri / Modifica");
         System.out.println("2. Elimina");
@@ -142,13 +142,15 @@ public class CliShoppingListManagerView implements ShoppingListManagerView {
                 if(scanner.nextLine().equalsIgnoreCase("s")) controller.deleteList(list);
                 break;
             case "0": break;
+            default:
+                throw new NumberFormatException();
         }
     }
 
     @Override
     public void showMessage(String msg) { System.out.println("[OK] " + msg); }
     @Override
-    public void showError(String err) { System.err.println("[ERR] " + err); }
+    public void showError(String err) { System.out.println("[ERR] " + err); }
     @Override
     public void close() { isRunning = false; }
 }

@@ -28,10 +28,10 @@ public class CliShoppingListEditorView implements ShoppingListEditorView {
             System.out.println(" (Carrello vuoto)");
         } else {
             for (ShoppingItem item : list.getItems()) {
-                System.out.printf(" - %dx %s (€%.2f)\n", item.getQuantity(), item.getProduct().getName(), item.getTotalPrice());
+                System.out.printf(" - %dx %s (€%.2f)%n", item.getQuantity(), item.getProduct().getName(), item.getTotalPrice());
             }
         }
-        System.out.printf(" TOTALE STIMATO: €%.2f\n", list.getTotalCost());
+        System.out.printf(" TOTALE STIMATO: €%.2f%n", list.getTotalCost());
         System.out.println("============================================");
     }
 
@@ -73,8 +73,12 @@ public class CliShoppingListEditorView implements ShoppingListEditorView {
                     break;
                 case "0":
                     controller.cancel();
+                    break;
                 case "9":
                     controller.saveAndExit();
+                    break;
+                default:
+
             }
         }
     }
@@ -94,7 +98,7 @@ public class CliShoppingListEditorView implements ShoppingListEditorView {
             } else {
                 System.out.println("Numero non valido.");
             }
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException n) {
             System.out.println("Inserisci un numero.");
         }
     }
@@ -106,7 +110,7 @@ public class CliShoppingListEditorView implements ShoppingListEditorView {
 
         for (int i = 0; i < items.size(); i++) {
             ShoppingItem item = items.get(i);
-            System.out.printf("%d. %s (Qta: %d)\n", (i+1), item.getProduct().getName(), item.getQuantity());
+            System.out.printf("%d. %s (Qta: %d)%n", (i+1), item.getProduct().getName(), item.getQuantity());
         }
 
         System.out.print("Numero prodotto da modificare (0 annulla): ");
@@ -137,7 +141,7 @@ public class CliShoppingListEditorView implements ShoppingListEditorView {
             } else {
                 System.out.println("Indice non valido.");
             }
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException o) {
             System.out.println("Input non valido.");
         }
     }
@@ -147,7 +151,7 @@ public class CliShoppingListEditorView implements ShoppingListEditorView {
         System.out.println("\n--- PRODOTTI DISPONIBILI: " + category + " ---");
         for (int i = 0; i < products.size(); i++) {
             CommercialProduct p = products.get(i);
-            System.out.printf("%d. %s (%.0fg) - €%.2f\n", (i+1), p.getName(), p.getWeightInGrams(), p.getPrice());
+            System.out.printf("%d. %s (%.0fg) - €%.2f%n", (i+1), p.getName(), p.getWeightInGrams(), p.getPrice());
         }
         System.out.println("0. Annulla (Torna indietro)");
         System.out.print("Scegli prodotto: ");
@@ -161,7 +165,7 @@ public class CliShoppingListEditorView implements ShoppingListEditorView {
             } else {
                 System.out.println("Prodotto non valido.");
             }
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException p) {
             System.out.println("Input non valido.");
         }
     }
@@ -179,7 +183,7 @@ public class CliShoppingListEditorView implements ShoppingListEditorView {
 
         try {
             return Integer.parseInt(input);
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException q) {
             System.out.println("Numero non valido, annullato.");
             return 0;
         }
@@ -196,7 +200,7 @@ public class CliShoppingListEditorView implements ShoppingListEditorView {
     @Override
     public void showMessage(String msg) { System.out.println("[OK] " + msg); }
     @Override
-    public void showError(String err) { System.err.println("[ERR] " + err); }
+    public void showError(String err) { System.out.println("[ERR] " + err); }
     @Override
     public void close() { isEditing = false; }
 }

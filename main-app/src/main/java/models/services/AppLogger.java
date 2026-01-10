@@ -6,11 +6,16 @@ import java.util.logging.*;
 public class AppLogger {
     private static boolean configured = false;
 
+    private AppLogger() {
+        //Costruttore vuoto usato solo per nascondere quello pubblico
+    }
+
     public static void setup() {
         if (configured) return;
 
+        Logger rootLogger = Logger.getLogger("");
+
         try {
-            Logger rootLogger = Logger.getLogger("");
             for (Handler handler : rootLogger.getHandlers()) {
                 rootLogger.removeHandler(handler);
             }
@@ -30,7 +35,7 @@ public class AppLogger {
             Logger.getLogger(AppLogger.class.getName()).info("Sistema di Logging inizializzato.");
 
         } catch (IOException e) {
-            System.err.println("Impossibile inizializzare il logger: " + e.getMessage());
+            rootLogger.log(Level.SEVERE, e, () -> "Impossibile inizializzare il logger: " + e.getMessage());
         }
     }
 }

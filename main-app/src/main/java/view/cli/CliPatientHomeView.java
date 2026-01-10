@@ -59,7 +59,7 @@ public class CliPatientHomeView implements PatientHomeView {
 
     @Override
     public void showErrorMessage(String message) {
-        System.err.println("[ERROR] " + message);
+        System.out.println("[ERROR] " + message);
     }
 
     @Override

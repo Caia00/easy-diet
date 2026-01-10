@@ -38,7 +38,7 @@ public class FallbackNutritionService {
 
             this.database = mapper.readValue(inputStream, new TypeReference<List<StandardFood>>(){});
 
-            logger.info("Fallback Database caricato con successo: " + database.size() + " alimenti.");
+            logger.info(() -> "Fallback Database caricato con successo: " + database.size() + " alimenti.");
 
         }
     }
@@ -48,7 +48,7 @@ public class FallbackNutritionService {
 
         String cleanedName = normalizeName(commercialProductName);
 
-        logger.info("Cerco fallback per: '" + cleanedName + "'");
+        logger.info(() -> "Cerco fallback per: '" + cleanedName + "'");
 
         for (StandardFood standardFood : database) {
             if (standardFood.getKeywords() != null) {
@@ -82,7 +82,9 @@ public class FallbackNutritionService {
         private NutritionalValues values;
         private List<String> keywords;
 
-        public StandardFood() {}
+        public StandardFood() {
+            //Costruttore vuoto creato esclusivamente per permettere a jackson di creare gli oggetti
+        }
 
         public String getNome() { return nome; }
         public void setNome(String name) { this.nome = name; }

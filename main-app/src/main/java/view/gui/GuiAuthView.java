@@ -18,6 +18,11 @@ public class GuiAuthView implements AuthView {
     private LoginController controller;
     private final Stage stage;
     private BorderPane rootLayout;
+    private final String email1 = "Email";
+    private final String email2 = "Email:";
+    private final String password1 = "Password";
+    private final String password2 = "Password:";
+    private final String paziente = "Paziente";
 
     public GuiAuthView(Stage stage) {
         this.stage = stage;
@@ -48,10 +53,10 @@ public class GuiAuthView implements AuthView {
         lblTitle.setStyle("-fx-font-size: 24px; -fx-font-weight: bold;");
 
         TextField txtEmail = new TextField();
-        txtEmail.setPromptText("Email");
+        txtEmail.setPromptText(email1);
 
         PasswordField txtPassword = new PasswordField();
-        txtPassword.setPromptText("Password");
+        txtPassword.setPromptText(password1);
 
         Button btnLogin = new Button("Accedi");
         btnLogin.setStyle(GuiTheme.BTN_PRIMARY_STYLE);
@@ -65,7 +70,7 @@ public class GuiAuthView implements AuthView {
 
         Hyperlink linkRegister = new Hyperlink("Non hai un account? Registrati qui");
         linkRegister.setOnAction(e -> showRegisterScreen());
-        content.getChildren().addAll(lblTitle, new Label("Email:"), txtEmail, new Label("Password:"), txtPassword, btnLogin, linkRegister);
+        content.getChildren().addAll(lblTitle, new Label(email2), txtEmail, new Label(password2), txtPassword, btnLogin, linkRegister);
         rootLayout.setCenter(content);
     }
 
@@ -80,8 +85,8 @@ public class GuiAuthView implements AuthView {
 
         //Combo box per scegliere come registrarsi e avere il form corretto da compilare
         ComboBox<String> cmbType = new ComboBox<>();
-        cmbType.getItems().addAll("Paziente", "Nutrizionista");
-        cmbType.setValue("Paziente");//Visualizzo prima paziente
+        cmbType.getItems().addAll(paziente, "Nutrizionista");
+        cmbType.setValue(paziente);//Visualizzo prima paziente
 
         VBox dynamicForm = new VBox(10);
         dynamicForm.setAlignment(Pos.TOP_LEFT);
@@ -90,7 +95,7 @@ public class GuiAuthView implements AuthView {
 
         cmbType.setOnAction(e -> {
             dynamicForm.getChildren().clear();
-            if (cmbType.getValue().equals("Paziente")) {
+            if (cmbType.getValue().equals(paziente)) {
                 renderPatientForm(dynamicForm);
             } else {
                 renderNutritionistForm(dynamicForm);
@@ -116,8 +121,8 @@ public class GuiAuthView implements AuthView {
     private void renderPatientForm(VBox container) {
         TextField txtName = new TextField(); txtName.setPromptText("Nome");
         TextField txtSurname = new TextField(); txtSurname.setPromptText("Cognome");
-        TextField txtEmail = new TextField(); txtEmail.setPromptText("Email");
-        PasswordField txtPass = new PasswordField(); txtPass.setPromptText("Password");
+        TextField txtEmail = new TextField(); txtEmail.setPromptText(email1);
+        PasswordField txtPass = new PasswordField(); txtPass.setPromptText(password1);
         DatePicker dateBirth = new DatePicker(); dateBirth.setPromptText("Data di Nascita");
         TextField txtHeight = new TextField(); txtHeight.setPromptText("Altezza (cm)");
         TextField txtWeight = new TextField(); txtWeight.setPromptText("Peso (kg)");
@@ -139,9 +144,9 @@ public class GuiAuthView implements AuthView {
 
                 controller.registerPatient(bean, h, w, cmbGender.getValue()
                 );
-            } catch (NumberFormatException ex) {
+            } catch (NumberFormatException _) {
                 showErrorMessage("Altezza e Peso devono essere numeri (usa il punto per i decimali).");
-            } catch (Exception ex) {
+            } catch (Exception _) {
                 showErrorMessage("Dati mancanti o non validi.");
             }
         });
@@ -150,8 +155,8 @@ public class GuiAuthView implements AuthView {
         container.getChildren().addAll(
                 new Label("Nome:"), txtName,
                 new Label("Cognome:"), txtSurname,
-                new Label("Email:"), txtEmail,
-                new Label("Password:"), txtPass,
+                new Label(email2), txtEmail,
+                new Label(password2), txtPass,
                 new Label("Data Nascita:"), dateBirth,
                 new Label("Altezza (cm):"), txtHeight,
                 new Label("Peso (kg):"), txtWeight,
@@ -165,8 +170,8 @@ public class GuiAuthView implements AuthView {
     private void renderNutritionistForm(VBox container) {
         TextField txtName = new TextField(); txtName.setPromptText("Nome");
         TextField txtSurname = new TextField(); txtSurname.setPromptText("Cognome");
-        TextField txtEmail = new TextField(); txtEmail.setPromptText("Email");
-        PasswordField txtPass = new PasswordField(); txtPass.setPromptText("Password");
+        TextField txtEmail = new TextField(); txtEmail.setPromptText(email1);
+        PasswordField txtPass = new PasswordField(); txtPass.setPromptText(password1);
         DatePicker dateBirth = new DatePicker(); dateBirth.setPromptText("Data di Nascita");
         TextField txtRegId = new TextField(); txtRegId.setPromptText("Numero Iscrizione Albo");
 
@@ -178,7 +183,7 @@ public class GuiAuthView implements AuthView {
             try {
                 ProfileBean bean = new ProfileBean(txtName.getText(), txtSurname.getText(), txtEmail.getText(), txtPass.getText(), dateBirth.getValue());
                 controller.registerNutritionist(bean , txtRegId.getText());
-            } catch (Exception ex) {
+            } catch (Exception _) {
                 showErrorMessage("Compila tutti i campi correttamente.");
             }
         });
@@ -186,8 +191,8 @@ public class GuiAuthView implements AuthView {
         container.getChildren().addAll(
                 new Label("Nome:"), txtName,
                 new Label("Cognome:"), txtSurname,
-                new Label("Email:"), txtEmail,
-                new Label("Password:"), txtPass,
+                new Label(email2), txtEmail,
+                new Label(password2), txtPass,
                 new Label("Data Nascita:"), dateBirth,
                 new Label("Num. Iscrizione Albo:"), txtRegId,
                 new Label(""), // Spaziatore
@@ -217,6 +222,7 @@ public class GuiAuthView implements AuthView {
 
     @Override
     public void close() {
+        //Il metodo non fa niente perché la chiusura consiste semplicemente dal set della nuova scena sullo stage da parte della nuova view
     }
 
 

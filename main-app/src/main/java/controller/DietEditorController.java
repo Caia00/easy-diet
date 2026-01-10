@@ -52,7 +52,7 @@ public class DietEditorController {
             editorView.showMessage("Pasto aggiunto con successo.");
             showCurrentPlanState();
 
-        } catch (DateTimeParseException ea) {
+        } catch (DateTimeParseException a) {
             editorView.showError("Formato orario non valido. Usa HH:mm (es. 12:30).");
         } catch (IllegalArgumentException ex){
             editorView.showError(ex.getMessage());

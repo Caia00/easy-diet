@@ -28,7 +28,7 @@ public class CliDietManagerView implements DietManagerView {
             System.out.println(" (Nessuna dieta presente)");
         } else {
             for (int i = 0; i < summaries.size(); i++) {
-                System.out.printf("[%d] %s (ID: %d)\n", (i+1), summaries.get(i).getDietName(), summaries.get(i).getDietId());
+                System.out.printf("[%d] %s (ID: %d)%n", (i+1), summaries.get(i).getDietName(), summaries.get(i).getDietId());
             }
         }
         System.out.println("------------------------------");
@@ -61,7 +61,7 @@ public class CliDietManagerView implements DietManagerView {
                     } else {
                         System.out.println("Indice non valido.");
                     }
-                } catch (NumberFormatException e) {
+                } catch (NumberFormatException m) {
                     System.out.println("Comando non valido.");
                 }
             }

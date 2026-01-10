@@ -6,13 +6,14 @@ import models.beans.ShoppingCalculationResult;
 import models.services.strategies.KcalStrategy;
 import models.services.strategies.*;
 
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class DietCalculatorService {
 
-    private static final Map<AppCategory, PortionCalculationStrategy> strategyMap = new HashMap<>();
+    private static final Map<AppCategory, PortionCalculationStrategy> strategyMap = new EnumMap<>(AppCategory.class);
     private static final PortionCalculationStrategy defaultStrategy = new KcalStrategy();
 
     //Configurazione mappa delle strategie

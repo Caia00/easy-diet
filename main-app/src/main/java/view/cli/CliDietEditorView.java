@@ -11,6 +11,7 @@ public class CliDietEditorView implements DietEditorView {
     private DietEditorController controller;
     private final Scanner scanner = new Scanner(System.in);
     private boolean isEditing = true;
+    private final String giorno = "Giorno: ";
 
     @Override
     public void setController(DietEditorController controller) {
@@ -61,7 +62,7 @@ public class CliDietEditorView implements DietEditorView {
     }
 
     private void handleRemoveMeal() {
-        System.out.print("Giorno: ");
+        System.out.print(giorno);
         String day = scanner.nextLine();
         System.out.print("Nome Pasto da rimuovere: ");
         String name = scanner.nextLine();
@@ -70,7 +71,7 @@ public class CliDietEditorView implements DietEditorView {
 
     private void handleAddFood() {
         System.out.println("--- Aggiunta Cibo ---");
-        System.out.print("Giorno: "); String day = scanner.nextLine();
+        System.out.print(giorno); String day = scanner.nextLine();
         System.out.print("Pasto: "); String meal = scanner.nextLine();
 
         AppCategory cat = null;
@@ -84,7 +85,7 @@ public class CliDietEditorView implements DietEditorView {
             try {
                 cat = AppCategory.valueOf(catStr);
                 validCategory = true;
-            } catch (IllegalArgumentException e) {
+            } catch (IllegalArgumentException k) {
                 System.out.println("ERRORE: Categoria non valida. Riprova.");
             }
         } while (!validCategory);
@@ -106,7 +107,7 @@ public class CliDietEditorView implements DietEditorView {
 
     private void handleRemoveFood() {
         System.out.println("--- Rimuovi Alimento ---");
-        System.out.print("Giorno: ");
+        System.out.print(giorno);
         String day = scanner.nextLine();
 
         System.out.print("Nome pasto: ");
@@ -118,7 +119,7 @@ public class CliDietEditorView implements DietEditorView {
 
             controller.removeFoodItem(day, mealName, index - 1);
 
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException h) {
             System.out.println("Devi inserire un numero intero!");
         }
     }
@@ -126,7 +127,7 @@ public class CliDietEditorView implements DietEditorView {
     private double readDouble() {
         try {
             return Double.parseDouble(scanner.nextLine());
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException j) {
             return 0.0;
         }
     }
@@ -158,7 +159,7 @@ public class CliDietEditorView implements DietEditorView {
     @Override
     public void showMessage(String msg) { System.out.println("[OK] " + msg); }
     @Override
-    public void showError(String err) { System.err.println("[ERR] " + err); }
+    public void showError(String err) { System.out.println("[ERR] " + err); }
     @Override
     public void close() { isEditing = false; }
 }
