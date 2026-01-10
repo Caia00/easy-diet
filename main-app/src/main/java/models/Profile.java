@@ -28,9 +28,9 @@ public abstract class Profile {
     protected String password;
     protected LocalDate birthDate;
 
-    public Profile() {}
+    protected Profile() {}
 
-    public Profile(String name, String surname, String email, String password, LocalDate birthDate) {
+    protected Profile(String name, String surname, String email, String password, LocalDate birthDate) {
         this.name = name;
         this.surname = surname;
         this.email = email;

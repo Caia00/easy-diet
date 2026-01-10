@@ -12,7 +12,9 @@ public class ProductFactory {
     //Regex utilizzata per eliminare il camel case dal nome del prodotto: CarrefourPollo -> Carrefour Pollo, più facile ricerca peso e categoria successive
     private static final Pattern CAMEL_CASE_PATTERN = Pattern.compile("(?<=[a-z])(?=[A-Z])");
 
-    public ProductFactory() {}
+    public ProductFactory() {
+        //Costruttore vuoto in quanto l'oggetto non dovrà essere inizializzato
+    }
 
     public CommercialProduct createProduct(String rawName, String rawCategory, double rawPrice, String rawWeightString, NutritionalValues scrapedValues) {
 
@@ -71,7 +73,7 @@ public class ProductFactory {
     private double parseWeight(String text) {
         if (text == null || text.isEmpty()) return 0.0;
 
-        Pattern p = Pattern.compile("([0-9]+[.,]?[0-9]*)\\s*(mg|g|kg|ml|cl|l|lt)", Pattern.CASE_INSENSITIVE); //Regex per la ricerca nel nome del prodotto di una stringa di tipo <num> <unità di misura>
+        Pattern p = Pattern.compile("(\\d+[.,]?\\d*)\\s*(mg|g|kg|ml|cl|l|lt)", Pattern.CASE_INSENSITIVE); //Regex per la ricerca nel nome del prodotto di una stringa di tipo <num> <unità di misura>
         Matcher m = p.matcher(text);
 
         if (m.find()) {
@@ -83,9 +85,7 @@ public class ProductFactory {
 
                 // Conversione in grammi/millilitri
                 switch (unit) {
-                    case "kg":
-                    case "l":
-                    case "lt":
+                    case "kg","l","lt":
                         return value * 1000.0;
                     case "cl":
                         return value * 10.0;
@@ -94,7 +94,7 @@ public class ProductFactory {
                     default: // g, ml
                         return value;
                 }
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException ex) {
                 return 0.0; // Se c'è un errore strano nel numero
             }
         }

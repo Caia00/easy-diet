@@ -37,7 +37,7 @@ public class DietPlan {
         if (weeklySchedule.containsKey(key)) {
             weeklySchedule.get(key).add(meal);
         } else {
-            logger.severe("Giorno non valido: " + day + " (Interpretato come: " + key + ")");
+            logger.severe(() -> "Giorno non valido: " + day + " (Interpretato come: " + key + ")");
             throw new IllegalArgumentException("Giorno non valido: " + day);
         }
     }

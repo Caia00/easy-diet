@@ -2,6 +2,7 @@ package models.dao;
 
 import lombok.SneakyThrows;
 import models.*;
+import models.beans.ProfileBean;
 import models.services.DatabaseConnection;
 
 import java.sql.*;
@@ -124,7 +125,8 @@ public class SqlProfileDAO implements ProfileDAO {
             double h = rs.getDouble("height");
             double w = rs.getDouble("weight");
             String g = rs.getString("gender");
-            return new User(name, surname, email, pass, birth, h, w, g);
+            ProfileBean bean = new ProfileBean(name, surname, email, pass, birth);
+            return new User(bean, h, w, g);
         }
         else if ("NUTRITIONIST".equals(role)) {
             String regId = rs.getString("register_id");

@@ -1,6 +1,7 @@
 package models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import models.beans.ProfileBean;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -19,9 +20,8 @@ public class User extends Profile{
         super();
     }
 
-    public User(String name, String surname, String email, String password, LocalDate birthDate,
-                double heightCm, double currentWeightKg, String gender) {
-        super(name, surname, email, password, birthDate);
+    public User(ProfileBean bean, double heightCm, double currentWeightKg, String gender) {
+        super(bean.getName(), bean.getSurname(), bean.getEmail(), bean.getPassword(), bean.getBirthdate());
         this.heightCm = heightCm;
         this.currentWeightKg = currentWeightKg;
         this.gender = gender;

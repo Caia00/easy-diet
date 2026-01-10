@@ -77,7 +77,7 @@ public class LoginController {
         try {
             checkIfEmailExists(bean.getEmail());
 
-            User newUser = new User(bean.getName(), bean.getSurname(), bean.getEmail(), bean.getPassword(), bean.getBirthdate(), height, weight, gender);
+            User newUser = new User(bean, height, weight, gender);
             daoFactory.getProfileDAO().save(newUser);
 
             view.showSuccessMessage("Paziente registrato! Ora puoi effettuare il login.");

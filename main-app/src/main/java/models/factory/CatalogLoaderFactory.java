@@ -5,23 +5,18 @@ import models.SupermarketName;
 import models.services.CsvCatalogLoader;
 
 public class CatalogLoaderFactory {
+    private CatalogLoaderFactory(){
+        //Costruttore vuoto perché non utilizzato
+    }
     public static CatalogLoader getLoader(SupermarketName supermarket) {
 
         ProductFactory productFactory = new ProductFactory();
 
-        switch (supermarket) {
-            case CARREFOUR:
-                return new CsvCatalogLoader("catalogo_completo_carrefour1.csv", productFactory);
-
-            /* CASI FUTURI
-            case CONAD:
-                return new ApiCatalogLoader("...");
-            case COOP:
-                return new CsvCatalogLoader("assets/coop.csv");
-            */
-
-            default:
-                return null;
+        //Quando si potranno supportare altri supermercati basterà modificare questo if con uno switch su supermarket
+        if (supermarket == SupermarketName.CARREFOUR) {
+            return new CsvCatalogLoader("catalogo_completo_carrefour1.csv", productFactory);
+        } else {
+            return null;
         }
     }
 }
