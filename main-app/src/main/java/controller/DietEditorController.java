@@ -1,6 +1,7 @@
 package controller;
 
 import models.*;
+import models.beans.FoodBean;
 import models.factory.DAOFactory;
 import view.DietEditorView;
 import view.DietViewerView;
@@ -51,33 +52,31 @@ public class DietEditorController {
             editorView.showMessage("Pasto aggiunto con successo.");
             showCurrentPlanState();
 
-        } catch (DateTimeParseException e) {
+        } catch (DateTimeParseException e1) {
             editorView.showError("Formato orario non valido. Usa HH:mm (es. 12:30).");
-        } catch (IllegalArgumentException e){
-            editorView.showError(e.getMessage());
+        } catch (IllegalArgumentException ex){
+            editorView.showError(ex.getMessage());
         } catch (Exception e) {
             editorView.showError("Errore generico: " + e.getMessage());
         }
     }
 
-    public void addFoodItem(String day, String mealName,
-                            AppCategory category, double kcal, double prot, double carb, double sug, double fat, double fib,
-                            String suggestedProductName) {
+    public void addFoodItem(FoodBean bean) {
 
 
-        Meal meal = plan.getMeal(day, mealName);
+        Meal meal = plan.getMeal(bean.getDay(), bean.getMealName());
 
         if (meal == null) {
-            editorView.showError("Pasto '" + mealName + "' non trovato in " + day + ".");
+            editorView.showError("Pasto '" + bean.getMealName() + "' non trovato in " + bean.getDay() + ".");
             return;
         }
 
-        NutritionalTarget target = new NutritionalTarget(category, kcal, prot, carb, sug, fat, fib);
+        NutritionalTarget target = new NutritionalTarget(bean.getAppCategory(), bean.getKcal(), bean.getProt(), bean.getCarb(), bean.getSug(), bean.getFat(), bean.getFib());
 
         //Creazione del suggestProduct, se il nome dovesse essere inserito sarà creato il CommercialProduct con dati fittizi
         CommercialProduct product = null;
-        if (suggestedProductName != null && !suggestedProductName.trim().isEmpty()) {
-            product = new CommercialProduct(suggestedProductName, 0, 0, category, new NutritionalValues(), false);
+        if (bean.getSuggestedProductName() != null && !bean.getSuggestedProductName().trim().isEmpty()) {
+            product = new CommercialProduct(bean.getSuggestedProductName(), 0, 0, bean.getAppCategory(), new NutritionalValues(), false);
         }
 
         try {

@@ -2,6 +2,7 @@ package view.gui;
 
 import controller.DietEditorController;
 import models.AppCategory;
+import models.beans.FoodBean;
 import view.DietEditorView;
 
 import javafx.geometry.Insets;
@@ -207,8 +208,7 @@ public class GuiDietEditorView implements DietEditorView {
 
         btnAdd.setOnAction(e -> {
             try {
-                controller.addFoodItem(
-                        cmbDay.getValue(),
+                FoodBean bean = new FoodBean(cmbDay.getValue(),
                         txtMealName.getText(),
                         cmbCat.getValue(),
                         Double.parseDouble(txtKcal.getText()),
@@ -217,11 +217,11 @@ public class GuiDietEditorView implements DietEditorView {
                         Double.parseDouble(txtSug.getText()),
                         Double.parseDouble(txtFat.getText()),
                         Double.parseDouble(txtFib.getText()),
-                        txtProduct.getText()
-                );
+                        txtProduct.getText());
+                controller.addFoodItem(bean);
             } catch (NumberFormatException ex) {
                 showError("I valori nutrizionali devono essere numeri (usa il punto).");
-            } catch (Exception ex) {
+            } catch (Exception ex1) {
                 showError("Compila tutti i campi obbligatori.");
             }
         });

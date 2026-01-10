@@ -5,6 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="little changes: resolving issues">
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/beans/FoodBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/DietEditorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/DietEditorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliDietEditorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliDietEditorView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiDietEditorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiDietEditorView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiShoppingListManagerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiShoppingListManagerView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,33 +53,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CsvCatalogLoaderTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.DietCalculatorServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ProductFactoryTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ProductFactoryTest.testCreateProductShouldRetrieveFallbackDataFromJsonIfScrapedIs0.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ShoppingListEditorControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.main-app [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;/home/caia/IdeaProjects/easy-diet/main-app/src/test/java/models/services&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/caia/IdeaProjects/easy-diet/main-app/src/main/java/models&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "JUnit.CsvCatalogLoaderTest.executor": "Run",
+    "JUnit.DietCalculatorServiceTest.executor": "Run",
+    "JUnit.ProductFactoryTest.executor": "Run",
+    "JUnit.ProductFactoryTest.testCreateProductShouldRetrieveFallbackDataFromJsonIfScrapedIs0.executor": "Run",
+    "JUnit.ShoppingListEditorControllerTest.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "Maven.main-app [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "/home/caia/IdeaProjects/easy-diet/main-app/src/main/java/main",
+    "last_opened_file_path": "/home/caia/IdeaProjects/easy-diet/main-app/src/main/java/models",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/main-app/src/main/resources" />
@@ -80,6 +87,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="main" />
       <recent name="models.services" />
       <recent name="view.cli" />
       <recent name="view.gui" />
@@ -199,15 +207,7 @@
       <workItem from="1767434618828" duration="37148000" />
       <workItem from="1767893898186" duration="9651000" />
       <workItem from="1767973769915" duration="2875000" />
-      <workItem from="1768036519294" duration="1566000" />
-    </task>
-    <task id="LOCAL-00041" summary="defining controller: PatientHomeController will be the brain behind the patient home screen">
-      <option name="closed" value="true" />
-      <created>1764787870648</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1764787870648</updated>
+      <workItem from="1768036519294" duration="6222000" />
     </task>
     <task id="LOCAL-00042" summary="defining views: CLI and GUI views for patient home screen">
       <option name="closed" value="true" />
@@ -593,7 +593,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768038079180</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="little changes: resolving issues">
+      <option name="closed" value="true" />
+      <created>1768038269361</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1768038269361</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

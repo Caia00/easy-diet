@@ -2,6 +2,7 @@ package view.cli;
 
 import controller.DietEditorController;
 import models.AppCategory;
+import models.beans.FoodBean;
 import view.DietEditorView;
 
 import java.util.Scanner;
@@ -98,7 +99,9 @@ public class CliDietEditorView implements DietEditorView {
         System.out.print("Prodotto suggerito (Invio per nessuno): ");
         String sugg = scanner.nextLine();
 
-        controller.addFoodItem(day, meal, cat, kcal, prot, carb, sug, fats, fib, sugg);
+        FoodBean bean = new FoodBean(day, meal, cat, kcal, prot, carb, sug, fats, fib, sugg);
+
+        controller.addFoodItem(bean);
     }
 
     private void handleRemoveFood() {

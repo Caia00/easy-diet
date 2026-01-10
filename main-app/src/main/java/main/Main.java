@@ -1,4 +1,4 @@
-
+package main;
 
 import controller.LoginController;
 import javafx.application.Application;
@@ -13,10 +13,10 @@ import java.util.logging.Logger;
 public class Main extends Application {
 
     private static final Logger logger = Logger.getLogger(Main.class.getName());
-    private static DAOFactory staticDaoFactory;
-    private static ViewFactory staticViewFactory;
 
     public static void main(String[] args) {
+        DAOFactory staticDaoFactory;
+        ViewFactory staticViewFactory;
         AppLogger.setup();
         logger.info("Verifica parametri di avvio...");
 
@@ -57,7 +57,7 @@ public class Main extends Application {
             loginController.start();
 
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Errore fatale durante lo start GUI: " + e.getMessage(), e);
+            logger.log(Level.SEVERE, String.format("Errore fatale durante lo start GUI: %s", e.getMessage()) , e);
         }
     }
 
