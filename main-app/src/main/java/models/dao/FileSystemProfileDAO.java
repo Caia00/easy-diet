@@ -129,7 +129,7 @@ public class FileSystemProfileDAO implements ProfileDAO {
                 saveAll(new ArrayList<>());
             }
         } catch (IOException e) {
-            logger.log(Level.SEVERE, String.format("Impossibile creare il file DB: %s", file.getAbsolutePath()), e);
+            logger.log(Level.SEVERE, e, () -> "Impossibile creare il file DB: " + file.getAbsolutePath());
         }
     }
 

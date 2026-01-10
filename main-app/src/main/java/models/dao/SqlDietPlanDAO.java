@@ -90,7 +90,7 @@ public class SqlDietPlanDAO implements DietPlanDAO {
 
                     summaries.add(summary);
                 }
-                logger.info(String.format("Caricate da DB %d diete", summaries.size()));
+                logger.info(() -> "Caricate da DB " + summaries.size() + " diete");
             }
         } catch (SQLException e) {
             logger.log(Level.SEVERE, "Errore durante caricamento summaries dal DB", e);
@@ -168,33 +168,36 @@ public class SqlDietPlanDAO implements DietPlanDAO {
 
     //Metodo per salvare tutti i dati salvati nella weeklySchedule del DietPlan
     private void saveMeals(DietPlan plan, Connection conn) throws SQLException {
-        String insertMealSql = "INSERT INTO meals (diet_id, day_of_week, meal_name, meal_time) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO meals (diet_id, day_of_week, meal_name, meal_time) VALUES (?, ?, ?, ?)";
 
-        for (Map.Entry<String, List<Meal>> entry : plan.getWeeklySchedule().entrySet()) {
-            String day = entry.getKey();
-            List<Meal> meals = entry.getValue();
+        try (PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            stmt.setInt(1, plan.getDietId());
 
-            try (PreparedStatement stmt = conn.prepareStatement(insertMealSql, Statement.RETURN_GENERATED_KEYS)) {
-                stmt.setInt(1, plan.getDietId());
-                stmt.setString(2, day);
-                stmt.setNull(4, Types.TIME);
-                for (Meal meal : meals) {
-                    stmt.setString(3, meal.getName());
-
-                    if (meal.getTime() != null) {
-                        stmt.setTime(4, Time.valueOf(meal.getTime()));
-                    }
-
-                    stmt.executeUpdate();
-
-                    // Recupero ID del pasto per salvare i suoi cibi
-                    try (ResultSet keys = stmt.getGeneratedKeys()) {
-                        if (keys.next()) {
-                            int mealId = keys.getInt(1);
-                            saveDietItems(mealId, meal.getFoods(), conn);
-                        }
-                    }
+            for (Map.Entry<String, List<Meal>> entry : plan.getWeeklySchedule().entrySet()) {
+                String day = entry.getKey();
+                for (Meal meal : entry.getValue()) {
+                    saveSingleMeal(stmt, day, meal, conn);
                 }
+            }
+        }
+    }
+
+    private void saveSingleMeal(PreparedStatement stmt, String day, Meal meal, Connection conn) throws SQLException {
+        stmt.setString(2, day);
+        stmt.setString(3, meal.getName());
+
+        if (meal.getTime() != null) {
+            stmt.setTime(4, java.sql.Time.valueOf(meal.getTime()));
+        } else {
+            stmt.setNull(4, java.sql.Types.TIME);
+        }
+
+        stmt.executeUpdate();
+
+        try (ResultSet keys = stmt.getGeneratedKeys()) {
+            if (keys.next()) {
+                int mealId = keys.getInt(1);
+                saveDietItems(mealId, meal.getFoods(), conn);
             }
         }
     }

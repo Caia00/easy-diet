@@ -34,7 +34,7 @@ public class InMemoryProfileDAO implements ProfileDAO {
 
             patient.assignDiet(plan);
 
-            logger.info(String.format("DEMO DB: Assegnata dieta %s a %s", plan.getDietId(), patientEmail));
+            logger.info(() -> "DEMO DB: Assegnata dieta " + plan.getDietName() + " a " + patientEmail);
             return true;
         }
         return false;
@@ -44,6 +44,6 @@ public class InMemoryProfileDAO implements ProfileDAO {
     @Override
     public void delete(String email) {
         db.removeIf(p -> p.getEmail().equalsIgnoreCase(email));
-        logger.info(String.format("DEMO DB: Eliminato profilo di %s", email));
+        logger.info(() -> "DEMO DB: Eliminato profilo di: " + email);
     }
 }

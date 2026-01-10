@@ -3,7 +3,6 @@ package models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import models.beans.ProfileBean;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
