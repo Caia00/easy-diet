@@ -1,5 +1,6 @@
 package view.cli;
 import controller.LoginController;
+import models.beans.ProfileBean;
 import view.AuthView;
 
 import java.time.LocalDate;
@@ -81,7 +82,9 @@ public class CliAuthView implements AuthView {
         System.out.print("Peso (kg): "); double w = Double.parseDouble(scanner.nextLine());
         System.out.print("Sesso (M/F): "); String gender = scanner.nextLine();
 
-        controller.registerPatient(name, surname, email, pwd, birth, h, w, gender);
+        ProfileBean bean = new ProfileBean(name, surname, email, pwd, birth);
+
+        controller.registerPatient(bean, h, w, gender);
     }
 
     private void handleNutritionistRegisterInput() {
@@ -96,9 +99,11 @@ public class CliAuthView implements AuthView {
         System.out.print("Giorno nascita (1-31): "); int day = Integer.parseInt(scanner.nextLine());
         LocalDate birth = LocalDate.of(year, month, day);
 
+        ProfileBean bean = new ProfileBean(name, surname, email, pwd, birth);
+
         System.out.print("Codice Albo: "); String albo = scanner.nextLine();
 
-        controller.registerNutritionist(name, surname, email, pwd, birth, albo);
+        controller.registerNutritionist(bean, albo);
     }
 
     @Override

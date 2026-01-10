@@ -70,20 +70,20 @@ public class DietManagerController {
         try {
             Profile profile = validatePatient(patientEmail);
 
-            logger.info(nutritionist.getEmail() + " assegnazione dieta '" + summary.getDietName() + "' a " + patientEmail + "...");
+            logger.info(String.format("[%s] assegnazione dieta '%s' a %s...", nutritionist.getEmail(), summary.getDietName(), patientEmail));
             boolean success = daoFactory.getProfileDAO().assignDiet(patientEmail, summary);
 
             if (success) {
                 view.showMessage("Dieta assegnata con successo al paziente: " + profile.getName() + " " + profile.getSurname());
-                logger.info(nutritionist.getEmail() + " dieta assegnata con successo al paziente: " + profile.getName() + " " + profile.getSurname());
+                logger.info(String.format("[%s] dieta assegnata con successo al paziente: %s %s", nutritionist.getEmail(),  profile.getName(), profile.getSurname()));
             } else {
                 view.showError("Errore tecnico durante l'assegnazione.");
-                logger.severe(nutritionist.getEmail() + "errore durante l'assegnazione della dieta");
+                logger.severe(String.format("[%s] Errore durante l'assegnazione della dieta", nutritionist.getEmail()));
             }
 
         } catch (InvalidPatientException e) {
             view.showError(e.getMessage());
-        } catch (Exception e) {
+        } catch (Exception ex) {
             view.showError("Errore imprevisto durante l'assegnazione.");
         }
     }
@@ -98,12 +98,12 @@ public class DietManagerController {
                 viewFactory,
                 homeView
         );
-        logger.info(nutritionist.getEmail() + " ritorno alla home...");
+        logger.info(String.format("[%s] Ritorno alla home...", nutritionist.getEmail()));
         homeController.start();
     }
 
     private void launchEditor(DietPlan plan) {
-        logger.info(nutritionist.getEmail() + " apertura Editor per la dieta '" + plan.getDietName() + "'...");
+        logger.info(String.format("[%s] Apertura Editor per la dieta '%s'...",nutritionist.getEmail(), plan.getDietName()));
 
         DietEditorView editorView = viewFactory.createDietEditorView();
         DietViewerView viewerView = viewFactory.createDietViewerView();
@@ -119,7 +119,7 @@ public class DietManagerController {
 
         refreshList();
 
-        logger.info(nutritionist.getEmail() + " ritorno al Diet Manager");
+        logger.info(String.format("[%s] Ritorno al Diet Manager", nutritionist.getEmail()));
     }
 
 

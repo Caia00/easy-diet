@@ -2,6 +2,7 @@ package controller;
 
 import exception.EmailAlreadyRegisteredException;
 import models.*;
+import models.beans.ProfileBean;
 import view.AuthView;
 import java.time.LocalDate;
 import models.factory.*;
@@ -56,28 +57,27 @@ public class LoginController {
     private void navigateToHome(Profile profile) {
         view.close();
 
-        if (profile instanceof User) {
-            logger.info("Accesso come PAZIENTE: " + profile.getEmail());
+        if (profile instanceof User user) {
+            logger.info(String.format("Accesso come PAZIENTE: %s", profile.getEmail()));
 
             PatientHomeView homeView = viewFactory.createPatientHomeView();
 
-            new PatientHomeController((User) profile, daoFactory, viewFactory, homeView).start();
+            new PatientHomeController(user, daoFactory, viewFactory, homeView).start();
         }
-        else if (profile instanceof Nutritionist) {
-            logger.info("Accesso come NUTRIZIONISTA: " + profile.getEmail());
+        else if (profile instanceof Nutritionist nutritionist) {
+            logger.info(String.format("Accesso come NUTRIZIONISTA: %s", profile.getEmail()));
 
             NutritionistHomeView docView = viewFactory.createNutritionistHomeView();
 
-            new NutritionistHomeController((Nutritionist) profile, daoFactory, viewFactory, docView).start();
+            new NutritionistHomeController(nutritionist, daoFactory, viewFactory, docView).start();
         }
     }
 
-    public void registerPatient(String name, String surname, String email, String password,
-                                LocalDate birthDate, double height, double weight, String gender) {
+    public void registerPatient(ProfileBean bean, double height, double weight, String gender) {
         try {
-            checkIfEmailExists(email);
+            checkIfEmailExists(bean.getEmail());
 
-            User newUser = new User(name, surname, email, password, birthDate, height, weight, gender);
+            User newUser = new User(bean.getName(), bean.getSurname(), bean.getEmail(), bean.getPassword(), bean.getBirthdate(), height, weight, gender);
             daoFactory.getProfileDAO().save(newUser);
 
             view.showSuccessMessage("Paziente registrato! Ora puoi effettuare il login.");
@@ -86,17 +86,16 @@ public class LoginController {
         } catch (EmailAlreadyRegisteredException e) {
             view.showErrorMessage(e.getMessage());
             view.switchToLogin();
-        } catch (Exception e) {
+        } catch (Exception ex) {
             view.showErrorMessage("Errore durante la registrazione.");
         }
     }
 
-    public void registerNutritionist(String name, String surname, String email, String password,
-                                     LocalDate birthDate, String registerId) {
+    public void registerNutritionist(ProfileBean bean, String registerId) {
         try {
-            checkIfEmailExists(email);
+            checkIfEmailExists(bean.getEmail());
 
-            Nutritionist newDoc = new Nutritionist(name, surname, email, password, birthDate, registerId);
+            Nutritionist newDoc = new Nutritionist(bean.getName(), bean.getSurname(), bean.getEmail(), bean.getPassword(), bean.getBirthdate(), registerId);
             daoFactory.getProfileDAO().save(newDoc);
 
             view.showSuccessMessage("Nutrizionista registrato! Ora puoi effettuare il login.");
@@ -105,7 +104,7 @@ public class LoginController {
         } catch (EmailAlreadyRegisteredException e) {
             view.showErrorMessage(e.getMessage());
             view.switchToLogin();
-        } catch (Exception e) {
+        } catch (Exception ex) {
             view.showErrorMessage("Errore durante la registrazione.");
         }
     }

@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import models.beans.ProfileBean;
 import view.AuthView;
 import view.gui.utility.GuiTheme;
 import view.gui.utility.Toast;
@@ -134,9 +135,9 @@ public class GuiAuthView implements AuthView {
                 double h = Double.parseDouble(txtHeight.getText());
                 double w = Double.parseDouble(txtWeight.getText());
 
-                controller.registerPatient(
-                        txtName.getText(), txtSurname.getText(), txtEmail.getText(), txtPass.getText(),
-                        dateBirth.getValue(), h, w, cmbGender.getValue()
+                ProfileBean bean = new ProfileBean(txtName.getText(), txtSurname.getText(), txtEmail.getText(), txtPass.getText(), dateBirth.getValue());
+
+                controller.registerPatient(bean, h, w, cmbGender.getValue()
                 );
             } catch (NumberFormatException ex) {
                 showErrorMessage("Altezza e Peso devono essere numeri (usa il punto per i decimali).");
@@ -175,10 +176,8 @@ public class GuiAuthView implements AuthView {
 
         btnRegister.setOnAction(e -> {
             try {
-                controller.registerNutritionist(
-                        txtName.getText(), txtSurname.getText(), txtEmail.getText(), txtPass.getText(),
-                        dateBirth.getValue(), txtRegId.getText()
-                );
+                ProfileBean bean = new ProfileBean(txtName.getText(), txtSurname.getText(), txtEmail.getText(), txtPass.getText(), dateBirth.getValue());
+                controller.registerNutritionist(bean , txtRegId.getText());
             } catch (Exception ex) {
                 showErrorMessage("Compila tutti i campi correttamente.");
             }

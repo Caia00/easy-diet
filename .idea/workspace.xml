@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="little changes: resolving issues">
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/beans/FoodBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/beans/ProfileBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/DietEditorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/DietEditorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliDietEditorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliDietEditorView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiDietEditorView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiDietEditorView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/DietManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/DietManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliAuthView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliAuthView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiAuthView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiAuthView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiShoppingListManagerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiShoppingListManagerView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -207,15 +206,7 @@
       <workItem from="1767434618828" duration="37148000" />
       <workItem from="1767893898186" duration="9651000" />
       <workItem from="1767973769915" duration="2875000" />
-      <workItem from="1768036519294" duration="6222000" />
-    </task>
-    <task id="LOCAL-00042" summary="defining views: CLI and GUI views for patient home screen">
-      <option name="closed" value="true" />
-      <created>1764787967360</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1764787967360</updated>
+      <workItem from="1768036519294" duration="8043000" />
     </task>
     <task id="LOCAL-00043" summary="defining models: definied logic to save DietPlan into DB or memory (in case of DEMO version)">
       <option name="closed" value="true" />
@@ -601,7 +592,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768038269361</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="little changes: resolving issues">
+      <option name="closed" value="true" />
+      <created>1768042762788</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1768042762788</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
