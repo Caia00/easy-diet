@@ -1,6 +1,5 @@
 package controller;
 
-import models.DietPlan;
 import models.Nutritionist;
 import models.factory.DAOFactory;
 import models.factory.ViewFactory;
@@ -8,7 +7,6 @@ import view.DietManagerView;
 import view.NutritionistHomeView;
 import java.util.logging.*;
 
-import java.util.List;
 
 public class NutritionistHomeController {
     private static final Logger logger = Logger.getLogger(NutritionistHomeController.class.getName());

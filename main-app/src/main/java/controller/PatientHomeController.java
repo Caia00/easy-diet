@@ -1,13 +1,12 @@
 package controller;
 
 import models.*;
-import models.DAO.*;
 import models.factory.*;
 import view.*;
 import java.util.logging.*;
 
 public class PatientHomeController {
-    private final static Logger logger = Logger.getLogger(PatientHomeController.class.getName());
+    private static final  Logger logger = Logger.getLogger(PatientHomeController.class.getName());
     private final User user;
     private final DAOFactory daoFactory;
     private final ViewFactory viewFactory;
@@ -37,7 +36,7 @@ public class PatientHomeController {
         DietPlan plan = daoFactory.getDietPlanDAO().findByOwner(user.getEmail());
 
         if(plan != null){
-            logger.info(user.getEmail() + " dieta trovata tramite DAO");
+            logger.info(user.getEmail() + " dieta trovata tramite dao");
 
             user.assignDiet(plan);
         }else{

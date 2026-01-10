@@ -1,4 +1,4 @@
-package models.DAO;
+package models.dao;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -11,13 +11,15 @@ import java.util.logging.*;
 public class SqlShoppingListDAO implements ShoppingListDAO {
 
     private static final Logger logger = Logger.getLogger(SqlShoppingListDAO.class.getName());
-    public SqlShoppingListDAO() { }
+    public SqlShoppingListDAO() {
+        //Creatore vuoto in quanto non servirà inizializzare l'oggetto
+    }
 
     //Metodo per recuperare la lista delle ShoppingList create dall'utente, composte solo dai dati della lista e non anche dai prodotti inserit
     @Override
     public List<ShoppingList> findAllSummariesByOwner(String ownerEmail) {
         List<ShoppingList> summaries = new ArrayList<>();
-        String query = "SELECT * FROM shopping_lists WHERE owner_email = ? ORDER BY creation_date DESC";
+        String query = "SELECT id, list_name, creation_date, supermarket, owner_email, items_quantity, total_price FROM shopping_lists WHERE owner_email = ? ORDER BY creation_date DESC";
 
         try (Connection conn = DatabaseConnection.getInstance().getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -49,7 +51,7 @@ public class SqlShoppingListDAO implements ShoppingListDAO {
         //Elimino vecchi elementi della lista se presenti in memoria per sostituirli con quelli presi da DB
         list.getItems().clear();
 
-        String sql = "SELECT * FROM shopping_items WHERE list_id = ?";
+        String sql = "SELECT id, list_id, product_name, product_category, product_price, product_weight, val_kcal, val_prot, val_carb, val_sug, val_fat, val_fib, quantity, is_for_diet FROM shopping_items WHERE list_id = ?";
 
         try (Connection conn = DatabaseConnection.getInstance().getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -72,15 +74,7 @@ public class SqlShoppingListDAO implements ShoppingListDAO {
                     double pPrice = rs.getDouble("product_price");
                     double pWeight = rs.getDouble("product_weight");
 
-                    String catStr = rs.getString("product_category");
-                    AppCategory pCat = AppCategory.SCONOSCIUTO;
-                    if (catStr != null) {
-                        try {
-                            pCat = AppCategory.valueOf(catStr);
-                        } catch (IllegalArgumentException e) {
-                            logger.warning("Categoria sconosciuta trovata nel DB: " + catStr);
-                        }
-                    }
+                    AppCategory pCat = parseCategory(rs.getString("product_category"));
 
                     CommercialProduct prod = new CommercialProduct(
                             pName,
@@ -98,13 +92,24 @@ public class SqlShoppingListDAO implements ShoppingListDAO {
                 }
             }
 
-            logger.info("Caricati " + list.getItems().size() + " prodotti per lista: " + list.getListId());
+            logger.info(() -> "Caricati " + list.getItems().size() + " prodotti per lista: " + list.getListId());
 
         } catch (SQLException e) {
-            logger.log(Level.SEVERE, "Errore durante caricamento dettagli della lista: " + list.getListId(), e);
+            logger.log(Level.SEVERE, e, () -> "Errore durante caricamento dettagli della lista: " + list.getListId());
         }
     }
 
+    private AppCategory parseCategory(String catStr) {
+        if (catStr == null) {
+            return AppCategory.SCONOSCIUTO;
+        }
+        try {
+            return AppCategory.valueOf(catStr);
+        } catch (IllegalArgumentException e) {
+            logger.warning("Categoria sconosciuta trovata nel DB: " + catStr);
+            return AppCategory.SCONOSCIUTO;
+        }
+    }
 
     //Metodo per salvare una lista della spesa nel DB, transazionale
     @Override
@@ -164,8 +169,8 @@ public class SqlShoppingListDAO implements ShoppingListDAO {
                 try {
                     conn.rollback();
                     logger.warning("Rollback eseguito.");}
-                catch (SQLException ex) {
-                    logger.log(Level.SEVERE, "Errore durante Rollback, alcuni dati potrebbero trovarsi nel DB", e); }
+                catch (SQLException ex1) {
+                    logger.log(Level.SEVERE, "Errore durante Rollback, alcuni dati potrebbero trovarsi nel DB", ex1); }
             }
         } finally {
             if (conn != null) {
@@ -235,8 +240,9 @@ public class SqlShoppingListDAO implements ShoppingListDAO {
                 stmt.setInt(12, item.getQuantity());
                 stmt.setBoolean(13, item.isForDiet());
 
-                stmt.executeUpdate();
+                stmt.addBatch();
             }
+            stmt.executeBatch();
         }
     }
 

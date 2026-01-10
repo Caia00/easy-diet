@@ -1,4 +1,4 @@
-package models.DAO;
+package models.dao;
 
 import models.DietPlan;
 
@@ -10,9 +10,11 @@ public class InMemoryDietPlanDAO implements DietPlanDAO {
 
     private static final Logger logger = Logger.getLogger(InMemoryDietPlanDAO.class.getName());
     private static List<DietPlan> templates = new ArrayList<>();
-    private static int idCounter = 1;
+    private int idCounter = 1;
 
-    public InMemoryDietPlanDAO() {}
+    public InMemoryDietPlanDAO() {
+        //Creatore vuoto in quanto non ci sarà bisogno di inizializzare l'oggetto
+    }
 
     @Override
     public void save(DietPlan plan, String creatorEmail) {
@@ -38,7 +40,7 @@ public class InMemoryDietPlanDAO implements DietPlanDAO {
 
     @Override
     public void loadPlanDetails(DietPlan plan) {
-
+        //Metodo vuoto in quanto trovandoci nella versione Demo inMemory se si provasse ad aprire un DietPlan precedentemente creato questo sarà già presente in memoria
     }
 
     @Override

@@ -7,10 +7,7 @@ import models.factory.DAOFactory;
 import models.services.DietCalculatorService;
 import view.ShoppingListEditorView;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ShoppingListEditorController {
@@ -52,7 +49,7 @@ public class ShoppingListEditorController {
         view.showCurrentList(shoppingList);
 
         //Calcolo statistiche X/Y, X = mealDemand coperte, Y = ... da coprire
-        Map<AppCategory, String> statusMap = new HashMap<>();
+        Map<AppCategory, String> statusMap = new EnumMap<>(AppCategory.class);
 
         Map<AppCategory, Long> totalCounts = totalDemands.stream()
                 .collect(Collectors.groupingBy(d -> d.getTarget().getCategory(), Collectors.counting()));
@@ -78,7 +75,7 @@ public class ShoppingListEditorController {
     public void selectCategory(AppCategory category) {
         List<CommercialProduct> filteredProducts = fullCatalog.stream()
                 .filter(p -> p.getCategory() == category)
-                .collect(Collectors.toList());
+                .toList();
 
         if (filteredProducts.isEmpty()) {
             view.showError("Nessun prodotto trovato nel catalogo per: " + category);
@@ -93,7 +90,7 @@ public class ShoppingListEditorController {
         //Prendo tutte le richieste pertinenti col prodotto (le category sono uguali)
         List<MealDemand> relevantDemands = remainingDemands.stream()
                 .filter(d -> d.getTarget().getCategory() == product.getCategory())
-                .collect(Collectors.toList());
+                .toList();
 
         String adviceMsg;
         int suggestedQty = 1; //Default
@@ -103,7 +100,7 @@ public class ShoppingListEditorController {
             ShoppingCalculationResult result = DietCalculatorService.calculateShoppingNeeds(relevantDemands, product);
 
             if (result.getPacksToBuy() > 0) {
-                adviceMsg = String.format("DIETA: Servono %.0fg totali per coprire %d pasti.\nConsiglio: %d confezioni.",
+                adviceMsg = String.format("DIETA: Servono %.0fg totali per coprire %d pasti.%nConsiglio: %d confezioni.",
                         result.getTotalGramsRequired(), relevantDemands.size(), result.getPacksToBuy());
                 suggestedQty = result.getPacksToBuy();
             } else {
@@ -166,7 +163,7 @@ public class ShoppingListEditorController {
             List<String> missing = remainingDemands.stream()
                     .map(d -> d.getTarget().getCategory().name())
                     .distinct()
-                    .collect(Collectors.toList());
+                    .toList();
 
             boolean proceed = view.showUnmetDemandsWarning(missing);
             if (!proceed) return;
@@ -197,8 +194,6 @@ public class ShoppingListEditorController {
 
         for (ShoppingItem item : shoppingList.getItems()) {
 
-            if (!item.isForDiet()) continue;
-
             CommercialProduct product = item.getProduct();
 
             double availableGrams = product.getWeightInGrams() * item.getQuantity();
@@ -206,33 +201,38 @@ public class ShoppingListEditorController {
             //Trovo demands non soddisfatte che matchano con categoria prodotto
             List<MealDemand> candidates = remainingDemands.stream()
                     .filter(d -> d.getTarget().getCategory() == product.getCategory())
-                    .collect(Collectors.toList());
+                    .toList();
 
-            if (candidates.isEmpty()) continue;
+            if (!item.isForDiet() || candidates.isEmpty()) continue;
 
             //Uso il DietCalculatorService per sapere per ogni domanda quanti grammi del determinato prodotto serviranno
             ShoppingCalculationResult result = DietCalculatorService.calculateShoppingNeeds(candidates, product);
             Map<String, Double> costMap = result.getGramsPerMealDetail();
+            eliminateDemandIfSatisfied(candidates, costMap, availableGrams);
+        }
+    }
 
-            //Elimino le domande finché ho grammi di prodotto disponibili, utilizzo iteratore per poter eliminare elementi mentre scorro
-            var iterator = candidates.iterator();
-            while (iterator.hasNext() && availableGrams > 0) {
-                MealDemand demand = iterator.next();
 
-                String key = demand.getDayOfWeek() + " - " + demand.getMealName();
+    private void eliminateDemandIfSatisfied(List<MealDemand> candidates, Map<String, Double> costMap, double availableGrams) {
 
-                Double gramsNeeded = costMap.get(key);
+        //Elimino le domande finché ho grammi di prodotto disponibili, utilizzo iteratore per poter eliminare elementi mentre scorro
+        var iterator = candidates.iterator();
+        while (iterator.hasNext() && availableGrams > 0) {
+            MealDemand demand = iterator.next();
 
-                if (gramsNeeded != null && gramsNeeded > 0) {
-                    if (availableGrams >= gramsNeeded) {
+            String key = demand.getDayOfWeek() + " - " + demand.getMealName();
 
-                        availableGrams -= gramsNeeded;
+            Double gramsNeeded = costMap.get(key);
 
-                        remainingDemands.remove(demand);
+            if (gramsNeeded != null && gramsNeeded > 0) {
+                if (availableGrams >= gramsNeeded) {
 
-                    } else {
-                        break;
-                    }
+                    availableGrams -= gramsNeeded;
+
+                    remainingDemands.remove(demand);
+
+                } else {
+                    break;
                 }
             }
         }

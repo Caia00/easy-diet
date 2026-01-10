@@ -8,6 +8,10 @@ import models.services.CatalogLoader;
 import view.PatientHomeView;
 import view.ShoppingListEditorView;
 import view.ShoppingListManagerView;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.logging.*;
 import java.util.List;
 
@@ -47,7 +51,7 @@ public class ShoppingListManagerController {
         }
 
         List<CommercialProduct> catalog = loadCatalogForSupermarket(supermarket);
-        if (catalog == null) return;
+        if (catalog.isEmpty()) return;
 
         ShoppingList newList = new ShoppingList(listName, supermarket);
 
@@ -101,7 +105,7 @@ public class ShoppingListManagerController {
 
         if (loader == null) {
             view.showError("Catalogo per " + market + " in via di sviluppo o non disponibile. Scegli CARREFOUR.");
-            return null;
+            return Collections.emptyList();
         }
 
         return loader.loadCatalog();

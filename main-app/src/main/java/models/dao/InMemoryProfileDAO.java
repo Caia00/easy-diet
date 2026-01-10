@@ -1,4 +1,4 @@
-package models.DAO;
+package models.dao;
 
 import models.*;
 import java.util.ArrayList;
@@ -11,6 +11,7 @@ public class InMemoryProfileDAO implements ProfileDAO {
     private static List<Profile> db = new ArrayList<>();
 
     public InMemoryProfileDAO() {
+        //Creatore vuoto in quanto non ci sarà bisogno di inizializzare l'oggetto
     }
 
     @Override
@@ -29,12 +30,11 @@ public class InMemoryProfileDAO implements ProfileDAO {
     public boolean assignDiet(String patientEmail, DietPlan plan) {
         Profile p = findByEmail(patientEmail);
 
-        if (p != null && p instanceof User) {
-            User patient = (User) p;
+        if (p instanceof User patient) {
 
             patient.assignDiet(plan);
 
-            logger.info("DEMO DB: Assegnata dieta " + plan.getDietId() + " a " + patientEmail);
+            logger.info(String.format("DEMO DB: Assegnata dieta %s a %s", plan.getDietId(), patientEmail));
             return true;
         }
         return false;
@@ -44,6 +44,6 @@ public class InMemoryProfileDAO implements ProfileDAO {
     @Override
     public void delete(String email) {
         db.removeIf(p -> p.getEmail().equalsIgnoreCase(email));
-        logger.info("DEMO DB: Eliminato profilo di " + email);
+        logger.info(String.format("DEMO DB: Eliminato profilo di %s", email));
     }
 }

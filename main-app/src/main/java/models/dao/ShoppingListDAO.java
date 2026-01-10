@@ -1,4 +1,4 @@
-package models.DAO;
+package models.dao;
 
 import models.ShoppingList;
 

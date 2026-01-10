@@ -1,6 +1,6 @@
 package models.factory;
 
-import models.DAO.*;
+import models.dao.*;
 
 public interface DAOFactory {
     ProfileDAO getProfileDAO();

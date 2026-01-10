@@ -1,4 +1,4 @@
-package models.DAO;
+package models.dao;
 
 import models.Profile;
 import models.ShoppingList;
@@ -18,9 +18,7 @@ public class FileSystemShoppingListDAO implements ShoppingListDAO {
     public void save(ShoppingList list, String ownerEmail) {
         Profile profile = profileDAO.findByEmail(ownerEmail);
 
-        if (profile instanceof User) {
-            User user = (User) profile;
-
+        if (profile instanceof User user) {
             //Evitiamo duplicati cercando se già presente
             ShoppingList existing = user.getListByName(list.getListName());
             if (existing != null) {
@@ -38,8 +36,8 @@ public class FileSystemShoppingListDAO implements ShoppingListDAO {
     @Override
     public List<ShoppingList> findAllSummariesByOwner(String ownerEmail) {
         Profile profile = profileDAO.findByEmail(ownerEmail);
-        if (profile instanceof User) {
-            return ((User) profile).getShoppingLists();
+        if (profile instanceof User user) {
+            return user.getShoppingLists();
         }
         return new ArrayList<>();
     }
@@ -53,8 +51,7 @@ public class FileSystemShoppingListDAO implements ShoppingListDAO {
     public void delete(ShoppingList list, String ownerEmail) {
         Profile profile = profileDAO.findByEmail(ownerEmail);
 
-        if (profile instanceof User) {
-            User user = (User) profile;
+        if (profile instanceof User user) {
             user.deleteList(list.getListName());
             profileDAO.save(user);
         }

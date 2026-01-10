@@ -1,4 +1,4 @@
-package models.DAO;
+package models.dao;
 
 import models.DietPlan;
 import models.Nutritionist;
@@ -19,9 +19,7 @@ public class FileSystemDietPlanDAO implements DietPlanDAO {
     public void save(DietPlan dietPlan, String creatorEmail) {
         Profile profile = profileDAO.findByEmail(creatorEmail);
 
-        if (profile instanceof Nutritionist) {
-            Nutritionist nutritionist = (Nutritionist) profile;
-
+        if (profile instanceof Nutritionist nutritionist) {
             //Logica update, rimuovo vecchio e aggiungo nuovo
             nutritionist.deleteDietTemplate(dietPlan.getDietName());
             nutritionist.getDietTemplates().add(dietPlan);
@@ -33,8 +31,8 @@ public class FileSystemDietPlanDAO implements DietPlanDAO {
     @Override
     public DietPlan findByOwner(String userEmail) {
         Profile profile = profileDAO.findByEmail(userEmail);
-        if (profile instanceof User) {
-            return ((User) profile).getDietPlan();
+        if (profile instanceof User user) {
+            return user.getDietPlan();
         }
         return null;
     }
@@ -42,8 +40,8 @@ public class FileSystemDietPlanDAO implements DietPlanDAO {
     @Override
     public List<DietPlan> findAllSummariesByCreator(String nutritionistEmail) {
         Profile profile = profileDAO.findByEmail(nutritionistEmail);
-        if (profile instanceof Nutritionist) {
-            return ((Nutritionist) profile).getDietTemplates();
+        if (profile instanceof Nutritionist nutritionist) {
+            return nutritionist.getDietTemplates();
         }
         return new ArrayList<>();
     }
@@ -57,10 +55,9 @@ public class FileSystemDietPlanDAO implements DietPlanDAO {
     public void delete(DietPlan dietPlan, String ownerEmail) {
         Profile profile = profileDAO.findByEmail(ownerEmail);
 
-        if (profile instanceof Nutritionist) {
-            Nutritionist n = (Nutritionist) profile;
-            n.deleteDietTemplate(dietPlan.getDietName());
-            profileDAO.save(n);
+        if (profile instanceof Nutritionist nutritionist) {
+            nutritionist.deleteDietTemplate(dietPlan.getDietName());
+            profileDAO.save(nutritionist);
         }
     }
 }

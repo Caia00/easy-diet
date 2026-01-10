@@ -1,9 +1,7 @@
-package models.DAO;
+package models.dao;
 
 import models.DietPlan;
 import models.Profile;
-
-import java.util.List;
 
 public interface ProfileDAO {
     void save(Profile profile);

@@ -1,5 +1,6 @@
-package models.DAO;
+package models.dao;
 
+import lombok.SneakyThrows;
 import models.*;
 import models.services.DatabaseConnection;
 
@@ -33,6 +34,8 @@ public class SqlProfileDAO implements ProfileDAO {
         return null;
     }
 
+
+    @SneakyThrows
     @Override
     public void save(Profile profile) {
         String query = "REPLACE INTO users (email, password, name, surname, birth_date, role, height, weight, gender, register_id) " +
@@ -47,16 +50,14 @@ public class SqlProfileDAO implements ProfileDAO {
             stmt.setString(4, profile.getSurname());
             stmt.setDate(5, java.sql.Date.valueOf(profile.getBirthDate()));
 
-            if (profile instanceof User) {
-                User u = (User) profile;
+            if (profile instanceof User u) {
                 stmt.setString(6, "PATIENT");
                 stmt.setDouble(7, u.getHeightCm());
                 stmt.setDouble(8, u.getCurrentWeightKg());
                 stmt.setString(9, u.getGender());
                 stmt.setNull(10, Types.VARCHAR);
             }
-            else if (profile instanceof Nutritionist) {
-                Nutritionist n = (Nutritionist) profile;
+            else if (profile instanceof Nutritionist n) {
                 stmt.setString(6, "NUTRITIONIST");
                 stmt.setNull(7, Types.DOUBLE);
                 stmt.setNull(8, Types.DOUBLE);
@@ -68,8 +69,7 @@ public class SqlProfileDAO implements ProfileDAO {
             logger.info("Profilo salvato nel DB");
 
         } catch (SQLException e) {
-            logger.log(Level.SEVERE, "Errore durante salvataggio profilo nel DB", e);
-            throw new RuntimeException("Errore databse: " + e.getMessage());
+            throw new SQLException("Errore durante salvataggio profilo nel DB: " + e.getMessage());
         }
     }
 

@@ -1,4 +1,4 @@
-package models.DAO;
+package models.dao;
 
 import models.*;
 import models.services.DatabaseConnection;
@@ -14,7 +14,9 @@ public class SqlDietPlanDAO implements DietPlanDAO {
 
     private static final Logger logger = Logger.getLogger(SqlDietPlanDAO.class.getName());
 
-    public SqlDietPlanDAO() {}
+    public SqlDietPlanDAO() {
+        //Creatore vuoto in quanto non ci sarà bisogno di inizializzare l'oggetto
+    }
 
     //Metodo usato da user per trovare la dieta che gli è stata assegnata
     @Override
@@ -62,10 +64,10 @@ public class SqlDietPlanDAO implements DietPlanDAO {
 
             loadMealsForPlan(plan, conn);
 
-            logger.info("Dettagli caricati per dieta: " + plan.getDietName());
+            logger.info(() -> "Dettagli caricati per dieta: " + plan.getDietName());
 
         } catch (SQLException e) {
-            logger.log(Level.SEVERE, "Errore durante caricamento dettagli dieta: " + plan.getDietName(), e);
+            logger.log(Level.SEVERE, e, () -> "Errore durante caricamento dettagli dieta: " + plan.getDietName());
         }
     }
 
@@ -172,16 +174,15 @@ public class SqlDietPlanDAO implements DietPlanDAO {
             String day = entry.getKey();
             List<Meal> meals = entry.getValue();
 
-            for (Meal meal : meals) {
-                try (PreparedStatement stmt = conn.prepareStatement(insertMealSql, Statement.RETURN_GENERATED_KEYS)) {
-                    stmt.setInt(1, plan.getDietId());
-                    stmt.setString(2, day);
+            try (PreparedStatement stmt = conn.prepareStatement(insertMealSql, Statement.RETURN_GENERATED_KEYS)) {
+                stmt.setInt(1, plan.getDietId());
+                stmt.setString(2, day);
+                stmt.setNull(4, Types.TIME);
+                for (Meal meal : meals) {
                     stmt.setString(3, meal.getName());
 
                     if (meal.getTime() != null) {
                         stmt.setTime(4, Time.valueOf(meal.getTime()));
-                    } else {
-                        stmt.setNull(4, Types.TIME);
                     }
 
                     stmt.executeUpdate();
@@ -205,10 +206,11 @@ public class SqlDietPlanDAO implements DietPlanDAO {
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, mealId);
+            stmt.setNull(9, Types.VARCHAR);
             for (DietItem item : items) {
                 NutritionalTarget t = item.getTarget();
 
-                stmt.setInt(1, mealId);
                 stmt.setString(2, t.getCategory().name());
                 stmt.setDouble(3, t.getTargetKcal());
                 stmt.setDouble(4, t.getTargetProteins());
@@ -220,12 +222,11 @@ public class SqlDietPlanDAO implements DietPlanDAO {
                 // Gestione prodotto suggerito (Optional)
                 if (item.getSuggestedProduct().isPresent()) {
                     stmt.setString(9, item.getSuggestedProduct().get().getName());
-                } else {
-                    stmt.setNull(9, Types.VARCHAR);
                 }
 
-                stmt.executeUpdate(); // Eseguo per ogni item
+                stmt.addBatch(); // Eseguo per ogni item
             }
+            stmt.executeBatch();
         }
     }
 
@@ -241,7 +242,7 @@ public class SqlDietPlanDAO implements DietPlanDAO {
 
     //Metodo usato per il caricamento dei dati dal DB
     private void loadMealsForPlan(DietPlan plan, Connection conn) throws SQLException {
-        String query = "SELECT * FROM meals WHERE diet_id = ?";
+        String query = "SELECT id, diet_id, day_of_week, meal_name, meal_time FROM meals WHERE diet_id = ?";
 
         try (PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setInt(1, plan.getDietId());
@@ -265,7 +266,7 @@ public class SqlDietPlanDAO implements DietPlanDAO {
     }
 
     private void loadItemsForMeal(Meal meal, int mealId, Connection conn) throws SQLException {
-        String query = "SELECT * FROM diet_items WHERE meal_id = ?";
+        String query = "SELECT target_category, target_kcal, target_proteins, target_carbs, target_sugar, target_fats, target_fibers, suggested_product_name FROM diet_items WHERE meal_id = ?";
 
         try (PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setInt(1, mealId);

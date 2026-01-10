@@ -1,4 +1,4 @@
-package models.DAO;
+package models.dao;
 
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -66,13 +66,12 @@ public class FileSystemProfileDAO implements ProfileDAO {
         Profile profile = findByEmail(patientEmail);
 
         if (profile == null) {
-            logger.warning("Impossibile assegnare dieta: Paziente non trovato (" + patientEmail + ")");
+            logger.warning(String.format("Impossibile assegnare dieta: Paziente non trovato (%s)", patientEmail));
             return false;
         }
 
 
-        if (profile instanceof User) {
-            User patient = (User) profile;
+        if (profile instanceof User patient) {
             patient.assignDiet(plan);
             save(patient);
             return true;
@@ -130,7 +129,7 @@ public class FileSystemProfileDAO implements ProfileDAO {
                 saveAll(new ArrayList<>());
             }
         } catch (IOException e) {
-            logger.log(Level.SEVERE, "Impossibile creare il file DB: " + file.getAbsolutePath(), e);
+            logger.log(Level.SEVERE, String.format("Impossibile creare il file DB: %s", file.getAbsolutePath()), e);
         }
     }
 

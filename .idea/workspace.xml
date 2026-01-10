@@ -5,12 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="little changes: resolving issues">
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/models/beans/ProfileBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/DietManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/DietManagerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliAuthView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/cli/CliAuthView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiAuthView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiAuthView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/NutritionistHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/NutritionistHomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/PatientHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/PatientHomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/ShoppingListEditorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/ShoppingListEditorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/ShoppingListManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/ShoppingListManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/DietPlanDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/dao/DietPlanDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/FileSystemDietPlanDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/dao/FileSystemDietPlanDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/FileSystemProfileDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/dao/FileSystemProfileDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/FileSystemShoppingListDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/dao/FileSystemShoppingListDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/InMemoryDietPlanDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/dao/InMemoryDietPlanDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/InMemoryProfileDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/dao/InMemoryProfileDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/InMemoryShoppingListDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/dao/InMemoryShoppingListDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/ProfileDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/dao/ProfileDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/ShoppingListDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/dao/ShoppingListDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/SqlDietPlanDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/dao/SqlDietPlanDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/SqlProfileDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/dao/SqlProfileDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/DAO/SqlShoppingListDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/dao/SqlShoppingListDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/DAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/FileSystemDAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/FileSystemDAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/InMemoryDAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/InMemoryDAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/SqlDAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/SqlDAOFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiShoppingListManagerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiShoppingListManagerView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +92,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -206,15 +223,7 @@
       <workItem from="1767434618828" duration="37148000" />
       <workItem from="1767893898186" duration="9651000" />
       <workItem from="1767973769915" duration="2875000" />
-      <workItem from="1768036519294" duration="8043000" />
-    </task>
-    <task id="LOCAL-00043" summary="defining models: definied logic to save DietPlan into DB or memory (in case of DEMO version)">
-      <option name="closed" value="true" />
-      <created>1764788044777</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1764788044777</updated>
+      <workItem from="1768036519294" duration="17302000" />
     </task>
     <task id="LOCAL-00044" summary="little modify: adding override toString method to models to easily print them on screen">
       <option name="closed" value="true" />
@@ -600,7 +609,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768042762788</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="little changes: resolving issues">
+      <option name="closed" value="true" />
+      <created>1768044572617</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1768044572617</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

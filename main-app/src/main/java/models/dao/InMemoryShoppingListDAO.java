@@ -1,4 +1,4 @@
-package models.DAO;
+package models.dao;
 
 import models.ShoppingList;
 
@@ -10,9 +10,11 @@ public class InMemoryShoppingListDAO implements ShoppingListDAO {
     private static final Logger logger = Logger.getLogger(InMemoryShoppingListDAO.class.getName());
     private static List<ShoppingList> db = new ArrayList<>();
 
-    private static int idCounter = 1;
+    private int idCounter = 1;
 
-    public InMemoryShoppingListDAO() {}
+    public InMemoryShoppingListDAO() {
+        //Creatore vuoto in quanto non ci sarà bisogno di inizializzare l'oggetto
+    }
 
     @Override
     public void save(ShoppingList list, String ownerEmail) {
@@ -37,6 +39,7 @@ public class InMemoryShoppingListDAO implements ShoppingListDAO {
 
     @Override
     public void loadDetails(ShoppingList summaryList) {
+        //Metodo vuoto in quanto trovandoci nella versione Demo inMemory se si volesse aprire una lista precedentemente creata i dati si troveranno già in memoria
     }
 
     @Override
