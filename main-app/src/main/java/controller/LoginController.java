@@ -4,7 +4,6 @@ import exception.EmailAlreadyRegisteredException;
 import models.*;
 import models.beans.ProfileBean;
 import view.AuthView;
-import java.time.LocalDate;
 import models.factory.*;
 import view.PatientHomeView;
 import view.*;
@@ -58,14 +57,14 @@ public class LoginController {
         view.close();
 
         if (profile instanceof User user) {
-            logger.info(String.format("Accesso come PAZIENTE: %s", profile.getEmail()));
+            logger.info(() -> "Accesso come PAZIENTE: " + user.getEmail());
 
             PatientHomeView homeView = viewFactory.createPatientHomeView();
 
             new PatientHomeController(user, daoFactory, viewFactory, homeView).start();
         }
         else if (profile instanceof Nutritionist nutritionist) {
-            logger.info(String.format("Accesso come NUTRIZIONISTA: %s", profile.getEmail()));
+            logger.info(() -> "Accesso come NUTRIZIONISTA: " + nutritionist.getEmail());
 
             NutritionistHomeView docView = viewFactory.createNutritionistHomeView();
 

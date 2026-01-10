@@ -9,8 +9,6 @@ import view.PatientHomeView;
 import view.ShoppingListEditorView;
 import view.ShoppingListManagerView;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.logging.*;
 import java.util.List;
