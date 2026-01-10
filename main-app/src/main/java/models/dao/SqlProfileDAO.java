@@ -1,7 +1,6 @@
 package models.dao;
 
 import exception.PersistenceException;
-import lombok.SneakyThrows;
 import models.*;
 import models.beans.ProfileBean;
 import models.services.DatabaseConnection;
