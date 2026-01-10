@@ -4,18 +4,18 @@ import models.AppCategory;
 import models.CommercialProduct;
 import models.factory.ProductFactory;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CsvCatalogLoaderTest {
+public class TestCsvCatalogLoader {
     private List<CommercialProduct> loadedProducts;
 
     //Metodo setup per i test, caricamento catalogo e salvataggio lista in attributo di classe
     @BeforeEach
     void setUp() {
+        //Input
         ProductFactory realFactory = new ProductFactory();
         CsvCatalogLoader loader = new CsvCatalogLoader("test_catalog.csv", realFactory);
         this.loadedProducts = loader.loadCatalog();
@@ -23,9 +23,8 @@ public class CsvCatalogLoaderTest {
 
 
     @Test
-    @DisplayName("Caricamento: Verifica il numero corretto di prodotti importati")
     void testLoadCatalogAndParseLineShouldLoadCorrectNumberOfProducts() {
-
+        //Output
         assertNotNull(loadedProducts, "La lista non deve essere null");
 
         //Il file test_catalog.csv ha 4 righe di dati, di cui una non valida
@@ -34,9 +33,8 @@ public class CsvCatalogLoaderTest {
 
 
     @Test
-    @DisplayName("Parsing: Verifica che i dettagli dei prodotti siano convertiti correttamente")
     void testParseDoubleSafeAndParseKcalShouldParseProductDetailsCorrectly() {
-
+        //Output
         //Verifica rigatoni, parsing standard
         CommercialProduct p1 = loadedProducts.get(0);
         assertEquals("Rigatoni Barilla", p1.getName());
@@ -57,14 +55,15 @@ public class CsvCatalogLoaderTest {
 
 
     @Test
-    @DisplayName("FILE MISSING: Restituisce lista vuota se il file manca")
     void shouldReturnEmptyListIfFileMissing() {
         //Qui non si usa il setup in quanto vogliamo un file sbagliato apposta
+        //Input
         ProductFactory factory = new ProductFactory();
         CsvCatalogLoader badLoader = new CsvCatalogLoader("file_inesistente.csv", factory);
 
         List<CommercialProduct> emptyList = badLoader.loadCatalog();
 
+        //Output
         assertTrue(emptyList.isEmpty(), "Deve restituire lista vuota se file manca");
     }
 }

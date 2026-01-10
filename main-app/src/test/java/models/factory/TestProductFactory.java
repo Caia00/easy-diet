@@ -3,20 +3,17 @@ package models.factory;
 import models.AppCategory;
 import models.CommercialProduct;
 import models.NutritionalValues;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ProductFactoryTest {
+public class TestProductFactory {
     private final ProductFactory factory = new ProductFactory();
 
     @Test
-    @DisplayName("Standard: Crea prodotto con dati completi (No Fallback)")
     void testCreateProductShouldCreateProductWithFullData() {
-        //ARRANGE
+        //Input
         NutritionalValues validValues = new NutritionalValues(350, 72, 2, 1, 3, 12);
 
-        //ACT
         CommercialProduct product = factory.createProduct(
                 "Rigatoni Barilla",
                 "Pasta",
@@ -25,7 +22,7 @@ public class ProductFactoryTest {
                 validValues
         );
 
-        //ASSERT
+        //Output
         assertNotNull(product, "Il prodotto deve essere creato");
         assertEquals("Rigatoni Barilla", product.getName());
         assertEquals(AppCategory.PASTA, product.getCategory());
@@ -35,14 +32,12 @@ public class ProductFactoryTest {
     }
 
     @Test
-    @DisplayName("Logica pulizia: Separa CamelCase ed estrae peso dal nome")
     void testNormalizeNameAndParseWeightShouldCleanNameAndParseWeightFromTitle() {
-        //ARRANGE
+        //Input
         //Nome "sporco" e peso mancante nel parametro dedicato
         String rawName = "CarrefourPollo 400g";
         NutritionalValues validValues = new NutritionalValues(100, 0, 0, 0, 0, 20);
 
-        //ACT
         CommercialProduct product = factory.createProduct(
                 rawName,
                 "Carne",
@@ -51,25 +46,20 @@ public class ProductFactoryTest {
                 validValues
         );
 
-        //ASSERT
+        //Output
         assertNotNull(product);
-
         //Ci aspettiamo "Carrefour Pollo 400g" invece di "CarrefourPollo 400g"
         assertEquals("Carrefour Pollo 400g", product.getName(), "Il nome dovrebbe essere stato normalizzato (CamelCase separato)");
-
         //Verifica che il peso sia stato estratto dal nome
         assertEquals(400.0, product.getWeightInGrams(), 0.1, "Il peso doveva essere estratto dalla stringa del nome");
     }
 
     @Test
-    @DisplayName("Integrazione reale: Usa il file JSON vero per il Fallback")
     void testCreateProductShouldRetrieveFallbackDataFromJsonIfScrapedIs0() {
-        //ARRANGE
+        //Input
         String productName = "Petto di Pollo Amadori";
-
         NutritionalValues emptyValues = new NutritionalValues(0, 0, 0, 0, 0, 0);
 
-        //ACT
         CommercialProduct product = factory.createProduct(
                 productName,
                 "Carne",
@@ -78,26 +68,19 @@ public class ProductFactoryTest {
                 emptyValues
         );
 
-        //ASSERT
+        //Output
         assertNotNull(product, "Il prodotto dovrebbe essere creato anche se mancano i valori (grazie al fallback)");
-
         //Deve essere marcato come stimato
         assertTrue(product.isDataEstimated(), "Il flag isDataEstimated deve essere true quando usa il JSON");
-
         //Controllo che i valori non siano zero.
-        assertTrue(product.getProteinsPer100g() > 0, "Dovrebbe aver caricato le proteine dal JSON reale. Se fallisce, controlla che 'Pollo' sia nel JSON.");
-
-        //Debug: stampa per vedere cosa ha trovato
-        System.out.println("Test Integrazione - Prodotto Recuperato: " + product);
+        assertTrue(product.getProteinsPer100g() > 0, "Dovrebbe aver caricato le proteine dal JSON reale.");
     }
 
     @Test
-    @DisplayName("Robustezza: Ritorna null se la categoria è sconosciuta")
     void testCreateProductShouldReturnNullForUnknownCategory() {
-        //ARRANGE
+        //Input
         NutritionalValues v = new NutritionalValues(100,0,0,0,0,0);
 
-        //ACT
         CommercialProduct product = factory.createProduct(
                 "Sasso di fiume",
                 "Minerale",
@@ -106,14 +89,13 @@ public class ProductFactoryTest {
                 v
         );
 
-        //ASSERT
+        //Output
         assertNull(product, "La factory deve restituire null se la categoria non viene riconosciuta");
     }
 
     @Test
-    @DisplayName("Robustezza: Gestione valori null o vuoti")
     void testCreateProductShouldHandleNullInputsGracefully() {
-        //ACT
+        //Input
         CommercialProduct product = factory.createProduct(
                 null, // Nome null
                 "Carne",
@@ -122,7 +104,7 @@ public class ProductFactoryTest {
                 null
         );
 
-        //ASSERT
+        //Output
         assertNull(product, "Con nome null dovrebbe restituire null o gestire l'errore senza eccezioni non controllate");
     }
 }

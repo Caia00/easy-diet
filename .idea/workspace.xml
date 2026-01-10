@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="implemented DAO: created FileSystemDAO, that uses jackson to save objects in .json file, little modifies to entities for using jackson (empty constructor, setter getter method...)">
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/test/java/models/factory/ProductFactoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/test/java/models/services/CsvCatalogLoaderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/test/java/models/services/DietCalculatorServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main-app/src/test/resources/test_catalog.csv" afterDir="false" />
+    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="created main: created main class with runtime choices through args for DAOs and views">
+      <change afterPath="$PROJECT_DIR$/main-app/src/main/resources/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fallbackData.json" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/resources/fallbackData.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/services/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/services/DatabaseConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiShoppingListManagerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiShoppingListManagerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/test/java/models/factory/ProductFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/test/java/models/factory/TestProductFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/test/java/models/services/CsvCatalogLoaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/test/java/models/services/TestCsvCatalogLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main-app/src/test/java/models/services/DietCalculatorServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/test/java/models/services/TestDietCalculatorService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +102,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CsvCatalogLoaderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestCsvCatalogLoader" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="main-app" />
       <extension name="coverage">
         <pattern>
@@ -111,13 +111,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="models.services" />
-      <option name="MAIN_CLASS_NAME" value="models.services.CsvCatalogLoaderTest" />
+      <option name="MAIN_CLASS_NAME" value="models.services.TestCsvCatalogLoader" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DietCalculatorServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestDietCalculatorService" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="main-app" />
       <extension name="coverage">
         <pattern>
@@ -126,13 +126,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="models.services" />
-      <option name="MAIN_CLASS_NAME" value="models.services.DietCalculatorServiceTest" />
+      <option name="MAIN_CLASS_NAME" value="models.services.TestDietCalculatorService" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProductFactoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestProductFactory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="main-app" />
       <extension name="coverage">
         <pattern>
@@ -141,13 +141,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="models.factory" />
-      <option name="MAIN_CLASS_NAME" value="models.factory.ProductFactoryTest" />
+      <option name="MAIN_CLASS_NAME" value="models.factory.TestProductFactory" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProductFactoryTest.testCreateProductShouldRetrieveFallbackDataFromJsonIfScrapedIs0" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestProductFactory.testCreateProductShouldRetrieveFallbackDataFromJsonIfScrapedIs0" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="main-app" />
       <extension name="coverage">
         <pattern>
@@ -156,7 +156,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="models.factory" />
-      <option name="MAIN_CLASS_NAME" value="models.factory.ProductFactoryTest" />
+      <option name="MAIN_CLASS_NAME" value="models.factory.TestProductFactory" />
       <option name="METHOD_NAME" value="testCreateProductShouldRetrieveFallbackDataFromJsonIfScrapedIs0" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -165,18 +165,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.CsvCatalogLoaderTest" />
-      <item itemvalue="JUnit.DietCalculatorServiceTest" />
-      <item itemvalue="JUnit.ProductFactoryTest" />
-      <item itemvalue="JUnit.ProductFactoryTest.testCreateProductShouldRetrieveFallbackDataFromJsonIfScrapedIs0" />
+      <item itemvalue="JUnit.TestDietCalculatorService" />
+      <item itemvalue="JUnit.TestProductFactory.testCreateProductShouldRetrieveFallbackDataFromJsonIfScrapedIs0" />
+      <item itemvalue="JUnit.TestCsvCatalogLoader" />
+      <item itemvalue="JUnit.TestProductFactory" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.DietCalculatorServiceTest" />
-        <item itemvalue="JUnit.CsvCatalogLoaderTest" />
-        <item itemvalue="JUnit.ProductFactoryTest.testCreateProductShouldRetrieveFallbackDataFromJsonIfScrapedIs0" />
-        <item itemvalue="JUnit.ProductFactoryTest" />
+        <item itemvalue="JUnit.TestDietCalculatorService" />
+        <item itemvalue="JUnit.TestCsvCatalogLoader" />
+        <item itemvalue="JUnit.TestProductFactory.testCreateProductShouldRetrieveFallbackDataFromJsonIfScrapedIs0" />
+        <item itemvalue="JUnit.TestProductFactory" />
       </list>
     </recent_temporary>
   </component>
@@ -203,47 +203,11 @@
       <workItem from="1765473284228" duration="27536000" />
       <workItem from="1765876035674" duration="47705000" />
       <workItem from="1766414988268" duration="21175000" />
-      <workItem from="1767015715364" duration="9211000" />
-    </task>
-    <task id="LOCAL-00034" summary="little modify: comments">
-      <option name="closed" value="true" />
-      <created>1764686980438</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1764686980438</updated>
-    </task>
-    <task id="LOCAL-00035" summary="defining models: DAO and DatabaseConnection service to retrive profiles from DB or memory">
-      <option name="closed" value="true" />
-      <created>1764695537018</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1764695537018</updated>
-    </task>
-    <task id="LOCAL-00036" summary="little modify: adding getter or setter methods">
-      <option name="closed" value="true" />
-      <created>1764695566730</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1764695566730</updated>
-    </task>
-    <task id="LOCAL-00037" summary="defining pattern: using abstract factory method to create the 2 version of the app: demo and with persistency and the 2 UI: CLI and GUI">
-      <option name="closed" value="true" />
-      <created>1764702577732</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1764702577732</updated>
-    </task>
-    <task id="LOCAL-00038" summary="defining controller: LoginController is the brain behind the login process and the registration process">
-      <option name="closed" value="true" />
-      <created>1764702651905</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1764702651905</updated>
+      <workItem from="1767015715364" duration="10010000" />
+      <workItem from="1767434618828" duration="37148000" />
+      <workItem from="1767893898186" duration="9651000" />
+      <workItem from="1767973769915" duration="2875000" />
+      <workItem from="1768036519294" duration="1257000" />
     </task>
     <task id="LOCAL-00039" summary="defining view: the view for authentication: AuthView and its implementation CliAuthView">
       <option name="closed" value="true" />
@@ -597,7 +561,47 @@
       <option name="project" value="LOCAL" />
       <updated>1767024844199</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="implemented test: created test cases for ProductFactory">
+      <option name="closed" value="true" />
+      <created>1767114129911</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1767114129911</updated>
+    </task>
+    <task id="LOCAL-00084" summary="implemented test: created test cases for CsvCatalogLoader using a dummy catalog.csv">
+      <option name="closed" value="true" />
+      <created>1767114177239</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1767114177239</updated>
+    </task>
+    <task id="LOCAL-00085" summary="implemented test: created test cases for DietCalculatorService testing if the calculation are correctly done and if the strategy pattern is well-used">
+      <option name="closed" value="true" />
+      <created>1767114254684</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1767114254684</updated>
+    </task>
+    <task id="LOCAL-00086" summary="little changes: added dependencies for mysql, jackson, and junit jupiter">
+      <option name="closed" value="true" />
+      <created>1767114392110</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1767114392110</updated>
+    </task>
+    <task id="LOCAL-00087" summary="created main: created main class with runtime choices through args for DAOs and views">
+      <option name="closed" value="true" />
+      <created>1767114445972</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1767114445972</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -621,11 +625,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="defining method: assingDiet method for DietManagerController used by nutritionists" />
-    <MESSAGE value="little modify: using nutritionist's method to create a new diet template" />
-    <MESSAGE value="little modify: DietPlan for user's is loaded as soon as the user logs in" />
-    <MESSAGE value="defining view: ShoppingListEditorView will be the view used by users when they'll create their shopping list" />
-    <MESSAGE value="defining controller: ShoppingListEditorController will be the controller behind the shoppingList creation and in future modification" />
     <MESSAGE value="defining view: ShoppingListManagerView is the view used to manage shopping lists visualization, creation, ..." />
     <MESSAGE value="defining controller: ShoppingListManagerController is the controller that manages shopping lists visualization, creation, ..." />
     <MESSAGE value="little modify: refactored position in package" />
@@ -646,6 +645,11 @@
     <MESSAGE value="implemented gof pattern: implemented strategy pattern used in the DietCalculatorService to calculate single portion of CommercialProduct using specified strategies" />
     <MESSAGE value="modify: implemented factory pattern in the catalog loader so the correct choice of CatalogLoader will be done runtime with the supermarket's choice" />
     <MESSAGE value="implemented DAO: created FileSystemDAO, that uses jackson to save objects in .json file, little modifies to entities for using jackson (empty constructor, setter getter method...)" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented DAO: created FileSystemDAO, that uses jackson to save objects in .json file, little modifies to entities for using jackson (empty constructor, setter getter method...)" />
+    <MESSAGE value="implemented test: created test cases for ProductFactory" />
+    <MESSAGE value="implemented test: created test cases for CsvCatalogLoader using a dummy catalog.csv" />
+    <MESSAGE value="implemented test: created test cases for DietCalculatorService testing if the calculation are correctly done and if the strategy pattern is well-used" />
+    <MESSAGE value="little changes: added dependencies for mysql, jackson, and junit jupiter" />
+    <MESSAGE value="created main: created main class with runtime choices through args for DAOs and views" />
+    <option name="LAST_COMMIT_MESSAGE" value="created main: created main class with runtime choices through args for DAOs and views" />
   </component>
 </project>
