@@ -124,7 +124,9 @@ public class FileSystemProfileDAO implements ProfileDAO {
                 if (parent != null && !parent.exists()) {
                     parent.mkdirs();
                 }
-                file.createNewFile();
+                if(file.createNewFile()){
+                    logger.info("File " + file.getName() + " creato");
+                }
                 saveAll(new ArrayList<>());
             }
         } catch (IOException e) {

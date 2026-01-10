@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="created main: created main class with runtime choices through args for DAOs and views">
-      <change afterPath="$PROJECT_DIR$/main-app/src/main/resources/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/services/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/services/DatabaseConnection.java" afterDir="false" />
+    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="little changes: resolving issues">
       <change beforePath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiShoppingListManagerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/view/gui/GuiShoppingListManagerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/test/java/models/factory/ProductFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/test/java/models/factory/TestProductFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/test/java/models/services/CsvCatalogLoaderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/test/java/models/services/TestCsvCatalogLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/test/java/models/services/DietCalculatorServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/test/java/models/services/TestDietCalculatorService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,23 +199,7 @@
       <workItem from="1767434618828" duration="37148000" />
       <workItem from="1767893898186" duration="9651000" />
       <workItem from="1767973769915" duration="2875000" />
-      <workItem from="1768036519294" duration="1257000" />
-    </task>
-    <task id="LOCAL-00039" summary="defining view: the view for authentication: AuthView and its implementation CliAuthView">
-      <option name="closed" value="true" />
-      <created>1764702721114</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1764702721114</updated>
-    </task>
-    <task id="LOCAL-00040" summary="defining view: only defined GuiAuthView">
-      <option name="closed" value="true" />
-      <created>1764703056017</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1764703056017</updated>
+      <workItem from="1768036519294" duration="1566000" />
     </task>
     <task id="LOCAL-00041" summary="defining controller: PatientHomeController will be the brain behind the patient home screen">
       <option name="closed" value="true" />
@@ -601,7 +577,23 @@
       <option name="project" value="LOCAL" />
       <updated>1767114445972</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="little changes: comments and calrifying">
+      <option name="closed" value="true" />
+      <created>1768038056625</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1768038056626</updated>
+    </task>
+    <task id="LOCAL-00089" summary="little changes: resolving issues">
+      <option name="closed" value="true" />
+      <created>1768038079180</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1768038079180</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -625,8 +617,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="defining view: ShoppingListManagerView is the view used to manage shopping lists visualization, creation, ..." />
-    <MESSAGE value="defining controller: ShoppingListManagerController is the controller that manages shopping lists visualization, creation, ..." />
     <MESSAGE value="little modify: refactored position in package" />
     <MESSAGE value="implementing view: created authentication Gui view using javafx" />
     <MESSAGE value="implementing view: created home gui view for nutritionist and patient" />
@@ -650,6 +640,8 @@
     <MESSAGE value="implemented test: created test cases for DietCalculatorService testing if the calculation are correctly done and if the strategy pattern is well-used" />
     <MESSAGE value="little changes: added dependencies for mysql, jackson, and junit jupiter" />
     <MESSAGE value="created main: created main class with runtime choices through args for DAOs and views" />
-    <option name="LAST_COMMIT_MESSAGE" value="created main: created main class with runtime choices through args for DAOs and views" />
+    <MESSAGE value="little changes: comments and calrifying" />
+    <MESSAGE value="little changes: resolving issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="little changes: resolving issues" />
   </component>
 </project>
