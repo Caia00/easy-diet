@@ -61,7 +61,7 @@ public class CliDietManagerView implements DietManagerView {
                     } else {
                         System.out.println("Indice non valido.");
                     }
-                } catch (NumberFormatException m) {
+                } catch (NumberFormatException _) {
                     System.out.println("Comando non valido.");
                 }
             }

@@ -96,7 +96,7 @@ public class CliShoppingListManagerView implements ShoppingListManagerView {
                     } else {
                         System.out.println("Numero lista non valido.");
                     }
-                } catch (NumberFormatException r) {
+                } catch (NumberFormatException _) {
                     System.out.println("Comando non valido.");
                 }
             }
@@ -122,7 +122,7 @@ public class CliShoppingListManagerView implements ShoppingListManagerView {
             } else {
                 System.out.println("Supermercato non valido.");
             }
-        } catch (NumberFormatException s) {
+        } catch (NumberFormatException _) {
             System.out.println("Inserisci un numero valido.");
         }
     }

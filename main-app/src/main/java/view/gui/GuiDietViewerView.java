@@ -13,10 +13,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import view.gui.utility.GuiTheme;
-import java.time.format.TextStyle;
 import java.util.List;
-import java.util.Locale;
-import java.util.Map;
 
 public class GuiDietViewerView implements DietViewerView {
     private static final String[] ORDERED_DAYS = {

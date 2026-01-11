@@ -26,7 +26,7 @@ public class GuiDietManagerView implements DietManagerView {
     private DietManagerController controller;
     private final Stage stage;
     private final ObservableList<DietPlan> dietData = FXCollections.observableArrayList();
-    private TableView<DietPlan> table;
+
 
     public GuiDietManagerView(Stage stage) {
         this.stage = stage;
@@ -72,7 +72,7 @@ public class GuiDietManagerView implements DietManagerView {
         createBar.getChildren().addAll(new Label("Nuova Dieta:"), txtNewName, btnCreate);
 
         //Tabella diete
-        table = new TableView<>();
+        TableView<DietPlan> table = new TableView<>();
         table.setItems(dietData);
         table.setPlaceholder(new Label("Nessuna dieta creata. Inizia creandone una sopra!"));
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_FLEX_LAST_COLUMN);
@@ -91,47 +91,7 @@ public class GuiDietManagerView implements DietManagerView {
         TableColumn<DietPlan, Void> actionsCol = new TableColumn<>("Azioni");
         actionsCol.setSortable(false);
 
-        actionsCol.setCellFactory(param -> new TableCell<>() {
-            private final Button btnEdit = new Button("Modifica");
-            private final Button btnAssign = new Button("Assegna");
-            private final Button btnDelete = new Button("Elimina");
-            private final HBox pane = new HBox(10, btnEdit, btnAssign, btnDelete);
-
-            {
-                pane.setAlignment(Pos.CENTER);
-                btnEdit.setStyle("-fx-background-color: " + GuiTheme.COL_PRIMARY + "; -fx-text-fill: white; -fx-cursor: hand;");
-                btnEdit.setOnAction(e -> {
-                    DietPlan plan = getTableView().getItems().get(getIndex());
-                    controller.editDiet(plan);
-                });
-
-                btnAssign.setStyle("-fx-background-color: " + GuiTheme.COL_SECONDARY + "; -fx-text-fill: white; -fx-cursor: hand;");
-                btnAssign.setOnAction(e -> {
-                    DietPlan plan = getTableView().getItems().get(getIndex());
-                    handleAssignClick(plan);
-                });
-
-                btnDelete.setStyle(GuiTheme.BTN_DANGER_STYLE);
-                btnDelete.setOnAction(e -> {
-                    DietPlan plan = getTableView().getItems().get(getIndex());
-                    Alert confirm = new Alert(Alert.AlertType.CONFIRMATION, "Sei sicuro di voler eliminare la dieta '" + plan.getDietName() + "'?", ButtonType.YES, ButtonType.NO);
-                    confirm.showAndWait().ifPresent(response -> {
-                        if (response == ButtonType.YES) controller.deleteDiet(plan);
-                    });
-                });
-            }
-
-            //Metodo automatico per riutilizzare le righe della tabella create
-            @Override
-            protected void updateItem(Void item, boolean empty) {
-                super.updateItem(item, empty);
-                if (empty) {
-                    setGraphic(null);
-                } else {
-                    setGraphic(pane);
-                }
-            }
-        });
+        actionsCol.setCellFactory(param -> new ActionCell());
 
         table.getColumns().addAll(idCol, nameCol, actionsCol);
 
@@ -151,9 +111,8 @@ public class GuiDietManagerView implements DietManagerView {
         dialog.setContentText("Inserisci l'email del paziente:");
 
         Optional<String> result = dialog.showAndWait();
-        result.ifPresent(email -> {
-            controller.assignDiet(plan, email);
-        });
+        result.ifPresent(email ->
+            controller.assignDiet(plan, email));
     }
 
     @Override
@@ -168,6 +127,47 @@ public class GuiDietManagerView implements DietManagerView {
 
     @Override
     public void close() {
+        //Metodo vuoto in quanto la chiusura della gui consisterà semplicemente dal cambiamento della scena sullo stage da parte della nuova gui
+    }
 
+
+    private class ActionCell extends TableCell<DietPlan, Void> {
+        private final Button btnEdit = new Button("Modifica");
+        private final Button btnAssign = new Button("Assegna");
+        private final Button btnDelete = new Button("Elimina");
+        private final HBox pane = new HBox(10, btnEdit, btnAssign, btnDelete);
+
+        public ActionCell() {
+            pane.setAlignment(Pos.CENTER);
+
+            btnEdit.setStyle("-fx-background-color: " + GuiTheme.COL_PRIMARY + "; -fx-text-fill: white; -fx-cursor: hand;");
+            btnEdit.setOnAction(e -> {
+                DietPlan plan = getTableView().getItems().get(getIndex());
+                controller.editDiet(plan);
+            });
+
+            btnAssign.setStyle("-fx-background-color: " + GuiTheme.COL_SECONDARY + "; -fx-text-fill: white; -fx-cursor: hand;");
+            btnAssign.setOnAction(e -> {
+                DietPlan plan = getTableView().getItems().get(getIndex());
+                handleAssignClick(plan);
+            });
+
+            btnDelete.setStyle(GuiTheme.BTN_DANGER_STYLE);
+            btnDelete.setOnAction(e -> {
+                DietPlan plan = getTableView().getItems().get(getIndex());
+                Alert confirm = new Alert(Alert.AlertType.CONFIRMATION,
+                        "Sei sicuro di voler eliminare la dieta '" + plan.getDietName() + "'?",
+                        ButtonType.YES, ButtonType.NO);
+                confirm.showAndWait().ifPresent(response -> {
+                    if (response == ButtonType.YES) controller.deleteDiet(plan);
+                });
+            });
+        }
+
+        @Override
+        protected void updateItem(Void item, boolean empty) {
+            super.updateItem(item, empty);
+            setGraphic(empty ? null : pane);
+        }
     }
 }

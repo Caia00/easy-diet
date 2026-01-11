@@ -87,7 +87,7 @@ public class CliShoppingListEditorView implements ShoppingListEditorView {
         System.out.println("\n--- SCEGLI CATEGORIA ---");
         AppCategory[] cats = AppCategory.values();
         for (int i = 0; i < cats.length; i++) {
-            System.out.printf("%d. %s\n", (i+1), cats[i]);
+            System.out.printf("%d. %s%n", (i+1), cats[i]);
         }
         System.out.print("Numero Categoria: ");
 
@@ -98,7 +98,7 @@ public class CliShoppingListEditorView implements ShoppingListEditorView {
             } else {
                 System.out.println("Numero non valido.");
             }
-        } catch (NumberFormatException n) {
+        } catch (NumberFormatException _) {
             System.out.println("Inserisci un numero.");
         }
     }
@@ -141,7 +141,7 @@ public class CliShoppingListEditorView implements ShoppingListEditorView {
             } else {
                 System.out.println("Indice non valido.");
             }
-        } catch (NumberFormatException o) {
+        } catch (NumberFormatException _) {
             System.out.println("Input non valido.");
         }
     }
@@ -165,7 +165,7 @@ public class CliShoppingListEditorView implements ShoppingListEditorView {
             } else {
                 System.out.println("Prodotto non valido.");
             }
-        } catch (NumberFormatException p) {
+        } catch (NumberFormatException _) {
             System.out.println("Input non valido.");
         }
     }
@@ -183,7 +183,7 @@ public class CliShoppingListEditorView implements ShoppingListEditorView {
 
         try {
             return Integer.parseInt(input);
-        } catch (NumberFormatException q) {
+        } catch (NumberFormatException _) {
             System.out.println("Numero non valido, annullato.");
             return 0;
         }

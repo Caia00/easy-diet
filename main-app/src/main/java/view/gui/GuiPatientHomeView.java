@@ -70,6 +70,7 @@ public class GuiPatientHomeView implements PatientHomeView {
 
     @Override
     public void close() {
+        //Metodo vuoto in quanto la chiusura della gui consisterà nel cambio della scena da parte della nuova gui
     }
 
     private Button createMenuButton(String text) {

@@ -6,14 +6,13 @@ import models.NutritionalTarget;
 import models.NutritionalValues;
 import models.beans.MealDemand;
 import models.beans.ShoppingCalculationResult;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestDietCalculatorService {
+class TestDietCalculatorService {
 
     private CommercialProduct createProduct(String name, AppCategory cat, double weightPack,
                                             double kcal, double prot, double carbs, double fat, double fiber) {

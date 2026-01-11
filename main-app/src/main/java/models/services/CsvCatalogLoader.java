@@ -85,7 +85,7 @@ public class CsvCatalogLoader implements CatalogLoader {
 
             return factory.createProduct(rawName, rawCategory, rawPrice, rawWeightString, scrapedValues);
 
-        } catch (Exception g) {
+        } catch (Exception _) {
             return null;
         }
     }
@@ -102,7 +102,7 @@ public class CsvCatalogLoader implements CatalogLoader {
                 numberPart = numberPart.replace(",", ".");
 
                 return Double.parseDouble(numberPart);
-            } catch (NumberFormatException h) {
+            } catch (NumberFormatException _) {
                 return 0.0;
             }
         }
@@ -120,7 +120,7 @@ public class CsvCatalogLoader implements CatalogLoader {
             try {
                 String numberPart = matcher.group(1).replace(",", ".");
                 return Double.parseDouble(numberPart);
-            } catch (NumberFormatException i) {
+            } catch (NumberFormatException _) {
                 //Se non si dovesse trovare il numero si prosegue col parser generico
             }
         }

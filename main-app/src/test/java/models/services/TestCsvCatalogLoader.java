@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestCsvCatalogLoader {
+class TestCsvCatalogLoader {
     private List<CommercialProduct> loadedProducts;
 
     //Metodo setup per i test, caricamento catalogo e salvataggio lista in attributo di classe

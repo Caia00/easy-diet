@@ -18,11 +18,11 @@ public class GuiAuthView implements AuthView {
     private LoginController controller;
     private final Stage stage;
     private BorderPane rootLayout;
-    private final String email1 = "Email";
-    private final String email2 = "Email:";
-    private final String password1 = "Password";
-    private final String password2 = "Password:";
-    private final String paziente = "Paziente";
+    private static final String email1 = "Email";
+    private static final String email2 = "Email:";
+    private static final String password1 = "Password";
+    private static final String password2 = "Password:";
+    private static final String paziente = "Paziente";
 
     public GuiAuthView(Stage stage) {
         this.stage = stage;

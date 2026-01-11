@@ -11,7 +11,7 @@ public class CliDietEditorView implements DietEditorView {
     private DietEditorController controller;
     private final Scanner scanner = new Scanner(System.in);
     private boolean isEditing = true;
-    private final String giorno = "Giorno: ";
+    private static final String giorno = "Giorno: ";
 
     @Override
     public void setController(DietEditorController controller) {
@@ -85,7 +85,7 @@ public class CliDietEditorView implements DietEditorView {
             try {
                 cat = AppCategory.valueOf(catStr);
                 validCategory = true;
-            } catch (IllegalArgumentException k) {
+            } catch (IllegalArgumentException _) {
                 System.out.println("ERRORE: Categoria non valida. Riprova.");
             }
         } while (!validCategory);
@@ -100,7 +100,10 @@ public class CliDietEditorView implements DietEditorView {
         System.out.print("Prodotto suggerito (Invio per nessuno): ");
         String sugg = scanner.nextLine();
 
-        FoodBean bean = new FoodBean(day, meal, cat, kcal, prot, carb, sug, fats, fib, sugg);
+        FoodBean bean = new FoodBean(day, meal, cat, kcal, prot, carb, sug);
+        bean.setFat(fats);
+        bean.setFib(fib);
+        bean.setSuggestedProductName(sugg);
 
         controller.addFoodItem(bean);
     }
@@ -119,7 +122,7 @@ public class CliDietEditorView implements DietEditorView {
 
             controller.removeFoodItem(day, mealName, index - 1);
 
-        } catch (NumberFormatException h) {
+        } catch (NumberFormatException _) {
             System.out.println("Devi inserire un numero intero!");
         }
     }
@@ -127,7 +130,7 @@ public class CliDietEditorView implements DietEditorView {
     private double readDouble() {
         try {
             return Double.parseDouble(scanner.nextLine());
-        } catch (NumberFormatException j) {
+        } catch (NumberFormatException _) {
             return 0.0;
         }
     }

@@ -6,7 +6,7 @@ import models.NutritionalValues;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestProductFactory {
+class TestProductFactory {
     private final ProductFactory factory = new ProductFactory();
 
     @Test

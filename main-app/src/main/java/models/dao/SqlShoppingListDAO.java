@@ -105,7 +105,7 @@ public class SqlShoppingListDAO implements ShoppingListDAO {
         }
         try {
             return AppCategory.valueOf(catStr);
-        } catch (IllegalArgumentException d) {
+        } catch (IllegalArgumentException _) {
             logger.warning("Categoria sconosciuta trovata nel DB: " + catStr);
             return AppCategory.SCONOSCIUTO;
         }

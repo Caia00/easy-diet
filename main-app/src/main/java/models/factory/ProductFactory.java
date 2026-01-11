@@ -94,7 +94,7 @@ public class ProductFactory {
                     default: // g, ml
                         return value;
                 }
-            } catch (NumberFormatException f) {
+            } catch (NumberFormatException _) {
                 return 0.0; // Se c'è un errore strano nel numero
             }
         }

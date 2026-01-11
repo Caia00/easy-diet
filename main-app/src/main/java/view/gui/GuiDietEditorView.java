@@ -22,8 +22,8 @@ public class GuiDietEditorView implements DietEditorView {
     private static final String[] DAYS = {
             "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"
     };
-    private final String style = "-fx-font-weight: bold; -fx-font-size: 14px;";
-    private final String giorno = "Giorno:";
+    private static final String style = "-fx-font-weight: bold; -fx-font-size: 14px;";
+    private static final String giorno = "Giorno:";
 
     public GuiDietEditorView(Stage owner) {
         this.editorStage = new Stage();
@@ -216,10 +216,10 @@ public class GuiDietEditorView implements DietEditorView {
                         Double.parseDouble(txtKcal.getText()),
                         Double.parseDouble(txtProt.getText()),
                         Double.parseDouble(txtCarb.getText()),
-                        Double.parseDouble(txtSug.getText()),
-                        Double.parseDouble(txtFat.getText()),
-                        Double.parseDouble(txtFib.getText()),
-                        txtProduct.getText());
+                        Double.parseDouble(txtSug.getText()));
+                bean.setFat(Double.parseDouble(txtFat.getText()));
+                bean.setFib(Double.parseDouble(txtFib.getText()));
+                bean.setSuggestedProductName(txtProduct.getText());
                 controller.addFoodItem(bean);
             } catch (NumberFormatException _) {
                 showError("I valori nutrizionali devono essere numeri (usa il punto).");

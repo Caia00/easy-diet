@@ -10,8 +10,8 @@ public class CliAuthView implements AuthView {
     private LoginController controller;
     private final Scanner scanner;
     private boolean isRunning;
-    private final String email = "Email: ";
-    private final String password = "Password: ";
+    private static final String email = "Email: ";
+    private static final String password = "Password: ";
 
     public CliAuthView() {
         this.scanner = new Scanner(System.in);
@@ -61,18 +61,18 @@ public class CliAuthView implements AuthView {
 
     private void handleLoginInput() {
         System.out.print(email);
-        String email = scanner.nextLine();
+        String logEmail = scanner.nextLine();
         System.out.print(password);
         String pwd = scanner.nextLine();
 
-        controller.login(email, pwd);
+        controller.login(logEmail, pwd);
     }
 
     private void handlePatientRegisterInput() {
         System.out.println("--- Registrazione Paziente ---");
         System.out.print("Nome: "); String name = scanner.nextLine();
         System.out.print("Cognome: "); String surname = scanner.nextLine();
-        System.out.print(email); String email = scanner.nextLine();
+        System.out.print(email); String regEmail = scanner.nextLine();
         System.out.print(password); String pwd = scanner.nextLine();
 
         System.out.print("Anno nascita (YYYY): "); int year = Integer.parseInt(scanner.nextLine());
@@ -84,7 +84,7 @@ public class CliAuthView implements AuthView {
         System.out.print("Peso (kg): "); double w = Double.parseDouble(scanner.nextLine());
         System.out.print("Sesso (M/F): "); String gender = scanner.nextLine();
 
-        ProfileBean bean = new ProfileBean(name, surname, email, pwd, birth);
+        ProfileBean bean = new ProfileBean(name, surname, regEmail, pwd, birth);
 
         controller.registerPatient(bean, h, w, gender);
     }
@@ -93,7 +93,7 @@ public class CliAuthView implements AuthView {
         System.out.println("--- Registrazione Nutrizionista ---");
         System.out.print("Nome: "); String name = scanner.nextLine();
         System.out.print("Cognome: "); String surname = scanner.nextLine();
-        System.out.print(email); String email = scanner.nextLine();
+        System.out.print(email); String regEmail = scanner.nextLine();
         System.out.print(password); String pwd = scanner.nextLine();
 
         System.out.print("Anno nascita (YYYY): "); int year = Integer.parseInt(scanner.nextLine());
@@ -101,7 +101,7 @@ public class CliAuthView implements AuthView {
         System.out.print("Giorno nascita (1-31): "); int day = Integer.parseInt(scanner.nextLine());
         LocalDate birth = LocalDate.of(year, month, day);
 
-        ProfileBean bean = new ProfileBean(name, surname, email, pwd, birth);
+        ProfileBean bean = new ProfileBean(name, surname, regEmail, pwd, birth);
 
         System.out.print("Codice Albo: "); String albo = scanner.nextLine();
 

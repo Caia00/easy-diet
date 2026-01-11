@@ -19,7 +19,6 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import view.gui.utility.GuiTheme;
@@ -38,10 +37,8 @@ public class GuiShoppingListEditorView implements ShoppingListEditorView {
 
     private VBox statusBox = new VBox(5);
 
-    private TableView<CommercialProduct> catalogTable;
     private final ObservableList<CommercialProduct> catalogData = FXCollections.observableArrayList();
 
-    private TableView<ShoppingItem> cartTable;
     private final ObservableList<ShoppingItem> cartData = FXCollections.observableArrayList();
 
     public GuiShoppingListEditorView(Stage owner) {
@@ -107,7 +104,7 @@ public class GuiShoppingListEditorView implements ShoppingListEditorView {
         filterBox.getChildren().addAll(new Label("Categoria:"), cmbCategory);
 
         //Tabella catalogo filtrato
-        catalogTable = new TableView<>();
+        TableView<CommercialProduct> catalogTable = new TableView<>();
         catalogTable.setItems(catalogData);
         catalogTable.setPlaceholder(new Label("Seleziona una categoria per vedere i prodotti."));
         catalogTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_FLEX_LAST_COLUMN);
@@ -124,25 +121,9 @@ public class GuiShoppingListEditorView implements ShoppingListEditorView {
         TableColumn<CommercialProduct, String> colProdPrice = new TableColumn<>("Prezzo");
         colProdPrice.setCellValueFactory(c -> new SimpleStringProperty(String.format("€ %.2f", c.getValue().getPrice())));
 
-        //Azione scegli
+        //Azione scegli, creo una classe apposta per gestire l'action cell
         TableColumn<CommercialProduct, Void> colAddAction = new TableColumn<>("Azione");
-        colAddAction.setCellFactory(param -> new TableCell<>() {
-            private final Button btnAdd = new Button("Scegli");
-            {
-                btnAdd.setStyle("-fx-background-color: #2196F3; -fx-text-fill: white; -fx-cursor: hand;");
-                btnAdd.setOnAction(e -> {
-                    CommercialProduct p = getTableView().getItems().get(getIndex());
-                    controller.selectProduct(p);
-                });
-            }
-
-            //Ovveride per il riutilizzo delle righe già create
-            @Override
-            protected void updateItem(Void item, boolean empty) {
-                super.updateItem(item, empty);
-                setGraphic(empty ? null : btnAdd);
-            }
-        });
+        colAddAction.setCellFactory(param -> new CatalogActionCell());
 
         catalogTable.getColumns().addAll(colProdName, colProdWeight, colProdPrice, colAddAction);
         VBox.setVgrow(catalogTable, Priority.ALWAYS);
@@ -157,7 +138,7 @@ public class GuiShoppingListEditorView implements ShoppingListEditorView {
         lblCart.setStyle("-fx-font-weight: bold; -fx-text-fill: #000000;");
 
         //Tabella di visualizzazione
-        cartTable = new TableView<>();
+        TableView<ShoppingItem> cartTable = new TableView<>();
         cartTable.setItems(cartData);
         cartTable.setPlaceholder(new Label("Lista vuota. Aggiungi prodotti dal catalogo sopra."));
         cartTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_FLEX_LAST_COLUMN);
@@ -176,26 +157,7 @@ public class GuiShoppingListEditorView implements ShoppingListEditorView {
 
         //Azione diminuisci o rimuovi
         TableColumn<ShoppingItem, Void> cItemRem = new TableColumn<>("Rimuovi");
-        cItemRem.setCellFactory(param -> new TableCell<>() {
-            private final Button btnMinus = new Button("-1");
-            private final Button btnTrash = new Button("X");
-            private final HBox box = new HBox(5, btnMinus, btnTrash);
-            {
-                box.setAlignment(Pos.CENTER);
-                btnMinus.setOnAction(e -> {
-                    controller.removeProduct(getIndex(), 1);
-                });
-                btnTrash.setStyle(GuiTheme.BTN_DANGER_STYLE);
-                btnTrash.setOnAction(e -> {
-                    controller.removeProduct(getIndex(), 9999);
-                });
-            }
-            @Override
-            protected void updateItem(Void item, boolean empty) {
-                super.updateItem(item, empty);
-                setGraphic(empty ? null : box);
-            }
-        });
+        cItemRem.setCellFactory(param -> new CartActionCell());
 
         cartTable.getColumns().addAll(cItemName, cItemQty, cItemTot, cItemRem);
         VBox.setVgrow(cartTable, Priority.ALWAYS);
@@ -271,7 +233,7 @@ public class GuiShoppingListEditorView implements ShoppingListEditorView {
                     lblVal.setTextFill(Color.RED);
                     row.setStyle(row.getStyle() + "-fx-border-color: red; -fx-border-width: 0 0 0 3;");
                 }
-            } catch (Exception e) { /* Ignoro errori di parsing */ }
+            } catch (Exception _) { /* Ignoro errori di parsing */ }
 
             row.getChildren().addAll(lblName, spacer, lblVal);
             statusBox.getChildren().add(row);
@@ -366,6 +328,45 @@ public class GuiShoppingListEditorView implements ShoppingListEditorView {
     @Override
     public void close() {
         stage.close();
+    }
+
+    private class CatalogActionCell extends TableCell<CommercialProduct, Void> {
+        private final Button btnAdd = new Button("Scegli");
+
+        public CatalogActionCell() {
+            btnAdd.setStyle("-fx-background-color: #2196F3; -fx-text-fill: white; -fx-cursor: hand;");
+            btnAdd.setOnAction(e -> {
+                CommercialProduct p = getTableView().getItems().get(getIndex());
+                controller.selectProduct(p);
+            });
+        }
+
+        @Override
+        protected void updateItem(Void item, boolean empty) {
+            super.updateItem(item, empty);
+            setGraphic(empty ? null : btnAdd);
+        }
+    }
+
+
+    private class CartActionCell extends TableCell<ShoppingItem, Void> {
+        private final Button btnMinus = new Button("-1");
+        private final Button btnTrash = new Button("X");
+        private final HBox box = new HBox(5, btnMinus, btnTrash);
+
+        public CartActionCell() {
+            box.setAlignment(Pos.CENTER);
+            btnMinus.setOnAction(e -> controller.removeProduct(getIndex(), 1));
+
+            btnTrash.setStyle(GuiTheme.BTN_DANGER_STYLE);
+            btnTrash.setOnAction(e -> controller.removeProduct(getIndex(), 9999));
+        }
+
+        @Override
+        protected void updateItem(Void item, boolean empty) {
+            super.updateItem(item, empty);
+            setGraphic(empty ? null : box);
+        }
     }
 
 }

@@ -15,22 +15,27 @@ public class GuiTheme {
     public static final String COL_SECONDARY = "#2196F3";
     public static final String COL_DANGER = "#F44336";
     public static final String COL_TEXT_WHITE = "#FFFFFF";
+    private static final String string = "-fx-background-color: ";
 
     //Stili riutilizzabili
     public static final String BTN_PRIMARY_STYLE =
-            "-fx-background-color: " + COL_PRIMARY + "; " +
+            string + COL_PRIMARY + "; " +
                     "-fx-text-fill: " + COL_TEXT_WHITE + "; " +
                     "-fx-font-size: 14px; -fx-font-weight: bold; -fx-cursor: hand; -fx-background-radius: 5;";
 
     public static final String BTN_DANGER_STYLE =
-            "-fx-background-color: " + COL_DANGER + "; " +
+            string + COL_DANGER + "; " +
                     "-fx-text-fill: " + COL_TEXT_WHITE + "; " +
                     "-fx-font-size: 14px; -fx-font-weight: bold; -fx-cursor: hand; -fx-background-radius: 5;";
 
     public static final String BTN_SECONDARY_STYLE =
-            "-fx-background-color: " + COL_SECONDARY + "; " +
+            string + COL_SECONDARY + "; " +
                     "-fx-text-fill: " + COL_TEXT_WHITE + "; " +
                     "-fx-font-size: 13px; -fx-cursor: hand; -fx-background-radius: 5;";
+
+    private GuiTheme() {
+        //Costruttore creato solo per nascondere quello pubblico implicito
+    }
 
 
     public static HBox createHeader(String title, Runnable onBackOrLogout, boolean isLogout) {

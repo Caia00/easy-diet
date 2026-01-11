@@ -4,11 +4,8 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Popup;
@@ -18,6 +15,10 @@ import javafx.util.Duration;
 public class Toast {
     private static final String STYLE_SUCCESS = "-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5;";
     private static final String STYLE_ERROR = "-fx-background-color: #F44336; -fx-text-fill: white; -fx-background-radius: 5;";
+
+    private Toast(){
+        //Costruttore private creato solo per nascondere quello pubblico implicito
+    }
 
     public static void showSuccess(Stage ownerStage, String message) {
         show(ownerStage, message, true);
@@ -51,7 +52,7 @@ public class Toast {
         KeyFrame keyFade = new KeyFrame(Duration.millis(3500), new KeyValue(popup.opacityProperty(), 0.0));
 
         timeline.getKeyFrames().addAll(keyVisible, keyFade);
-        timeline.setOnFinished((ae) -> popup.hide());
+        timeline.setOnFinished(ae -> popup.hide());
 
         timeline.play();
     }

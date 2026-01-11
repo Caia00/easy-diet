@@ -64,7 +64,9 @@ public class GuiNutritionistHomeView implements NutritionistHomeView {
     }
 
     @Override
-    public void close() {}
+    public void close() {
+        //Metodo vuoto in quanto la chiusura della gui consisterà nel cambio della scena da parte della nuova gui
+    }
 
 
     private Button createMenuButton(String text) {

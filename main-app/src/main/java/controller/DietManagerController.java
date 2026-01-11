@@ -84,7 +84,7 @@ public class DietManagerController {
 
         } catch (InvalidPatientException e) {
             view.showError(e.getMessage());
-        } catch (Exception b) {
+        } catch (Exception _) {
             view.showError("Errore imprevisto durante l'assegnazione.");
         }
     }

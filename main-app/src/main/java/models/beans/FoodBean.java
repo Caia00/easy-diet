@@ -13,7 +13,7 @@ public class FoodBean {
     private double fat;
     private double fib;
     private String suggestedProductName;
-    public FoodBean(String day, String mealName, AppCategory cat, double kcal, double prot, double carb, double sug, double fat, double fib, String suggestedProductName) {
+    public FoodBean(String day, String mealName, AppCategory cat, double kcal, double prot, double carb, double sug) {
         this.day = day;
         this.mealName = mealName;
         this.appCategory = cat;
@@ -21,9 +21,6 @@ public class FoodBean {
         this.prot = prot;
         this.carb = carb;
         this.sug = sug;
-        this.fat = fat;
-        this.fib = fib;
-        this.suggestedProductName = suggestedProductName;
     }
 
     public String getDay() {
