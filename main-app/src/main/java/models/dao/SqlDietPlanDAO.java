@@ -211,7 +211,6 @@ public class SqlDietPlanDAO implements DietPlanDAO {
 
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, mealId);
-            stmt.setNull(9, Types.VARCHAR);
             for (DietItem item : items) {
                 NutritionalTarget t = item.getTarget();
 
@@ -224,12 +223,11 @@ public class SqlDietPlanDAO implements DietPlanDAO {
                 stmt.setDouble(8, t.getTargetFibers());
 
                 // Gestione prodotto suggerito (Optional)
-                Optional<CommercialProduct> productOpt = item.getSuggestedProduct();
-                if (productOpt.isPresent()) {
-                    stmt.setString(9, productOpt.get().getName());
-                } else {
-                    stmt.setNull(9, Types.VARCHAR);
-                }
+                String productName = item.getSuggestedProduct()
+                        .map(CommercialProduct::getName)
+                        .orElse(null);
+                //Utilizzo setObject per non far risultare che sia costante il placeholder dello statement
+                stmt.setObject(9, productName, Types.VARCHAR);
 
                 stmt.addBatch(); // Eseguo per ogni item
             }
