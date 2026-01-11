@@ -8,6 +8,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.logging.*;
 
 public class SqlDietPlanDAO implements DietPlanDAO {
@@ -223,8 +224,11 @@ public class SqlDietPlanDAO implements DietPlanDAO {
                 stmt.setDouble(8, t.getTargetFibers());
 
                 // Gestione prodotto suggerito (Optional)
-                if (item.getSuggestedProduct().isPresent()) {
-                    stmt.setString(9, item.getSuggestedProduct().get().getName());
+                Optional<CommercialProduct> productOpt = item.getSuggestedProduct();
+                if (productOpt.isPresent()) {
+                    stmt.setString(9, productOpt.get().getName());
+                } else {
+                    stmt.setNull(9, Types.VARCHAR);
                 }
 
                 stmt.addBatch(); // Eseguo per ogni item

@@ -22,8 +22,8 @@ public class GuiDietEditorView implements DietEditorView {
     private static final String[] DAYS = {
             "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"
     };
-    private static final String style = "-fx-font-weight: bold; -fx-font-size: 14px;";
-    private static final String giorno = "Giorno:";
+    private static final String STYLE = "-fx-font-weight: bold; -fx-font-size: 14px;";
+    private static final String GIORNO = "Giorno:";
 
     public GuiDietEditorView(Stage owner) {
         this.editorStage = new Stage();
@@ -104,7 +104,7 @@ public class GuiDietEditorView implements DietEditorView {
 
         //Aggiunta pasto
         Label lblAdd = new Label("Aggiungi Nuovo Pasto");
-        lblAdd.setStyle(style);
+        lblAdd.setStyle(STYLE);
 
         GridPane gridAdd = new GridPane();
         gridAdd.setHgap(10); gridAdd.setVgap(10);
@@ -125,7 +125,7 @@ public class GuiDietEditorView implements DietEditorView {
                 cmbDayAdd.getValue(), txtMealNameAdd.getText(), txtTimeAdd.getText()
         ));
 
-        gridAdd.addRow(0, new Label(giorno), cmbDayAdd);
+        gridAdd.addRow(0, new Label(GIORNO), cmbDayAdd);
         gridAdd.addRow(1, new Label("Nome:"), txtMealNameAdd);
         gridAdd.addRow(2, new Label("Ora:"), txtTimeAdd);
         gridAdd.add(btnAddMeal, 1, 3);
@@ -134,7 +134,7 @@ public class GuiDietEditorView implements DietEditorView {
         Separator sep = new Separator();
 
         Label lblRem = new Label("Rimuovi Intero Pasto");
-        lblRem.setStyle(style);
+        lblRem.setStyle(STYLE);
 
         GridPane gridRem = new GridPane();
         gridRem.setHgap(10); gridRem.setVgap(10);
@@ -152,7 +152,7 @@ public class GuiDietEditorView implements DietEditorView {
                 cmbDayRem.getValue(), txtMealNameRem.getText()
         ));
 
-        gridRem.addRow(0, new Label(giorno), cmbDayRem);
+        gridRem.addRow(0, new Label(GIORNO), cmbDayRem);
         gridRem.addRow(1, new Label("Nome:"), txtMealNameRem);
         gridRem.add(btnRemMeal, 1, 2);
         layout.getChildren().addAll(lblAdd, gridAdd, new Label(""), sep, lblRem, gridRem);
@@ -165,7 +165,7 @@ public class GuiDietEditorView implements DietEditorView {
         layout.setPadding(new Insets(20));
 
         Label title = new Label("Inserisci Alimento nel Pasto");
-        title.setStyle(style);
+        title.setStyle(STYLE);
 
         //Dove verrà aggiunto
         ComboBox<String> cmbDay = new ComboBox<>();
@@ -230,7 +230,7 @@ public class GuiDietEditorView implements DietEditorView {
 
         layout.getChildren().addAll(
                 title,
-                new Label(giorno), cmbDay,
+                new Label(GIORNO), cmbDay,
                 new Label("Pasto Target:"), txtMealName,
                 new Separator(),
                 new Label("Categoria:"), cmbCat,
@@ -277,7 +277,7 @@ public class GuiDietEditorView implements DietEditorView {
             }
         });
 
-        layout.getChildren().addAll(info, new Label(giorno), cmbDay, new Label("Pasto:"), txtMeal, new Label("Indice:"), txtIndex, btnRemove);
+        layout.getChildren().addAll(info, new Label(GIORNO), cmbDay, new Label("Pasto:"), txtMeal, new Label("Indice:"), txtIndex, btnRemove);
         return layout;
     }
 

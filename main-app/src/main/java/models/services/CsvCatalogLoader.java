@@ -23,7 +23,7 @@ public class CsvCatalogLoader implements CatalogLoader {
     private static final Pattern NUMBER_PATTERN = Pattern.compile("(\\d+([.,]\\d+)?)");
 
     //Pattern precompilato per la ricerca di un numero seguito da kcal
-    private static final Pattern KCAL_SPECIFIC_PATTERN = Pattern.compile("(\\d+([.,]\\d+)?)\\s*k?cal", Pattern.CASE_INSENSITIVE);
+    private static final Pattern KCAL_SPECIFIC_PATTERN = Pattern.compile("(\\d++(?:[.,]\\d++)?)\\s*+k?cal", Pattern.CASE_INSENSITIVE);
 
     public CsvCatalogLoader(String fileName, ProductFactory factory) {
         this.fileName = fileName;

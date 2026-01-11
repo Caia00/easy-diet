@@ -11,6 +11,8 @@ public class ProductFactory {
 
     //Regex utilizzata per eliminare il camel case dal nome del prodotto: CarrefourPollo -> Carrefour Pollo, più facile ricerca peso e categoria successive
     private static final Pattern CAMEL_CASE_PATTERN = Pattern.compile("(?<=[a-z])(?=[A-Z])");
+    //Regex per la ricerca nel nome del prodotto di una stringa di tipo <num> <unità di misura>
+    private static final Pattern WEIGHT_PATTERN = Pattern.compile("(\\d+[.,]?\\d*)\\s*(mg|g|kg|ml|cl|l|lt)", Pattern.CASE_INSENSITIVE);
 
     public ProductFactory() {
         //Costruttore vuoto in quanto l'oggetto non dovrà essere inizializzato
@@ -72,9 +74,7 @@ public class ProductFactory {
 
     private double parseWeight(String text) {
         if (text == null || text.isEmpty()) return 0.0;
-
-        Pattern p = Pattern.compile("(\\d+[.,]?\\d*)\\s*(mg|g|kg|ml|cl|l|lt)", Pattern.CASE_INSENSITIVE); //Regex per la ricerca nel nome del prodotto di una stringa di tipo <num> <unità di misura>
-        Matcher m = p.matcher(text);
+        Matcher m = WEIGHT_PATTERN.matcher(text);
 
         if (m.find()) {
             try {

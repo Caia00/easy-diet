@@ -11,7 +11,7 @@ public class CliDietEditorView implements DietEditorView {
     private DietEditorController controller;
     private final Scanner scanner = new Scanner(System.in);
     private boolean isEditing = true;
-    private static final String giorno = "Giorno: ";
+    private static final String GIORNO = "Giorno: ";
 
     @Override
     public void setController(DietEditorController controller) {
@@ -62,7 +62,7 @@ public class CliDietEditorView implements DietEditorView {
     }
 
     private void handleRemoveMeal() {
-        System.out.print(giorno);
+        System.out.print(GIORNO);
         String day = scanner.nextLine();
         System.out.print("Nome Pasto da rimuovere: ");
         String name = scanner.nextLine();
@@ -71,7 +71,7 @@ public class CliDietEditorView implements DietEditorView {
 
     private void handleAddFood() {
         System.out.println("--- Aggiunta Cibo ---");
-        System.out.print(giorno); String day = scanner.nextLine();
+        System.out.print(GIORNO); String day = scanner.nextLine();
         System.out.print("Pasto: "); String meal = scanner.nextLine();
 
         AppCategory cat = null;
@@ -110,7 +110,7 @@ public class CliDietEditorView implements DietEditorView {
 
     private void handleRemoveFood() {
         System.out.println("--- Rimuovi Alimento ---");
-        System.out.print(giorno);
+        System.out.print(GIORNO);
         String day = scanner.nextLine();
 
         System.out.print("Nome pasto: ");

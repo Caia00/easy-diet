@@ -15,21 +15,21 @@ public class GuiTheme {
     public static final String COL_SECONDARY = "#2196F3";
     public static final String COL_DANGER = "#F44336";
     public static final String COL_TEXT_WHITE = "#FFFFFF";
-    private static final String string = "-fx-background-color: ";
+    private static final String STRING = "-fx-background-color: ";
 
     //Stili riutilizzabili
     public static final String BTN_PRIMARY_STYLE =
-            string + COL_PRIMARY + "; " +
+            STRING + COL_PRIMARY + "; " +
                     "-fx-text-fill: " + COL_TEXT_WHITE + "; " +
                     "-fx-font-size: 14px; -fx-font-weight: bold; -fx-cursor: hand; -fx-background-radius: 5;";
 
     public static final String BTN_DANGER_STYLE =
-            string + COL_DANGER + "; " +
+            STRING + COL_DANGER + "; " +
                     "-fx-text-fill: " + COL_TEXT_WHITE + "; " +
                     "-fx-font-size: 14px; -fx-font-weight: bold; -fx-cursor: hand; -fx-background-radius: 5;";
 
     public static final String BTN_SECONDARY_STYLE =
-            string + COL_SECONDARY + "; " +
+            STRING + COL_SECONDARY + "; " +
                     "-fx-text-fill: " + COL_TEXT_WHITE + "; " +
                     "-fx-font-size: 13px; -fx-cursor: hand; -fx-background-radius: 5;";
 

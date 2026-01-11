@@ -129,10 +129,9 @@ public class GuiDietViewerView implements DietViewerView {
                 Label lblCategory = new Label(item.getCategory().toString());
                 lblCategory.setStyle("-fx-font-weight: bold; -fx-font-size: 13px;");
 
-                String suggestionText = "";
-                if (item.getSuggestedProduct().isPresent()) {
-                    suggestionText = " (" + item.getSuggestedProduct().get().getName() + ")";
-                }
+                String suggestionText = item.getSuggestedProduct()
+                        .map(product -> " (" + product.getName() + ")")
+                        .orElse("");
                 Label lblSuggestion = new Label(suggestionText);
                 lblSuggestion.setStyle("-fx-font-style: italic; -fx-text-fill: #0288D1;");
 

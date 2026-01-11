@@ -28,7 +28,7 @@ public class GuiShoppingListManagerView implements ShoppingListManagerView {
     private final Stage stage;
     private final ObservableList<ShoppingList> historyData = FXCollections.observableArrayList();
     private static final DateTimeFormatter DATE_FMT = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    private static final String string = "€ %.2f";
+    private static final String STRING = "€ %.2f";
 
     public GuiShoppingListManagerView(Stage stage) {
         this.stage = stage;
@@ -108,7 +108,7 @@ public class GuiShoppingListManagerView implements ShoppingListManagerView {
         //Costo totale
         TableColumn<ShoppingList, String> colCost = new TableColumn<>("Totale");
         colCost.setCellValueFactory(cell -> new SimpleStringProperty(
-                String.format(string, cell.getValue().getTotalPrice())
+                String.format(STRING, cell.getValue().getTotalPrice())
         ));
         colCost.setStyle("-fx-alignment: CENTER-RIGHT; -fx-font-weight: bold;");
 
@@ -169,11 +169,11 @@ public class GuiShoppingListManagerView implements ShoppingListManagerView {
 
         //Prezzo prodotto
         TableColumn<ShoppingItem, String> cPrice = new TableColumn<>("Prezzo prod.");
-        cPrice.setCellValueFactory(c -> new SimpleStringProperty(String.format(string, c.getValue().getProduct().getPrice())));
+        cPrice.setCellValueFactory(c -> new SimpleStringProperty(String.format(STRING, c.getValue().getProduct().getPrice())));
 
         //Prezzo * Quantità
         TableColumn<ShoppingItem, String> cTot = new TableColumn<>("Totale");
-        cTot.setCellValueFactory(c -> new SimpleStringProperty(String.format(string, c.getValue().getTotalPrice())));
+        cTot.setCellValueFactory(c -> new SimpleStringProperty(String.format(STRING, c.getValue().getTotalPrice())));
         cTot.setStyle("-fx-font-weight: bold; -fx-alignment: CENTER-RIGHT;");
 
         //Info
@@ -187,7 +187,7 @@ public class GuiShoppingListManagerView implements ShoppingListManagerView {
                 if (empty || getTableRow() == null || getTableRow().getItem() == null) {
                     setGraphic(null);
                 } else {
-                    ShoppingItem currentItem = (ShoppingItem) getTableRow().getItem();
+                    ShoppingItem currentItem = getTableRow().getItem();
                     if (currentItem.isForDiet()) {
                         Label lbl = new Label("Per Dieta");
                         lbl.setStyle("-fx-background-color: #E8F5E9; -fx-text-fill: #2E7D32; -fx-padding: 3 8 3 8; -fx-background-radius: 10; -fx-font-size: 10px;");

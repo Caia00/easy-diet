@@ -104,17 +104,6 @@ public class GuiDietManagerView implements DietManagerView {
     }
 
 
-    private void handleAssignClick(DietPlan plan) {
-        TextInputDialog dialog = new TextInputDialog();
-        dialog.setTitle("Assegna Dieta");
-        dialog.setHeaderText("Assegna '" + plan.getDietName() + "' a un paziente");
-        dialog.setContentText("Inserisci l'email del paziente:");
-
-        Optional<String> result = dialog.showAndWait();
-        result.ifPresent(email ->
-            controller.assignDiet(plan, email));
-    }
-
     @Override
     public void showMessage(String message) {
         Toast.showSuccess(stage, message);
@@ -168,6 +157,17 @@ public class GuiDietManagerView implements DietManagerView {
         protected void updateItem(Void item, boolean empty) {
             super.updateItem(item, empty);
             setGraphic(empty ? null : pane);
+        }
+
+        private void handleAssignClick(DietPlan plan) {
+            TextInputDialog dialog = new TextInputDialog();
+            dialog.setTitle("Assegna Dieta");
+            dialog.setHeaderText("Assegna '" + plan.getDietName() + "' a un paziente");
+            dialog.setContentText("Inserisci l'email del paziente:");
+
+            Optional<String> result = dialog.showAndWait();
+            result.ifPresent(email ->
+                    controller.assignDiet(plan, email));
         }
     }
 }
