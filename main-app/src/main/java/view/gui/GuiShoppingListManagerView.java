@@ -28,6 +28,7 @@ public class GuiShoppingListManagerView implements ShoppingListManagerView {
     private final Stage stage;
     private final ObservableList<ShoppingList> historyData = FXCollections.observableArrayList();
     private static final DateTimeFormatter DATE_FMT = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private static final String string = "€ %.2f";
 
     public GuiShoppingListManagerView(Stage stage) {
         this.stage = stage;
@@ -107,42 +108,13 @@ public class GuiShoppingListManagerView implements ShoppingListManagerView {
         //Costo totale
         TableColumn<ShoppingList, String> colCost = new TableColumn<>("Totale");
         colCost.setCellValueFactory(cell -> new SimpleStringProperty(
-                String.format("€ %.2f", cell.getValue().getTotalPrice())
+                String.format(string, cell.getValue().getTotalPrice())
         ));
         colCost.setStyle("-fx-alignment: CENTER-RIGHT; -fx-font-weight: bold;");
 
         //Azioni
         TableColumn<ShoppingList, Void> colActions = new TableColumn<>("Azioni");
-        colActions.setCellFactory(param -> new TableCell<>() {
-            private final Button btnOpen = new Button("Dettagli");
-            private final Button btnDel = new Button("Elimina");
-            private final HBox pane = new HBox(10, btnOpen, btnDel);
-
-            {
-                pane.setAlignment(Pos.CENTER);
-                btnOpen.setStyle("-fx-background-color: " + GuiTheme.COL_SECONDARY + "; -fx-text-fill: white; -fx-cursor: hand;");
-                btnOpen.setOnAction(e -> {
-                    ShoppingList list = getTableView().getItems().get(getIndex());
-                    controller.openList(list);
-                });
-
-                btnDel.setStyle(GuiTheme.BTN_DANGER_STYLE);
-                btnDel.setOnAction(e -> {
-                    ShoppingList list = getTableView().getItems().get(getIndex());
-                    Alert confirm = new Alert(Alert.AlertType.CONFIRMATION, "Eliminare '" + list.getListName() + "'?", ButtonType.YES, ButtonType.NO);
-                    confirm.showAndWait().ifPresent(resp -> {
-                        if (resp == ButtonType.YES) controller.deleteList(list);
-                    });
-                });
-            }
-
-            //Metodo usato automaticamente per il riutilizzo delle righe
-            @Override
-            protected void updateItem(Void item, boolean empty) {
-                super.updateItem(item, empty);
-                setGraphic(empty ? null : pane);
-            }
-        });
+        colActions.setCellFactory(param -> new ShoppingListActionCell());
 
         table.getColumns().addAll(colName, colMarket, colDate, colCount, colCost, colActions);
 
@@ -197,11 +169,11 @@ public class GuiShoppingListManagerView implements ShoppingListManagerView {
 
         //Prezzo prodotto
         TableColumn<ShoppingItem, String> cPrice = new TableColumn<>("Prezzo prod.");
-        cPrice.setCellValueFactory(c -> new SimpleStringProperty(String.format("€ %.2f", c.getValue().getProduct().getPrice())));
+        cPrice.setCellValueFactory(c -> new SimpleStringProperty(String.format(string, c.getValue().getProduct().getPrice())));
 
         //Prezzo * Quantità
         TableColumn<ShoppingItem, String> cTot = new TableColumn<>("Totale");
-        cTot.setCellValueFactory(c -> new SimpleStringProperty(String.format("€ %.2f", c.getValue().getTotalPrice())));
+        cTot.setCellValueFactory(c -> new SimpleStringProperty(String.format(string, c.getValue().getTotalPrice())));
         cTot.setStyle("-fx-font-weight: bold; -fx-alignment: CENTER-RIGHT;");
 
         //Info
@@ -221,7 +193,9 @@ public class GuiShoppingListManagerView implements ShoppingListManagerView {
                         lbl.setStyle("-fx-background-color: #E8F5E9; -fx-text-fill: #2E7D32; -fx-padding: 3 8 3 8; -fx-background-radius: 10; -fx-font-size: 10px;");
                         setGraphic(lbl);
                     } else {
-                        setGraphic(null);
+                        Label label = new Label("Extra");
+                        label.setStyle("-fx-background-color: #F0E9B3; -fx-text-fill: #000000; -fx-padding: 3 8 3 8; -fx-background-radius: 10; -fx-font-size: 10px;");
+                        setGraphic(label);
                     }
                 }
             }
@@ -253,6 +227,47 @@ public class GuiShoppingListManagerView implements ShoppingListManagerView {
     }
 
     @Override
-    public void close() {}
+    public void close() {
+        //Metodo vuoto in quanto la chiusura della view consisterà nel cambio di scena da parte della nuova view
+    }
+
+    private class ShoppingListActionCell extends TableCell<ShoppingList, Void> {
+        private final Button btnOpen = new Button("Dettagli");
+        private final Button btnDel = new Button("Elimina");
+        private final HBox pane = new HBox(10, btnOpen, btnDel);
+
+        public ShoppingListActionCell() {
+            pane.setAlignment(Pos.CENTER);
+            btnOpen.setStyle("-fx-background-color: " + GuiTheme.COL_SECONDARY + "; -fx-text-fill: white; -fx-cursor: hand;");
+            btnOpen.setOnAction(e -> {
+                ShoppingList list = getTableView().getItems().get(getIndex());
+                controller.openList(list);
+            });
+
+            // Stile e azione per il tasto Elimina con conferma
+            btnDel.setStyle(GuiTheme.BTN_DANGER_STYLE);
+            btnDel.setOnAction(e -> {
+                ShoppingList list = getTableView().getItems().get(getIndex());
+                Alert confirm = new Alert(Alert.AlertType.CONFIRMATION,
+                        "Eliminare '" + list.getListName() + "'?",
+                        ButtonType.YES, ButtonType.NO);
+                confirm.showAndWait().ifPresent(resp -> {
+                    if (resp == ButtonType.YES) {
+                        controller.deleteList(list);
+                    }
+                });
+            });
+        }
+
+        @Override
+        protected void updateItem(Void item, boolean empty) {
+            super.updateItem(item, empty);
+            if (empty) {
+                setGraphic(null);
+            } else {
+                setGraphic(pane);
+            }
+        }
+    }
 
 }
