@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="little changes: resolving issues">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/dao/SqlDietPlanDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/dao/SqlDietPlanDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +54,9 @@
     "JUnit.ProductFactoryTest.executor": "Run",
     "JUnit.ProductFactoryTest.testCreateProductShouldRetrieveFallbackDataFromJsonIfScrapedIs0.executor": "Run",
     "JUnit.ShoppingListEditorControllerTest.executor": "Run",
+    "JUnit.TestCsvCatalogLoader.executor": "Run",
+    "JUnit.TestDietCalculatorService.executor": "Run",
+    "JUnit.TestProductFactory.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "Maven.main-app [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -87,7 +89,7 @@
       <recent name="view.gui" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.TestCsvCatalogLoader">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="main-app" />
@@ -166,11 +168,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.TestDietCalculatorService" />
         <item itemvalue="JUnit.TestCsvCatalogLoader" />
-        <item itemvalue="JUnit.TestProductFactory.testCreateProductShouldRetrieveFallbackDataFromJsonIfScrapedIs0" />
+        <item itemvalue="JUnit.TestDietCalculatorService" />
         <item itemvalue="JUnit.TestProductFactory" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.TestProductFactory.testCreateProductShouldRetrieveFallbackDataFromJsonIfScrapedIs0" />
       </list>
     </recent_temporary>
   </component>
@@ -201,15 +203,7 @@
       <workItem from="1767434618828" duration="37148000" />
       <workItem from="1767893898186" duration="9651000" />
       <workItem from="1767973769915" duration="2875000" />
-      <workItem from="1768036519294" duration="36479000" />
-    </task>
-    <task id="LOCAL-00054" summary="defining views: defined views to let nutritionist manage diets">
-      <option name="closed" value="true" />
-      <created>1764959371458</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1764959371458</updated>
+      <workItem from="1768036519294" duration="37371000" />
     </task>
     <task id="LOCAL-00055" summary="defining controllers: defined controllers to let nutritionist manage diets">
       <option name="closed" value="true" />
@@ -595,7 +589,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768144803668</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="little changes: resolving issues">
+      <option name="closed" value="true" />
+      <created>1768145976230</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1768145976230</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
