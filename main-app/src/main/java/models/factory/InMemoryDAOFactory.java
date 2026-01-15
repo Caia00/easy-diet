@@ -4,10 +4,9 @@ import models.dao.*;
 
 public class InMemoryDAOFactory implements DAOFactory {
 
-    private final ProfileDAO profileDAO = new InMemoryProfileDAO();
 
     @Override
-    public ProfileDAO getProfileDAO() {return profileDAO; }
+    public ProfileDAO getProfileDAO() {return new InMemoryProfileDAO(); }
 
     @Override
     public DietPlanDAO getDietPlanDAO() {

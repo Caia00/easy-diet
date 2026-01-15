@@ -15,7 +15,7 @@ public class SqlShoppingListDAO implements ShoppingListDAO {
         //Creatore vuoto in quanto non servirà inizializzare l'oggetto
     }
 
-    //Metodo per recuperare la lista delle ShoppingList create dall'utente, composte solo dai dati della lista e non anche dai prodotti inserit
+    //Metodo per recuperare la lista delle ShoppingList create dall'utente, composte solo dai dati della lista e non anche dai prodotti inseriti
     @Override
     public List<ShoppingList> findAllSummariesByOwner(String ownerEmail) {
         List<ShoppingList> summaries = new ArrayList<>();
@@ -39,7 +39,7 @@ public class SqlShoppingListDAO implements ShoppingListDAO {
         return summaries;
     }
 
-    //Metodo per recuperare tutti i prodotti contenuti in una ShoppingList
+
     @Override
     public void loadDetails(ShoppingList list) {
 
@@ -99,6 +99,7 @@ public class SqlShoppingListDAO implements ShoppingListDAO {
         }
     }
 
+    //Metodo interno per gestire meglio le possibili eccezioni
     private AppCategory parseCategory(String catStr) {
         if (catStr == null) {
             return AppCategory.SCONOSCIUTO;
@@ -111,7 +112,7 @@ public class SqlShoppingListDAO implements ShoppingListDAO {
         }
     }
 
-    //Metodo per salvare una lista della spesa nel DB, transazionale
+    //Metodo che utilizza logica transazionale
     @Override
     public void save(ShoppingList list, String ownerEmail) {
         Connection conn = null;

@@ -97,10 +97,5 @@ public class ShoppingList {
     public void setTotalPrice(Double price) { this.totalPrice = price; }
     public void setTotalItems(int totalItems) { this.totalItems = totalItems; }
 
-    @Override
-    public String toString() {
-        return String.format("Lista: '%s' [%s] - Data: %s - Totale: €%.2f (%d prodotti)",
-                listName, supermarket, creationDate, getTotalCost(), getTotalItemsCount());
-    }
 
 }

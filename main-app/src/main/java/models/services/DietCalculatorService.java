@@ -16,7 +16,7 @@ public class DietCalculatorService {
     private static final Map<AppCategory, PortionCalculationStrategy> strategyMap = new EnumMap<>(AppCategory.class);
     private static final PortionCalculationStrategy defaultStrategy = new KcalStrategy();
 
-    //Configurazione mappa delle strategie
+    //Configurazione mappa delle strategie si assegna per ogni categoria la strategia corretta da usare
     static {
         //ProteinStrategy
         PortionCalculationStrategy protein = new ProteinStrategy();

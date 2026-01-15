@@ -82,10 +82,5 @@ public class Meal {
         this.foods = foods;
     }
 
-    @Override
-    public String toString() {
-        String timeStr = (time != null) ? time.toString() : "--:--";
-        return String.format("Meal: %s (%s)", name.toUpperCase(), timeStr);
-    }
 
 }

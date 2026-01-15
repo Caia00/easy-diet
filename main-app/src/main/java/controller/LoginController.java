@@ -30,7 +30,6 @@ public class LoginController {
         view.start();
     }
 
-    //Metodo per il login
     public void login(String email, String password) {
 
         if (email == null || email.trim().isEmpty() || password == null || password.trim().isEmpty()) {
@@ -52,7 +51,6 @@ public class LoginController {
         }
     }
 
-    //Metodo per gestire la navigazione di schermata, in base se l'utente è un user o nutritionist
     private void navigateToHome(Profile profile) {
         view.close();
 

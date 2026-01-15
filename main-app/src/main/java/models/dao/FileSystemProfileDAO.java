@@ -41,10 +41,8 @@ public class FileSystemProfileDAO implements ProfileDAO {
 
         List<Profile> allProfiles = loadAll();
 
-        //Rimuovo vecchio (logica update)
+        //Rimuovo vecchio e salvo nuovo, logica update
         allProfiles.removeIf(p -> p.getEmail().equalsIgnoreCase(profile.getEmail()));
-
-        //Aggiungo nuovo
         allProfiles.add(profile);
         saveAll(allProfiles);
     }

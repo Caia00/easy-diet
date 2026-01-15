@@ -3,11 +3,11 @@ package models.beans;
 import java.util.Map;
 
 public class ShoppingCalculationResult {
-    // Dati utilizzati nella lista della spesa
+    //Dati riferiti al singolo CommercialProduct
     private double totalGramsRequired;
     private int packsToBuy;
 
-    // Dati in dettaglio visionati dall'utente quando osserverà il meal plan
+    //Mappa utilizzata per salvare quanti grammi di prodotto serviranno per ogni singola demand
     private Map<String, Double> gramsPerMealDetail;
 
     public ShoppingCalculationResult(double totalGramsRequired, int packsToBuy, Map<String, Double> gramsPerMealDetail) {
@@ -33,10 +33,5 @@ public class ShoppingCalculationResult {
         return totalBought - totalGramsRequired;
     }
 
-    @Override
-    public String toString() {
-        return String.format("Risultato: Servono %.1fg totali -> Comprare %d confezioni.",
-                totalGramsRequired, packsToBuy);
-    }
 
 }

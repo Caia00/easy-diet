@@ -48,7 +48,7 @@ public class ShoppingListEditorController {
     private void refreshDashboard() {
         view.showCurrentList(shoppingList);
 
-        //Calcolo statistiche X/Y, X = mealDemand coperte, Y = ... da coprire
+        //Calcolo statistiche X/Y, X = mealDemand coperte, Y = mealDemand da coprire
         Map<AppCategory, String> statusMap = new EnumMap<>(AppCategory.class);
 
         Map<AppCategory, Long> totalCounts = totalDemands.stream()
@@ -71,7 +71,7 @@ public class ShoppingListEditorController {
     }
 
 
-    //Selezione categoria per filtrare i prodotti del catalogo
+    //Filtraggio dei prodotti del catalogo tramite la categoria
     public void selectCategory(AppCategory category) {
         List<CommercialProduct> filteredProducts = fullCatalog.stream()
                 .filter(p -> p.getCategory() == category)

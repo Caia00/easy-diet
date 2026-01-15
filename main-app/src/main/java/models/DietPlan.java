@@ -127,8 +127,4 @@ public class DietPlan {
         this.weeklySchedule = weeklySchedule;
     }
 
-    @Override
-    public String toString() {
-        return String.format("Dieta: %s (ID: %s)", dietName, (id != null ? id : "Non salvata"));
-    }
 }

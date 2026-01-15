@@ -13,7 +13,8 @@ public class FallbackNutritionService {
 
     private List<StandardFood> database;
 
-    private FallbackNutritionService() { //Costruttore privato per pattern singleton
+    //Costruttore privato per pattern singleton
+    private FallbackNutritionService() {
         try {
             loadDatabase();
         } catch (Exception e) {

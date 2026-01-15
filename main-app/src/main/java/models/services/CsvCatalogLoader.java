@@ -19,10 +19,10 @@ public class CsvCatalogLoader implements CatalogLoader {
     private final String fileName;
     private final ProductFactory factory;
 
-    // Pattern precompilato per la ricerca di un numero all'interno di una stringa (utilizzato nel parser)
+    //Regex per la ricerca di un numero all'interno di una stringa
     private static final Pattern NUMBER_PATTERN = Pattern.compile("(\\d+([.,]\\d+)?)");
 
-    //Pattern precompilato per la ricerca di un numero seguito da kcal
+    //Regex per la ricerca di un numero seguito specificatamente da kcal
     private static final Pattern KCAL_SPECIFIC_PATTERN = Pattern.compile("(\\d++(?:[.,]\\d++)?)\\s*+k?cal", Pattern.CASE_INSENSITIVE);
 
     public CsvCatalogLoader(String fileName, ProductFactory factory) {
@@ -43,7 +43,7 @@ public class CsvCatalogLoader implements CatalogLoader {
                 return catalog;
             }
 
-            String line = br.readLine();
+            String line = br.readLine(); //Utilizzato per saltare la prima linea del csv che solitamente è l'intestazione
 
             while ((line = br.readLine()) != null) {
 

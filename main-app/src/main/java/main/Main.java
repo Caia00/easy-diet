@@ -39,7 +39,7 @@ public class Main extends Application {
     private static DAOFactory createDaoFactory(String param) {
         return switch (param) {
             case "sql" -> new SqlDAOFactory();
-            case "mem" -> new InMemoryDAOFactory();
+            case "demo" -> new InMemoryDAOFactory();
             default -> new FileSystemDAOFactory();
         };
     }

@@ -18,7 +18,7 @@ public class SqlDietPlanDAO implements DietPlanDAO {
         //Creatore vuoto in quanto non ci sarà bisogno di inizializzare l'oggetto
     }
 
-    //Metodo usato da user per trovare la dieta che gli è stata assegnata
+    //Metodo usato per trovare la dieta assegnata a un utente
     @Override
     public DietPlan findByOwner(String userEmail) {
         String query = "SELECT dp.* FROM diet_plans dp " +
@@ -48,7 +48,7 @@ public class SqlDietPlanDAO implements DietPlanDAO {
         return plan;
     }
 
-    //Metodo usato dal nutrizionista per caricare dal DB una sua dieta specifica
+
     @Override
     public void loadPlanDetails(DietPlan plan) {
         if (plan == null || plan.getDietId() == null) {
@@ -100,7 +100,7 @@ public class SqlDietPlanDAO implements DietPlanDAO {
 
 
 
-    //Metodo di salvataggio di un DietPlan all'interno del DB, utilizza logica transazionale
+    //Metodo che utilizza logica transazionale
     @Override
     public void save(DietPlan plan, String creatorEmail) {
         Connection conn = null;
@@ -134,7 +134,7 @@ public class SqlDietPlanDAO implements DietPlanDAO {
                     stmt.executeUpdate();
                 }
 
-                //Elimino tutto il contenuto della dieta che verrà ricreato così aggiornato
+                //Elimino tutto il contenuto della dieta che verrà ricreato aggiornato
                 deleteMealsByDietId(plan.getDietId(), conn);
             }
 
@@ -166,7 +166,7 @@ public class SqlDietPlanDAO implements DietPlanDAO {
     }
 
 
-    //Metodo per salvare tutti i dati salvati nella weeklySchedule del DietPlan
+    //Metodo interno per salvare tutti i dati salvati nella weeklySchedule del DietPlan
     private void saveMeals(DietPlan plan, Connection conn) throws SQLException {
         String sql = "INSERT INTO meals (diet_id, day_of_week, meal_name, meal_time) VALUES (?, ?, ?, ?)";
 
@@ -182,6 +182,7 @@ public class SqlDietPlanDAO implements DietPlanDAO {
         }
     }
 
+    //Metodo interno utilizzato per diminuire la complessità di saveMeals
     private void saveSingleMeal(PreparedStatement stmt, String day, Meal meal, Connection conn) throws SQLException {
         stmt.setString(2, day);
         stmt.setString(3, meal.getName());
@@ -202,7 +203,7 @@ public class SqlDietPlanDAO implements DietPlanDAO {
         }
     }
 
-    //Salva i singoli cibi presenti in un pasto
+    //Salva i singoli cibi presenti in un Meal
     private void saveDietItems(int mealId, List<DietItem> items, Connection conn) throws SQLException {
         String sql = "INSERT INTO diet_items (meal_id, target_category, target_kcal, target_proteins, " +
                 "target_carbs, target_sugar, target_fats, target_fibers, suggested_product_name) " +
@@ -244,7 +245,7 @@ public class SqlDietPlanDAO implements DietPlanDAO {
     }
 
 
-    //Metodo usato per il caricamento dei dati dal DB
+
     private void loadMealsForPlan(DietPlan plan, Connection conn) throws SQLException {
         String query = "SELECT id, diet_id, day_of_week, meal_name, meal_time FROM meals WHERE diet_id = ?";
 

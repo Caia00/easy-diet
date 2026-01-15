@@ -65,10 +65,5 @@ public class NutritionalTarget {
             nutritionalValues.setSugar(targetSugar);
         }
 
-    @Override
-    public String toString() {
-        return String.format("Target %s: %.0f kcal (P:%.1f C:%.1f S:%.1f F:%.1f FIB:%.1f) )",
-                category, getTargetKcal(), getTargetProteins(), getTargetCarbs(), getTargetSugar(), getTargetFats(), getTargetFibers());
-    }
 
 }
