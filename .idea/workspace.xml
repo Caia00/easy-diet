@@ -4,29 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="little changes: resolving issues">
+    <list default="true" id="6edf6c04-8631-4232-af5a-e65901412ac6" name="Changes" comment="little changes: adding and changing comments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/controller/ShoppingListEditorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/controller/ShoppingListEditorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/CommercialProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/CommercialProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/DietPlan.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/DietPlan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/Meal.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/Meal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/NutritionalTarget.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/NutritionalTarget.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/NutritionalValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/NutritionalValues.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/Nutritionist.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/Nutritionist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/ShoppingItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/ShoppingItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/ShoppingList.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/ShoppingList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/beans/ShoppingCalculationResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/beans/ShoppingCalculationResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/dao/FileSystemProfileDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/dao/FileSystemProfileDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/dao/SqlDietPlanDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/dao/SqlDietPlanDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/dao/SqlShoppingListDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/dao/SqlShoppingListDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/factory/InMemoryDAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/factory/InMemoryDAOFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/services/CsvCatalogLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/services/CsvCatalogLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/services/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/services/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/services/DietCalculatorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/services/DietCalculatorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main-app/src/main/java/models/services/FallbackNutritionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/main-app/src/main/java/models/services/FallbackNutritionService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,15 +208,10 @@
       <workItem from="1768336685041" duration="779000" />
       <workItem from="1768337673564" duration="102000" />
       <workItem from="1768414231422" duration="1805000" />
-      <workItem from="1768495978060" duration="4257000" />
-    </task>
-    <task id="LOCAL-00056" summary="defining method: assingDiet method for DietManagerController used by nutritionists">
-      <option name="closed" value="true" />
-      <created>1765191254864</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1765191254864</updated>
+      <workItem from="1768495978060" duration="4323000" />
+      <workItem from="1768500433937" duration="87000" />
+      <workItem from="1768500826573" duration="376000" />
+      <workItem from="1768584233575" duration="993000" />
     </task>
     <task id="LOCAL-00057" summary="little modify: using nutritionist's method to create a new diet template">
       <option name="closed" value="true" />
@@ -622,7 +597,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768147001965</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="little changes: adding and changing comments">
+      <option name="closed" value="true" />
+      <created>1768500260828</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1768500260829</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -646,7 +629,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="little modify: refactored position in package" />
     <MESSAGE value="implementing view: created authentication Gui view using javafx" />
     <MESSAGE value="implementing view: created home gui view for nutritionist and patient" />
     <MESSAGE value="little modify: adding showError method" />
@@ -671,6 +653,7 @@
     <MESSAGE value="created main: created main class with runtime choices through args for DAOs and views" />
     <MESSAGE value="little changes: comments and calrifying" />
     <MESSAGE value="little changes: resolving issues" />
-    <option name="LAST_COMMIT_MESSAGE" value="little changes: resolving issues" />
+    <MESSAGE value="little changes: adding and changing comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="little changes: adding and changing comments" />
   </component>
 </project>

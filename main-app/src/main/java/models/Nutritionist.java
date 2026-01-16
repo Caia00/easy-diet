@@ -22,14 +22,14 @@ public class Nutritionist extends Profile{
 
 
     public DietPlan createDietTemplate(String dietName) {
-        // Controllo se esiste già per evitare duplicati
+        //Controllo se esiste già per evitare duplicati
         if (getDietTemplateByName(dietName) != null) {
             throw new IllegalArgumentException("Esiste già una dieta con questo nome!");
         }
 
         DietPlan newDiet = new DietPlan(dietName);
         this.dietTemplates.add(newDiet);
-        return newDiet; // La ritorno così il controller può aprirla subito per l'editing
+        return newDiet; //La ritorno così il controller può aprirla subito per l'editing
     }
 
 
